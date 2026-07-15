@@ -2,9 +2,9 @@
   // ---- Nav scroll effect ----
 
   function initNav() {
-    const nav = document.getElementById('nav-bar');
-    const toggle = document.getElementById('nav-toggle');
-    const links = document.getElementById('nav-links');
+    var nav = document.getElementById('nav-bar');
+    var toggle = document.getElementById('nav-toggle');
+    var links = document.getElementById('nav-links');
 
     window.addEventListener('scroll', function () {
       if (window.scrollY > 80) {
@@ -16,7 +16,7 @@
 
     toggle.addEventListener('click', function () {
       links.classList.toggle('nav-bar__links--open');
-      const isOpen = links.classList.contains('nav-bar__links--open');
+      var isOpen = links.classList.contains('nav-bar__links--open');
       toggle.setAttribute('aria-expanded', isOpen);
     });
 
@@ -32,13 +32,35 @@
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        var target = document.querySelector(this.getAttribute('href'));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
+  }
+
+  // ---- Generate stars with random twinkling ----
+
+  function initStars() {
+    var container = document.getElementById('hero-stars');
+    if (!container) return;
+
+    var count = 80;
+    var fragment = document.createDocumentFragment();
+
+    for (var i = 0; i < count; i++) {
+      var star = document.createElement('div');
+      star.className = 'star' + (Math.random() > 0.85 ? ' star--large' : '');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+      star.style.setProperty('--delay', (Math.random() * 5) + 's');
+      fragment.appendChild(star);
+    }
+
+    container.appendChild(fragment);
   }
 
   // ---- Aurora turbulence animation ----
@@ -66,6 +88,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initSmoothScroll();
+    initStars();
     initAurora();
   });
 })();

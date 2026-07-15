@@ -147,59 +147,29 @@ button:focus-visible {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1px;
-  height: 1px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
   border-radius: 50%;
-  box-shadow: 73px 106px 0 0.4px rgba(255,255,255,.8),
-    237px 43px 0 0.2px rgba(255,255,255,.8),
-    95px 294px 0 0.5px rgba(255,255,255,.8),
-    312px 178px 0 0.3px rgba(255,255,255,.8),
-    48px 389px 0 0.4px rgba(255,255,255,.8),
-    186px 52px 0 0.2px rgba(255,255,255,.8),
-    271px 321px 0 0.5px rgba(255,255,255,.8),
-    15px 167px 0 0.3px rgba(255,255,255,.8),
-    338px 245px 0 0.4px rgba(255,255,255,.8),
-    124px 89px 0 0.2px rgba(255,255,255,.8),
-    263px 412px 0 0.5px rgba(255,255,255,.8),
-    57px 234px 0 0.3px rgba(255,255,255,.8),
-    198px 156px 0 0.4px rgba(255,255,255,.8),
-    321px 67px 0 0.2px rgba(255,255,255,.8),
-    89px 378px 0 0.5px rgba(255,255,255,.8),
-    245px 213px 0 0.3px rgba(255,255,255,.8),
-    167px 345px 0 0.4px rgba(255,255,255,.8),
-    31px 98px 0 0.2px rgba(255,255,255,.8),
-    356px 312px 0 0.5px rgba(255,255,255,.8),
-    142px 423px 0 0.3px rgba(255,255,255,.8),
-    410px 28px 0 0.6px rgba(255,255,255,.9),
-    385px 156px 0 0.4px rgba(255,255,255,.85),
-    445px 89px 0 0.5px rgba(255,255,255,.9),
-    520px 45px 0 0.3px rgba(255,255,255,.8),
-    480px 198px 0 0.6px rgba(255,255,255,.9),
-    560px 120px 0 0.4px rgba(255,255,255,.85),
-    340px 256px 0 0.5px rgba(255,255,255,.8),
-    290px 380px 0 0.3px rgba(255,255,255,.7),
-    180px 450px 0 0.4px rgba(255,255,255,.6),
-    620px 67px 0 0.7px rgba(255,255,255,.95),
-    700px 34px 0 0.5px rgba(255,255,255,.9),
-    780px 89px 0 0.6px rgba(255,255,255,.9),
-    650px 178px 0 0.4px rgba(255,255,255,.85),
-    720px 234px 0 0.5px rgba(255,255,255,.8),
-    830px 56px 0 0.6px rgba(255,255,255,.9),
-    900px 145px 0 0.4px rgba(255,255,255,.85),
-    950px 78px 0 0.5px rgba(255,255,255,.9),
-    1020px 23px 0 0.7px rgba(255,255,255,.95),
-    1100px 67px 0 0.5px rgba(255,255,255,.9),
-    1180px 112px 0 0.6px rgba(255,255,255,.9),
-    1250px 45px 0 0.5px rgba(255,255,255,.9),
-    1320px 89px 0 0.6px rgba(255,255,255,.9),
-    1400px 34px 0 0.7px rgba(255,255,255,.95),
-    850px 290px 0 0.4px rgba(255,255,255,.7),
-    920px 356px 0 0.3px rgba(255,255,255,.6),
-    1000px 412px 0 0.4px rgba(255,255,255,.6),
-    1080px 345px 0 0.5px rgba(255,255,255,.7),
-    1150px 278px 0 0.4px rgba(255,255,255,.75),
-    1230px 312px 0 0.5px rgba(255,255,255,.7),
-    1300px 234px 0 0.4px rgba(255,255,255,.75);
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.star--large {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 /* ---- Aurora ---- */
@@ -209,27 +179,49 @@ button:focus-visible {
   top: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 100%;
+  pointer-events: none;
 }
 
 .g-aurora::before {
   content: "";
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 400px;
-  height: 300px;
+  left: 30%;
+  top: -15%;
+  width: 70%;
+  height: 60%;
   background: radial-gradient(
-    circle at 100% 100%,
-    transparent 45%,
-    #bd63c1 55%,
-    #53e5a6 65%,
-    transparent 85%
+    ellipse at 80% 40%,
+    transparent 40%,
+    #bd63c1 52%,
+    #53e5a6 62%,
+    transparent 78%
   );
-  box-shadow: inset 0px 0 30px 0 #0b1a3a;
+  box-shadow: inset 0px 0 60px 0 #0b1a3a;
   filter: url(#wave);
   mix-blend-mode: color-dodge;
-  transform: rotate(45deg) scaleX(1.4);
+  transform: rotate(-15deg) scaleX(1.6);
+}
+
+.g-aurora::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: -5%;
+  width: 50%;
+  height: 45%;
+  background: radial-gradient(
+    ellipse at 60% 50%,
+    transparent 42%,
+    #4a9eff 54%,
+    #00ff88 64%,
+    transparent 80%
+  );
+  box-shadow: inset 0px 0 40px 0 #0b1a3a;
+  filter: url(#wave);
+  mix-blend-mode: color-dodge;
+  transform: rotate(10deg) scaleX(1.3);
+  opacity: 0.7;
 }
 
 /* ---- Mountains ---- */
@@ -239,7 +231,7 @@ button:focus-visible {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 25%;
+  height: 18%;
   pointer-events: none;
 }
 
