@@ -83,6 +83,45 @@
     animate();
   }
 
+  // ---- Screensaver toggle ----
+
+  function initScreensaver() {
+    var btn = document.getElementById('screen-btn');
+    if (!btn) return;
+
+    function enter() {
+      document.body.classList.add('screensaver');
+      btn.querySelector('i').className = 'fas fa-compress';
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    }
+
+    function exit() {
+      document.body.classList.remove('screensaver');
+      btn.querySelector('i').className = 'fas fa-expand';
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+
+    function toggle() {
+      if (document.body.classList.contains('screensaver')) {
+        exit();
+      } else {
+        enter();
+      }
+    }
+
+    btn.addEventListener('click', toggle);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('screensaver')) {
+        exit();
+      }
+    });
+  }
+
   // ---- Init ----
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -90,5 +129,6 @@
     initSmoothScroll();
     initStars();
     initAurora();
+    initScreensaver();
   });
 })();
