@@ -192,27 +192,27 @@ button:focus-visible {
 }
 
 .aurora-wrap--center {
-  left: 5%;
-  top: -3%;
-  width: 90%;
-  height: 70%;
-  animation: driftCenter 40s linear infinite;
+  left: 2%;
+  top: -2%;
+  width: 85%;
+  height: 75%;
+  animation: driftCenter 35s linear infinite;
 }
 
 .aurora-wrap--left {
-  left: -8%;
-  top: 12%;
-  width: 40%;
-  height: 35%;
-  animation: driftRight 50s linear infinite;
+  left: -10%;
+  top: 18%;
+  width: 50%;
+  height: 30%;
+  animation: driftRight 55s linear infinite;
 }
 
 .aurora-wrap--right {
-  right: -5%;
-  top: 15%;
-  width: 35%;
-  height: 40%;
-  animation: driftLeft 45s linear infinite;
+  right: -3%;
+  top: 8%;
+  width: 30%;
+  height: 50%;
+  animation: driftLeft 50s linear infinite;
 }
 
 .aurora {
@@ -264,18 +264,18 @@ button:focus-visible {
 }
 
 @keyframes driftCenter {
-  0% { transform: translateX(-3%); }
-  100% { transform: translateX(4%); }
+  0% { transform: translateX(-4%); }
+  100% { transform: translateX(5%); }
 }
 
 @keyframes driftRight {
-  0% { transform: translateX(-4%); }
-  100% { transform: translateX(3%); }
+  0% { transform: translateX(-5%); }
+  100% { transform: translateX(2%); }
 }
 
 @keyframes driftLeft {
-  0% { transform: translateX(3%); }
-  100% { transform: translateX(-4%); }
+  0% { transform: translateX(2%); }
+  100% { transform: translateX(-5%); }
 }
 
 .hero__mountains {
