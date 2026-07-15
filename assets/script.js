@@ -122,6 +122,30 @@
     });
   }
 
+  // ---- Aurora continuous drift ----
+
+  function initAuroraDrift() {
+    var bands = [
+      { el: document.querySelector('.aurora--center'), x: 0, speed: 0.15, limit: 8, base: 'scaleX(1.7) scaleY(0.65)' },
+      { el: document.querySelector('.aurora--left'), x: 0, speed: 0.1, limit: 7, base: 'scaleX(1.4) scaleY(0.65)' },
+      { el: document.querySelector('.aurora--right'), x: 0, speed: -0.12, limit: -6, base: 'scaleX(1.3) scaleY(0.7)' }
+    ];
+
+    function animate() {
+      for (var i = 0; i < bands.length; i++) {
+        var b = bands[i];
+        if (!b.el) continue;
+        b.x += b.speed;
+        if (b.speed > 0 && b.x > b.limit) b.x = -b.limit;
+        if (b.speed < 0 && b.x < b.limit) b.x = -b.limit;
+        b.el.style.transform = b.base + ' translateX(' + b.x + 'px)';
+      }
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
   // ---- Init ----
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -129,6 +153,7 @@
     initSmoothScroll();
     initStars();
     initAurora();
+    initAuroraDrift();
     initScreensaver();
   });
 })();

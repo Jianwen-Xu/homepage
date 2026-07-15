@@ -207,7 +207,6 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 60px 0 #0b1a3a;
   border-radius: 50% 50% 0 0;
-  animation: driftCenter 16s linear infinite alternate;
   opacity: 0.85;
 }
 
@@ -225,7 +224,6 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
-  animation: driftLeft 20s linear infinite alternate;
   opacity: 0.45;
 }
 
@@ -243,24 +241,9 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
-  animation: driftRight 18s linear infinite alternate;
   opacity: 0.5;
 }
 
-@keyframes driftCenter {
-  0% { transform: scaleX(1.7) scaleY(0.65) translateX(-3%); }
-  100% { transform: scaleX(1.7) scaleY(0.65) translateX(4%); }
-}
-
-@keyframes driftLeft {
-  0% { transform: scaleX(1.4) scaleY(0.65) translateX(-4%); }
-  100% { transform: scaleX(1.4) scaleY(0.65) translateX(3%); }
-}
-
-@keyframes driftRight {
-  0% { transform: scaleX(1.3) scaleY(0.7) translateX(2%); }
-  100% { transform: scaleX(1.3) scaleY(0.7) translateX(-3%); }
-}
 
 /* ---- Mountains ---- */
 
