@@ -190,7 +190,6 @@ button:focus-visible {
   position: absolute;
   filter: url(#wave);
   mix-blend-mode: color-dodge;
-  will-change: transform;
 }
 
 .aurora--center {
