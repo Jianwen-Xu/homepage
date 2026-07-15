@@ -216,13 +216,23 @@ button:focus-visible {
   top: 15%;
   width: 45%;
   height: 35%;
-  background: radial-gradient(
-    ellipse at 40% 10%,
-    transparent 32%,
-    #bd63c1 46%,
-    #53e5a6 58%,
-    transparent 72%
-  );
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 10px,
+      rgba(189, 99, 193, 0.3) 14px,
+      rgba(83, 229, 166, 0.45) 18px,
+      transparent 22px,
+      transparent 30px
+    ),
+    radial-gradient(
+      ellipse at 40% 10%,
+      transparent 32%,
+      #bd63c1 46%,
+      #53e5a6 58%,
+      transparent 72%
+    );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
   animation: swayLeft 12s ease-in-out infinite;
@@ -234,13 +244,23 @@ button:focus-visible {
   top: 25%;
   width: 35%;
   height: 55%;
-  background: radial-gradient(
-    ellipse at 50% 10%,
-    transparent 30%,
-    #4a9eff 44%,
-    #00ff88 56%,
-    transparent 70%
-  );
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 12px,
+      rgba(74, 158, 255, 0.35) 16px,
+      rgba(0, 255, 136, 0.45) 20px,
+      transparent 24px,
+      transparent 35px
+    ),
+    radial-gradient(
+      ellipse at 50% 10%,
+      transparent 30%,
+      #4a9eff 44%,
+      #00ff88 56%,
+      transparent 70%
+    );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
   animation: swayRight 14s ease-in-out infinite;
