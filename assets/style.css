@@ -186,43 +186,45 @@ button:focus-visible {
 .g-aurora::before {
   content: "";
   position: absolute;
-  left: -10%;
-  top: 5%;
-  width: 120%;
-  height: 35%;
+  left: -5%;
+  top: 0;
+  width: 110%;
+  height: 50%;
   background: radial-gradient(
-    ellipse at 50% 50%,
-    transparent 35%,
-    #bd63c1 48%,
-    #53e5a6 58%,
-    transparent 72%
+    ellipse at 50% 80%,
+    transparent 30%,
+    #bd63c1 45%,
+    #53e5a6 56%,
+    transparent 70%
   );
   box-shadow: inset 0px 0 50px 0 #0b1a3a;
   filter: url(#wave);
   mix-blend-mode: color-dodge;
-  transform: rotate(-8deg) scaleY(0.6) scaleX(1.8);
+  transform: rotate(0deg) scaleY(0.7) scaleX(1.6);
   opacity: 0.85;
+  border-radius: 50% 50% 0 0;
 }
 
 .g-aurora::after {
   content: "";
   position: absolute;
-  left: 20%;
-  top: 15%;
-  width: 80%;
-  height: 25%;
+  left: 15%;
+  top: 8%;
+  width: 70%;
+  height: 35%;
   background: radial-gradient(
-    ellipse at 40% 50%,
-    transparent 38%,
-    #4a9eff 50%,
-    #00ff88 60%,
-    transparent 75%
+    ellipse at 50% 70%,
+    transparent 32%,
+    #4a9eff 47%,
+    #00ff88 58%,
+    transparent 72%
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   filter: url(#wave);
   mix-blend-mode: color-dodge;
-  transform: rotate(5deg) scaleY(0.5) scaleX(1.5);
+  transform: rotate(0deg) scaleY(0.6) scaleX(1.4);
   opacity: 0.6;
+  border-radius: 50% 50% 0 0;
 }
 
 /* ---- Mountains ---- */
