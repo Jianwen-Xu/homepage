@@ -369,7 +369,6 @@ body.screensaver .hero__content {
 
 body.screensaver .hero {
   height: 100vh;
-  cursor: none;
 }
 
 body.screensaver .hero__screen-btn {
