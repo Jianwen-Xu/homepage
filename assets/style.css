@@ -85,9 +85,10 @@ body {
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.5rem;
+  margin-right: -0.5rem;
 }
 
 .nav-bar__toggle:focus {
@@ -492,7 +493,8 @@ body {
   }
 
   .about__photo {
-    margin-bottom: 1.5rem;
+    display: block;
+    margin: 0 auto 1.5rem;
   }
 
   .about-skills__row {
@@ -503,6 +505,11 @@ body {
   .about-skills__row > div {
     flex: none;
     width: 100%;
+  }
+
+  .about h2,
+  .about p {
+    text-align: center;
   }
 
   .contact__links {
