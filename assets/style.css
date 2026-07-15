@@ -374,6 +374,11 @@ body {
 
 /* ---- Contact ---- */
 
+.education {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .contact {
   padding-top: 5rem;
   padding-bottom: 5rem;
