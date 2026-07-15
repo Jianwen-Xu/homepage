@@ -363,14 +363,25 @@ body.screensaver #experience,
 body.screensaver #education,
 body.screensaver #contact,
 body.screensaver footer,
-body.screensaver .hero__content,
-body.screensaver .hero__screen-btn {
+body.screensaver .hero__content {
   display: none;
 }
 
 body.screensaver .hero {
   height: 100vh;
   cursor: none;
+}
+
+body.screensaver .hero__screen-btn {
+  cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+}
+
+body.screensaver .hero__screen-btn:hover {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
 }
 
 body.screensaver .hero__stars,
