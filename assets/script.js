@@ -16,6 +16,8 @@
 
     toggle.addEventListener('click', function () {
       links.classList.toggle('nav-bar__links--open');
+      const isOpen = links.classList.contains('nav-bar__links--open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
 
     document.querySelectorAll('.nav-bar__links a').forEach(function (link) {

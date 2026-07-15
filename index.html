@@ -11,13 +11,15 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <!-- Skip to content for keyboard users -->
+  <a href="#about" class="skip-link">Skip to main content</a>
 
   <!-- Navigation -->
-  <nav class="nav-bar" id="nav-bar">
+  <nav class="nav-bar" id="nav-bar" aria-label="Main navigation">
     <div class="nav-bar__inner row">
       <a href="#hero" class="nav-bar__name">Jianwen Xu</a>
-      <button class="nav-bar__toggle" id="nav-toggle" aria-label="Menu">
-        <i class="fas fa-bars"></i>
+      <button class="nav-bar__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
       <ul class="nav-bar__links" id="nav-links">
         <li><a href="#about">About</a></li>
@@ -29,19 +31,20 @@
     </div>
   </nav>
 
+  <main id="main-content">
   <!-- Hero -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" aria-label="Introduction">
     <div class="row u-vertically-center hero__content">
       <div class="col-8">
         <h1 class="hero__name">Jianwen Xu</h1>
         <p class="p-heading--3 hero__title">Web Developer / Frontend Engineer</p>
         <p class="p-heading--5 hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
         <div class="hero__cta">
-          <a href="https://github.com/Jianwen-Xu" class="p-button--positive hero__btn" target="_blank" rel="noopener">
-            <i class="fab fa-github"></i> GitHub
+          <a href="https://github.com/Jianwen-Xu" class="p-button--positive hero__btn" target="_blank" rel="noopener" aria-label="View GitHub profile">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/jianwen-xu/" class="p-button hero__btn" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin-in"></i> LinkedIn
+          <a href="https://www.linkedin.com/in/jianwen-xu/" class="p-button hero__btn" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
           </a>
         </div>
       </div>
@@ -54,7 +57,7 @@
     <div class="row about-skills__row">
       <!-- Photo -->
       <div class="col-4 about__photo-col">
-        <img src="assets/profile.png" alt="Jianwen Xu" class="about__photo">
+        <img src="assets/profile.png" alt="Jianwen Xu - Web Developer / Frontend Engineer" class="about__photo" loading="lazy">
       </div>
       <!-- About -->
       <div class="col-4 about">
@@ -220,19 +223,20 @@
     <div class="row">
       <div class="col-12 u-align--center">
         <div class="contact__links">
-          <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email">
-            <i class="fas fa-envelope"></i> jianwen.xu.cn@gmail.com
+          <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email" aria-label="Send email to jianwen.xu.cn@gmail.com">
+            <i class="fas fa-envelope" aria-hidden="true"></i> jianwen.xu.cn@gmail.com
           </a>
-          <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link">
-            <i class="fab fa-github"></i> Jianwen-Xu
+          <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link" aria-label="View GitHub profile">
+            <i class="fab fa-github" aria-hidden="true"></i> Jianwen-Xu
           </a>
-          <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link">
-            <i class="fab fa-linkedin-in"></i> jianwen-xu
+          <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link" aria-label="View LinkedIn profile">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i> jianwen-xu
           </a>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="p-strip--dark footer">

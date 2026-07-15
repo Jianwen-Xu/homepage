@@ -9,10 +9,13 @@
   --color-dark-surface: #1E1E42;
   --color-text-light: #E8E8F0;
   --color-text-muted: #A0A0C0;
+  --color-text-body: #333;
+  --color-text-secondary: #555;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 html, body {
@@ -22,6 +25,35 @@ html, body {
 
 body {
   background: #fff;
+  color: var(--color-text-body);
+  line-height: 1.6;
+}
+
+/* ---- Skip to Content ---- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--color-aurora-teal);
+  color: var(--color-night);
+  padding: 0.75rem 1.5rem;
+  z-index: 200;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---- Focus States ---- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-aurora-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* ---- Navigation ---- */
@@ -49,7 +81,7 @@ body {
 }
 
 .nav-bar__name {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
   text-decoration: none;
@@ -69,9 +101,9 @@ body {
 }
 
 .nav-bar__links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -145,20 +177,23 @@ body {
   font-size: 3.5rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .hero__title {
   color: var(--color-aurora-teal);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .hero__tagline {
-  color: var(--color-text-muted);
+  color: var(--color-text-light);
   max-width: 600px;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 2rem;
+  font-size: 1.1rem;
 }
 
 .hero__cta {
@@ -243,16 +278,25 @@ body {
 }
 
 .about h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
 }
 
 .about__subtitle {
   color: var(--color-aurora-purple-dark);
   margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.about p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
 }
 
 .skills h2 {
   margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
 .skills__card {
@@ -284,10 +328,10 @@ body {
 
 .skills .p-tag {
   background: rgba(42, 210, 210, 0.08);
-  color: #1a1a2e;
+  color: var(--color-text-body);
   border-radius: 4px;
-  padding: 0.2rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
@@ -350,34 +394,40 @@ body {
   color: var(--color-night);
 }
 
+.experience h2,
+.education h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
 .timeline__meta {
   display: block;
   font-weight: 500;
-  color: #444;
-  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
 }
 
 .timeline__date {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--color-aurora-teal);
   font-weight: 600;
-  margin-top: 0.15rem;
-  padding: 0.1rem 0.6rem;
+  margin-top: 0.25rem;
+  padding: 0.15rem 0.7rem;
   background: rgba(42, 210, 210, 0.08);
   border-radius: 3px;
 }
 
 .timeline__bullets {
-  margin: 0.5rem 0 0;
+  margin: 0.75rem 0 0;
   padding-left: 1.2rem;
 }
 
 .timeline__bullets li {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 /* ---- Contact ---- */
@@ -394,6 +444,15 @@ body {
   padding-right: 5%;
 }
 
+.contact h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact p {
+  font-size: 1.1rem;
+}
+
 .contact__links {
   display: flex;
   justify-content: center;
@@ -405,12 +464,12 @@ body {
 .contact__link {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--color-deep-navy);
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.75rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   transition: all 0.2s;
@@ -438,8 +497,8 @@ body {
 }
 
 .footer p {
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
   margin-bottom: 0;
 }
 
@@ -542,5 +601,29 @@ body {
 
   .timeline__dot {
     left: -2rem;
+  }
+}
+
+/* ---- Reduced Motion ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero {
+    animation: none;
+  }
+
+  .hero__aurora {
+    animation: none;
   }
 }
