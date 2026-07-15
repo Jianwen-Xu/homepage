@@ -193,10 +193,10 @@ button:focus-visible {
 }
 
 .aurora--center {
-  left: 10%;
-  top: -5%;
-  width: 80%;
-  height: 70%;
+  left: 5%;
+  top: -3%;
+  width: 85%;
+  height: 75%;
   background: radial-gradient(
     ellipse at 50% 85%,
     transparent 28%,
@@ -206,35 +206,35 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 60px 0 #0b1a3a;
   border-radius: 50% 50% 0 0;
-  transform: scaleX(1.8) scaleY(0.65);
+  transform: scaleX(1.9) scaleY(0.6) rotate(-3deg);
   opacity: 0.85;
 }
 
 .aurora--left {
-  left: -10%;
-  top: 10%;
-  width: 40%;
-  height: 40%;
+  left: -12%;
+  top: 15%;
+  width: 45%;
+  height: 35%;
   background: radial-gradient(
-    ellipse at 50% 15%,
-    transparent 30%,
-    #bd63c1 44%,
-    #53e5a6 56%,
-    transparent 70%
+    ellipse at 40% 10%,
+    transparent 32%,
+    #bd63c1 46%,
+    #53e5a6 58%,
+    transparent 72%
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
-  transform: scaleX(1.4) scaleY(0.7);
-  opacity: 0.5;
+  transform: scaleX(1.5) scaleY(0.6) rotate(-5deg);
+  opacity: 0.4;
 }
 
 .aurora--right {
-  right: -10%;
-  top: 10%;
-  width: 40%;
-  height: 40%;
+  right: -5%;
+  top: 8%;
+  width: 35%;
+  height: 45%;
   background: radial-gradient(
-    ellipse at 50% 15%,
+    ellipse at 60% 20%,
     transparent 30%,
     #4a9eff 44%,
     #00ff88 56%,
@@ -242,8 +242,8 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
-  transform: scaleX(1.4) scaleY(0.7);
-  opacity: 0.45;
+  transform: scaleX(1.3) scaleY(0.75) rotate(4deg);
+  opacity: 0.5;
 }
 
 /* ---- Mountains ---- */
