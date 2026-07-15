@@ -63,97 +63,12 @@
     container.appendChild(fragment);
   }
 
-  // ---- Aurora turbulence animation ----
-
-  function initAurora() {
-    var turbulence = document.getElementById('turbulence');
-    if (!turbulence) return;
-
-    var frames = 0;
-    var rad = Math.PI / 180;
-
-    function animate() {
-      frames += 0.5;
-      var bfx = 0.005 + 0.0025 * Math.cos(frames * rad);
-      var bfy = 0.005 + 0.0025 * Math.sin(frames * rad);
-      turbulence.setAttributeNS(null, 'baseFrequency', bfx + ' ' + bfy);
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  }
-
-  // ---- Screensaver toggle ----
-
-  function initScreensaver() {
-    var btn = document.getElementById('screen-btn');
-    if (!btn) return;
-
-    function enter() {
-      document.body.classList.add('screensaver');
-      btn.querySelector('i').className = 'fas fa-compress';
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      }
-    }
-
-    function exit() {
-      document.body.classList.remove('screensaver');
-      btn.querySelector('i').className = 'fas fa-expand';
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    }
-
-    function toggle() {
-      if (document.body.classList.contains('screensaver')) {
-        exit();
-      } else {
-        enter();
-      }
-    }
-
-    btn.addEventListener('click', toggle);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('screensaver')) {
-        exit();
-      }
-    });
-  }
-
-  // ---- Aurora continuous drift ----
-
-  function initAuroraDrift() {
-    var bands = [
-      { el: document.querySelector('.aurora--center'), x: 0, speed: 0.12, limit: 8, base: 'scaleX(1.7) scaleY(0.65)' },
-      { el: document.querySelector('.aurora--left'), x: 0, speed: 0.08, limit: 7, base: 'scaleX(1.4) scaleY(0.65)' },
-      { el: document.querySelector('.aurora--right'), x: 0, speed: -0.1, limit: -6, base: 'scaleX(1.3) scaleY(0.7)' }
-    ];
-
-    function animate() {
-      for (var i = 0; i < bands.length; i++) {
-        var b = bands[i];
-        if (!b.el) continue;
-        b.x += b.speed;
-        if (b.speed > 0 && b.x > b.limit) b.x = -b.limit;
-        if (b.speed < 0 && b.x < b.limit) b.x = -b.limit;
-        b.el.style.transform = b.base + ' translate3d(' + b.x + 'px, 0, 0)';
-      }
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  }
-
   // ---- Init ----
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initSmoothScroll();
     initStars();
-    initAurora();
-    initAuroraDrift();
     initScreensaver();
   });
 })();
