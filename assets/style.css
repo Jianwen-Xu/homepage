@@ -267,11 +267,17 @@ button:focus-visible {
 
 .mountain-far {
   fill: #0a1225;
-  opacity: 0.9;
+  opacity: 0.6;
+}
+
+.mountain-mid {
+  fill: #080e1a;
+  opacity: 0.8;
 }
 
 .mountain-near {
   fill: #060d1a;
+  opacity: 0.95;
 }
 
 /* ---- Ground Reflection ---- */
