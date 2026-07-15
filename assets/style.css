@@ -193,13 +193,13 @@ button:focus-visible {
   will-change: transform;
 }
 
-.aurora--center {
-  left: 5%;
-  top: -3%;
-  width: 85%;
-  height: 75%;
+.aurora--main {
+  left: -10%;
+  top: 0;
+  width: 120%;
+  height: 60%;
   background: radial-gradient(
-    ellipse at 50% 85%,
+    ellipse at 50% 80%,
     transparent 28%,
     #bd63c1 42%,
     #53e5a6 54%,
@@ -207,63 +207,15 @@ button:focus-visible {
   );
   box-shadow: inset 0px 0 60px 0 #0b1a3a;
   border-radius: 50% 50% 0 0;
-  animation: swayCenter 10s ease-in-out infinite;
+  animation: swayMain 12s ease-in-out infinite;
   opacity: 0.85;
 }
 
-.aurora--left {
-  left: -12%;
-  top: 15%;
-  width: 45%;
-  height: 35%;
-  background: radial-gradient(
-    ellipse at 40% 10%,
-    transparent 32%,
-    #bd63c1 46%,
-    #53e5a6 58%,
-    transparent 72%
-  );
-  box-shadow: inset 0px 0 30px 0 #0b1a3a;
-  border-radius: 0 0 50% 50%;
-  animation: swayLeft 12s ease-in-out infinite;
-  opacity: 0.4;
-}
-
-.aurora--right {
-  right: -5%;
-  top: 25%;
-  width: 35%;
-  height: 55%;
-  background: radial-gradient(
-    ellipse at 50% 10%,
-    transparent 30%,
-    #4a9eff 44%,
-    #00ff88 56%,
-    transparent 70%
-  );
-  box-shadow: inset 0px 0 30px 0 #0b1a3a;
-  border-radius: 0 0 50% 50%;
-  animation: swayRight 14s ease-in-out infinite;
-  opacity: 0.5;
-}
-
-@keyframes swayCenter {
-  0%, 100% { transform: scaleX(1.9) scaleY(0.6) rotate(-3deg) translateX(0); }
-  25% { transform: scaleX(1.85) scaleY(0.62) rotate(-1deg) translateX(2%); }
-  50% { transform: scaleX(1.95) scaleY(0.58) rotate(-4deg) translateX(-1%); }
-  75% { transform: scaleX(1.88) scaleY(0.61) rotate(-2deg) translateX(1.5%); }
-}
-
-@keyframes swayLeft {
-  0%, 100% { transform: scaleX(1.5) scaleY(0.6) rotate(-5deg) translateX(0); }
-  33% { transform: scaleX(1.55) scaleY(0.58) rotate(-7deg) translateX(-3%); }
-  66% { transform: scaleX(1.42) scaleY(0.63) rotate(-3deg) translateX(2%); }
-}
-
-@keyframes swayRight {
-  0%, 100% { transform: scaleX(1.3) scaleY(0.85) rotate(5deg) translateX(0); }
-  33% { transform: scaleX(1.25) scaleY(0.88) rotate(7deg) translateX(3%); }
-  66% { transform: scaleX(1.35) scaleY(0.82) rotate(3deg) translateX(-2%); }
+@keyframes swayMain {
+  0%, 100% { transform: scaleX(2) scaleY(0.65) rotate(-1deg) translateX(0); }
+  25% { transform: scaleX(1.95) scaleY(0.67) rotate(0deg) translateX(1.5%); }
+  50% { transform: scaleX(2.05) scaleY(0.63) rotate(-2deg) translateX(-1%); }
+  75% { transform: scaleX(1.98) scaleY(0.66) rotate(-0.5deg) translateX(0.5%); }
 }
 
 /* ---- Mountains ---- */
