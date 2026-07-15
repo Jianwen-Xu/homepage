@@ -447,7 +447,7 @@ body {
 /* ---- Vanilla Overrides ---- */
 
 .p-strip--light {
-  background: #F8F8FE;
+  background: #fff;
 }
 
 .p-strip--dark {
@@ -490,6 +490,12 @@ body {
 
   .hero__name {
     font-size: 2.2rem;
+  }
+
+  .experience,
+  .education {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .about__photo {
