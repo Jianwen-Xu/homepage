@@ -169,7 +169,37 @@ button:focus-visible {
     167px 345px 0 0.4px rgba(255,255,255,.8),
     31px 98px 0 0.2px rgba(255,255,255,.8),
     356px 312px 0 0.5px rgba(255,255,255,.8),
-    142px 423px 0 0.3px rgba(255,255,255,.8);
+    142px 423px 0 0.3px rgba(255,255,255,.8),
+    410px 28px 0 0.6px rgba(255,255,255,.9),
+    385px 156px 0 0.4px rgba(255,255,255,.85),
+    445px 89px 0 0.5px rgba(255,255,255,.9),
+    520px 45px 0 0.3px rgba(255,255,255,.8),
+    480px 198px 0 0.6px rgba(255,255,255,.9),
+    560px 120px 0 0.4px rgba(255,255,255,.85),
+    340px 256px 0 0.5px rgba(255,255,255,.8),
+    290px 380px 0 0.3px rgba(255,255,255,.7),
+    180px 450px 0 0.4px rgba(255,255,255,.6),
+    620px 67px 0 0.7px rgba(255,255,255,.95),
+    700px 34px 0 0.5px rgba(255,255,255,.9),
+    780px 89px 0 0.6px rgba(255,255,255,.9),
+    650px 178px 0 0.4px rgba(255,255,255,.85),
+    720px 234px 0 0.5px rgba(255,255,255,.8),
+    830px 56px 0 0.6px rgba(255,255,255,.9),
+    900px 145px 0 0.4px rgba(255,255,255,.85),
+    950px 78px 0 0.5px rgba(255,255,255,.9),
+    1020px 23px 0 0.7px rgba(255,255,255,.95),
+    1100px 67px 0 0.5px rgba(255,255,255,.9),
+    1180px 112px 0 0.6px rgba(255,255,255,.9),
+    1250px 45px 0 0.5px rgba(255,255,255,.9),
+    1320px 89px 0 0.6px rgba(255,255,255,.9),
+    1400px 34px 0 0.7px rgba(255,255,255,.95),
+    850px 290px 0 0.4px rgba(255,255,255,.7),
+    920px 356px 0 0.3px rgba(255,255,255,.6),
+    1000px 412px 0 0.4px rgba(255,255,255,.6),
+    1080px 345px 0 0.5px rgba(255,255,255,.7),
+    1150px 278px 0 0.4px rgba(255,255,255,.75),
+    1230px 312px 0 0.5px rgba(255,255,255,.7),
+    1300px 234px 0 0.4px rgba(255,255,255,.75);
 }
 
 /* ---- Aurora ---- */
@@ -222,17 +252,13 @@ button:focus-visible {
 }
 
 .mountain-far {
-  fill: #060a14;
-  opacity: 0.7;
-}
-
-.mountain-mid {
-  fill: #040810;
+  fill: #080e1a;
   opacity: 0.85;
 }
 
 .mountain-near {
-  fill: #030609;
+  fill: #050a12;
+  opacity: 0.95;
 }
 
 /* ---- Ground Reflection ---- */
