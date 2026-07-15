@@ -211,8 +211,11 @@ body {
 
 .about-skills__row {
   display: flex;
-  align-items: flex-start;
   gap: 2rem;
+}
+
+.about-skills__row > div {
+  flex: 1;
 }
 
 .about__photo-col {
@@ -276,83 +279,6 @@ body {
   padding: 0.2rem 0.8rem;
   font-size: 0.85rem;
   font-weight: 500;
-}
-
-/* ---- Projects ---- */
-
-.projects {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-.projects__loading {
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-  padding: 3rem 0;
-}
-
-.project-card {
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(42, 210, 210, 0.1);
-  border-color: var(--color-aurora-teal);
-}
-
-.project-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-card h3 a {
-  color: var(--color-deep-navy);
-  text-decoration: none;
-}
-
-.project-card h3 a:hover {
-  color: var(--color-aurora-teal);
-}
-
-.project-card__desc {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  flex: 1;
-  margin-bottom: 1rem;
-}
-
-.project-card__footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.8rem;
-  color: #777;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 0.75rem;
-}
-
-.project-card__lang {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.lang-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.project-card__stars i {
-  margin-right: 0.2rem;
 }
 
 /* ---- Timeline ---- */
