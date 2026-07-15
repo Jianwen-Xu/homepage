@@ -103,6 +103,8 @@ body {
   animation: aurora 18s ease infinite;
   overflow: hidden;
   padding-top: 5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @keyframes aurora {
@@ -167,22 +169,29 @@ body {
   gap: 0.5rem;
 }
 
-.hero .p-button--positive {
-  background: var(--color-aurora-teal);
-  border-color: var(--color-aurora-teal);
-  color: var(--color-night);
+.hero a.p-button--positive {
+  background: var(--color-aurora-teal) !important;
+  border-color: var(--color-aurora-teal) !important;
+  color: var(--color-night) !important;
   font-weight: 600;
+  text-decoration: none !important;
 }
 
-.hero .p-button--positive:hover {
-  background: #3EE0E0;
-  border-color: #3EE0E0;
+.hero a.p-button--positive:hover {
+  background: #3EE0E0 !important;
+  border-color: #3EE0E0 !important;
 }
 
-.hero .p-button {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+.hero a.p-button {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.hero a.p-button:hover {
+  border-color: var(--color-aurora-teal) !important;
+  color: var(--color-aurora-teal) !important;
 }
 
 .hero .p-button:hover {
