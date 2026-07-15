@@ -292,6 +292,12 @@ body {
 
 /* ---- Timeline ---- */
 
+.experience,
+.education {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .timeline {
   position: relative;
   margin: 2rem 0;
@@ -383,6 +389,8 @@ body {
 .contact {
   padding-top: 5rem;
   padding-bottom: 5rem;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .contact__links {
