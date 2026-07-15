@@ -192,20 +192,19 @@ button:focus-visible {
 }
 
 .aurora-wrap--center {
-  left: -5%;
-  top: 0;
-  width: 110%;
-  height: 80%;
-  animation: driftCenter 40s linear infinite;
+  left: 0%;
+  top: -10%;
+  width: 90%;
+  height: 95%;
+  animation: driftCenter 35s linear infinite;
 }
 
 .aurora-wrap--left {
-  left: -5%;
-  top: 25%;
+  left: -10%;
+  top: 0%;
   width: 28%;
-  height: 50%;
+  height: 100%;
   animation: driftRight 55s linear infinite;
-  display: none;
 }
 
 .aurora-wrap--right {
@@ -214,7 +213,6 @@ button:focus-visible {
   width: 25%;
   height: 80%;
   animation: driftLeft 50s linear infinite;
-  display: none;
 }
 
 .aurora {
@@ -225,25 +223,25 @@ button:focus-visible {
 
 .aurora--center {
   background: radial-gradient(
-    ellipse at 50% 15%,
-    transparent 28%,
-    #53e5a6 40%,
-    #bd63c1 54%,
+    ellipse at 50% 85%,
+    transparent 25%,
+    #bd63c1 38%,
+    #53e5a6 50%,
     transparent 68%
   );
-  box-shadow: inset 0px 0 40px 0 #0b1a3a;
-  border-radius: 0 0 50% 50%;
-  transform: scaleX(1.5) scaleY(0.65);
+  box-shadow: inset 0px -40px 80px 0 #0b1a3a;
+  border-radius: 50% 50% 30% 30%;
+  transform: scaleX(1.7) scaleY(0.8);
   opacity: 0.85;
 }
 
 .aurora--left {
   background: radial-gradient(
     ellipse at 50% 15%,
-    transparent 30%,
-    #53e5a6 42%,
-    #bd63c1 56%,
-    transparent 70%
+    transparent 28%,
+    #53e5a6 40%,
+    #bd63c1 54%,
+    transparent 68%
   );
   box-shadow: inset 0px 0 30px 0 #0b1a3a;
   border-radius: 0 0 50% 50%;
@@ -266,9 +264,12 @@ button:focus-visible {
 }
 
 @keyframes driftCenter {
-  0% { transform: translateX(-5%) rotate(-1deg); }
-  50% { transform: translateX(2%) rotate(1deg); }
-  100% { transform: translateX(5%) rotate(-0.5deg); }
+  0% { transform: translateX(-4%) rotate(-3deg); }
+  20% { transform: translateX(-2%) rotate(-1deg); }
+  40% { transform: translateX(1%) rotate(2deg); }
+  60% { transform: translateX(3%) rotate(-2deg); }
+  80% { transform: translateX(4%) rotate(1deg); }
+  100% { transform: translateX(5%) rotate(0deg); }
 }
 
 @keyframes driftRight {
