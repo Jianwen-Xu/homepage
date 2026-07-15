@@ -41,10 +41,33 @@
     });
   }
 
+  // ---- Aurora turbulence animation ----
+
+  function initAurora() {
+    var turbulence = document.getElementById('aurora-turbulence');
+    if (!turbulence) return;
+
+    var frames = 0;
+    var rad = Math.PI / 180;
+    var bfx = 0.005;
+    var bfy = 0.005;
+
+    function animate() {
+      frames += 0.5;
+      bfx = 0.005 + 0.0025 * Math.cos(frames * rad);
+      bfy = 0.005 + 0.0025 * Math.sin(frames * rad);
+      turbulence.setAttributeNS(null, 'baseFrequency', bfx + ' ' + bfy);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
   // ---- Init ----
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
     initSmoothScroll();
+    initAurora();
   });
 })();
