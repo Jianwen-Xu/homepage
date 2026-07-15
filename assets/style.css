@@ -202,7 +202,7 @@ button:focus-visible {
 .aurora-wrap--left {
   left: -10%;
   top: 18%;
-  width: 50%;
+  width: 35%;
   height: 40%;
   animation: driftRight 55s linear infinite;
 }
@@ -210,7 +210,7 @@ button:focus-visible {
 .aurora-wrap--right {
   right: -3%;
   top: 5%;
-  width: 35%;
+  width: 25%;
   height: 80%;
   animation: driftLeft 50s linear infinite;
 }
