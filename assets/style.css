@@ -192,10 +192,10 @@ button:focus-visible {
 }
 
 .aurora-wrap--center {
-  left: 2%;
-  top: -2%;
-  width: 85%;
-  height: 75%;
+  left: 0%;
+  top: -10%;
+  width: 90%;
+  height: 95%;
   animation: driftCenter 35s linear infinite;
 }
 
@@ -203,15 +203,15 @@ button:focus-visible {
   left: -10%;
   top: 18%;
   width: 50%;
-  height: 30%;
+  height: 40%;
   animation: driftRight 55s linear infinite;
 }
 
 .aurora-wrap--right {
   right: -3%;
-  top: 22%;
-  width: 30%;
-  height: 55%;
+  top: 5%;
+  width: 35%;
+  height: 80%;
   animation: driftLeft 50s linear infinite;
 }
 
@@ -252,14 +252,14 @@ button:focus-visible {
 .aurora--right {
   background: radial-gradient(
     ellipse at 50% 85%,
-    transparent 32%,
-    #bd63c1 46%,
-    #53e5a6 58%,
-    transparent 72%
+    transparent 30%,
+    #bd63c1 42%,
+    #53e5a6 54%,
+    transparent 70%
   );
-  box-shadow: inset 0px -30px 60px 0 #0b1a3a;
-  border-radius: 50% 50% 20% 20%;
-  transform: scaleX(1.3) scaleY(0.65);
+  box-shadow: inset 0px -40px 80px 0 #0b1a3a;
+  border-radius: 50% 50% 10% 10%;
+  transform: scaleX(1.3) scaleY(0.9);
   opacity: 0.5;
 }
 
