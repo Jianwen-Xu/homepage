@@ -508,7 +508,10 @@ body {
   }
 
   .about h2,
-  .about p {
+  .about p,
+  .skills h2,
+  .skills__card,
+  .skills__tags {
     text-align: center;
   }
 
