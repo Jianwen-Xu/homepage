@@ -214,8 +214,16 @@ body {
   gap: 2rem;
 }
 
-.about-skills__row > div {
-  flex: 1;
+.about-skills__row > div:nth-child(1) {
+  flex: 2;
+}
+
+.about-skills__row > div:nth-child(2) {
+  flex: 4;
+}
+
+.about-skills__row > div:nth-child(3) {
+  flex: 4;
 }
 
 .about__photo-col {
