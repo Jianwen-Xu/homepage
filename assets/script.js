@@ -98,15 +98,10 @@
     });
   }
 
-  // ---- Aurora animation (turbulence + drift) ----
+  // ---- Aurora turbulence ----
 
   function initAurora() {
     var turbulence = document.getElementById('turbulence');
-    var bands = [
-      { el: document.querySelector('.aurora--center'), x: 0, speed: 0.08, limit: 12, base: 'scaleX(1.7) scaleY(0.65)' },
-      { el: document.querySelector('.aurora--left'), x: 0, speed: 0.06, limit: 10, base: 'scaleX(1.4) scaleY(0.65)' },
-      { el: document.querySelector('.aurora--right'), x: 0, speed: -0.07, limit: -8, base: 'scaleX(1.3) scaleY(0.7)' }
-    ];
     if (!turbulence) return;
 
     var frames = 0;
@@ -118,16 +113,6 @@
         (0.005 + 0.0025 * Math.cos(frames * rad)) + ' ' +
         (0.005 + 0.0025 * Math.sin(frames * rad))
       );
-
-      for (var i = 0; i < bands.length; i++) {
-        var b = bands[i];
-        if (!b.el) continue;
-        b.x += b.speed;
-        if (b.speed > 0 && b.x > b.limit) b.x = -b.limit;
-        if (b.speed < 0 && b.x < b.limit) b.x = -b.limit;
-        b.el.style.transform = b.base + ' translate3d(' + b.x + 'px, 0, 0)';
-      }
-
       requestAnimationFrame(animate);
     }
 
