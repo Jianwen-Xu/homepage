@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jianwen Xu · Web Developer / Frontend Engineer</title>
+  <meta name="description" content="Jianwen Xu — Web Developer / Frontend Engineer with 10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-framework@4/build/css/vanilla.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav-bar" id="nav-bar">
+    <div class="nav-bar__inner row">
+      <a href="#hero" class="nav-bar__name">Jianwen Xu</a>
+      <button class="nav-bar__toggle" id="nav-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-bar__links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="p-strip hero" id="hero">
+    <div class="row u-vertically-center hero__content">
+      <div class="col-8">
+        <h1 class="hero__name">Jianwen Xu</h1>
+        <p class="p-heading--3 hero__title">Web Developer / Frontend Engineer</p>
+        <p class="p-heading--5 hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
+        <div class="hero__cta">
+          <a href="https://github.com/Jianwen-Xu" class="p-button--positive hero__btn" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/jianwen-xu/" class="p-button hero__btn" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__aurora"></div>
+  </section>
+
+  <!-- About -->
+  <section class="p-strip about" id="about">
+    <div class="row">
+      <div class="col-4">
+        <img src="assets/profile.png" alt="Jianwen Xu" class="about__photo">
+      </div>
+      <div class="col-8">
+        <h2>About</h2>
+        <p class="p-heading--5 about__subtitle">Web Developer / Frontend Engineer with 10+ years of experience</p>
+        <p>Expert in JavaScript and TypeScript (Angular, Vue), with hands-on API integration and Azure serverless backends. STEM background (B.Eng + M.Sc) provides the domain depth valued in AI-training work. Comfortable in distributed, international teams (Finland & China) and remote, independent delivery.</p>
+        <p>I build responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce — from Angular dashboards to Vue mobile apps, from frontend architecture to full-stack delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="p-strip--light skills" id="skills">
+    <div class="row">
+      <h2>Skills</h2>
+    </div>
+    <div class="row skills__grid">
+      <div class="col-4">
+        <div class="p-card skills__card">
+          <h3 class="p-heading--4"><i class="fas fa-code skills__icon"></i> Languages</h3>
+          <div class="skills__tags">
+            <span class="p-tag">JavaScript</span>
+            <span class="p-tag">TypeScript</span>
+            <span class="p-tag">Python</span>
+            <span class="p-tag">Rust</span>
+            <span class="p-tag">Java</span>
+            <span class="p-tag">C#</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="p-card skills__card">
+          <h3 class="p-heading--4"><i class="fas fa-layer-group skills__icon"></i> Frameworks</h3>
+          <div class="skills__tags">
+            <span class="p-tag">Angular</span>
+            <span class="p-tag">Vue.js</span>
+            <span class="p-tag">.NET</span>
+            <span class="p-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="p-card skills__card">
+          <h3 class="p-heading--4"><i class="fas fa-cloud skills__icon"></i> Cloud & Tools</h3>
+          <div class="skills__tags">
+            <span class="p-tag">Azure Functions</span>
+            <span class="p-tag">Azure</span>
+            <span class="p-tag">Git</span>
+            <span class="p-tag">CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="p-strip projects" id="projects">
+    <div class="row">
+      <h2>Projects</h2>
+      <p class="p-heading--5">Open-source work on GitHub</p>
+    </div>
+    <div class="row" id="project-grid">
+      <div class="col-12">
+        <p class="projects__loading"><i class="fas fa-spinner fa-spin"></i> Loading projects...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="p-strip--light experience" id="experience">
+    <div class="row">
+      <h2>Experience</h2>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="timeline">
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="p-heading--4">Full Stack Engineer</h3>
+                <span class="timeline__meta">QOCO Systems Ltd · Espoo, Finland</span>
+                <span class="timeline__date">Jan 2022 – Jun 2026</span>
+              </div>
+              <ul class="timeline__bullets">
+                <li>Built responsive, accessible web UIs and reusable components for enterprise SaaS with Angular + TypeScript + JavaScript, aligned to accessibility standards and verified across browsers.</li>
+                <li>Integrated and consumed RESTful APIs and Azure Functions to handle seamless front-back data exchange for cloud SaaS workflows.</li>
+                <li>Improved page-load performance via code splitting, lazy loading, and asset optimization.</li>
+                <li>Delivered end-to-end features spanning Angular frontend to C#/.NET Azure backend; contributed to frontend architecture decisions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="p-heading--4">Software Architect</h3>
+                <span class="timeline__meta">Xiamen Airlines · Xiamen, China</span>
+                <span class="timeline__date">Jul 2015 – Jun 2019</span>
+              </div>
+              <ul class="timeline__bullets">
+                <li>Defined architecture and coding standards for aircraft-maintenance software; mentored and aligned engineering teams.</li>
+                <li>Built a mobile WeChat web app (Vue.js + WeUI) giving field engineers on-the-go maintenance access.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="p-heading--4">Software Engineering Manager / Lead Developer</h3>
+                <span class="timeline__meta">Moshi (Xiamen) E-Commerce · Xiamen, China</span>
+                <span class="timeline__date">Jul 2014 – Jun 2015</span>
+              </div>
+              <ul class="timeline__bullets">
+                <li>Led a distributed team building catering information systems end-to-end (Angular frontend + Java backend).</li>
+                <li>Delivered clean, documented code across the full development lifecycle.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="p-heading--4">Software Engineer</h3>
+                <span class="timeline__meta">Shenzhen Comtop Tech · Shenzhen, China</span>
+                <span class="timeline__date">Jul 2011 – Jun 2014</span>
+              </div>
+              <ul class="timeline__bullets">
+                <li>Developed enterprise Java EE web applications and contributed to full lifecycle software engineering.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="p-strip contact" id="contact">
+    <div class="row">
+      <div class="col-12 u-align--center">
+        <h2>Get in Touch</h2>
+        <p class="p-heading--5">Let's talk about your next project or opportunity</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 u-align--center">
+        <div class="contact__links">
+          <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email">
+            <i class="fas fa-envelope"></i> jianwen.xu@example.com
+          </a>
+          <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link">
+            <i class="fab fa-github"></i> Jianwen-Xu
+          </a>
+          <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link">
+            <i class="fab fa-linkedin-in"></i> jianwen-xu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-strip--dark footer">
+    <div class="row">
+      <div class="col-12 u-align--center">
+        <p>&copy; 2026 Jianwen Xu. Built with <a href="https://vanillaframework.io/" target="_blank" rel="noopener">Vanilla Framework</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
