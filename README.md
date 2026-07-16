@@ -7,28 +7,35 @@ Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.g
 
 - **Framework**: [Vanilla Framework](https://vanillaframework.io/) (CDN)
 - **Icons**: [Font Awesome](https://fontawesome.com/) (CDN)
-- **Animation**: Custom SVG feTurbulence filter + CSS `@keyframes` drift
+- **Aurora**: [Aurora Borealis](aurora-borealis/) — self-contained component library
 - **No build step** — pure static files
 
 ## Features
 
-- **Aurora hero** — 3-band northern lights animation with SVG noise filter, `mix-blend-mode: color-dodge`, and GPU-composited CSS drift
-- **Stars** — 80 randomly positioned twinkling stars, JS-generated
+- **Aurora hero** — animated northern lights with SVG feTurbulence filter and `mix-blend-mode: color-dodge`
+- **Stars** — 80 randomly positioned twinkling stars
 - **Mountains** — 3-layer cubic bezier SVG silhouettes
-- **Screensaver mode** — fullscreen toggle that hides UI, showing only the animated background
+- **Screensaver mode** — fullscreen toggle that hides UI, shows only animated background
+- **Auto-shuffle** — randomly cycles aurora shapes every 8-14s with 3 fade transition modes
 - **Responsive** — mobile nav toggle, Vanilla Framework grid
 - **Accessible** — skip-link, ARIA labels, `prefers-reduced-motion` support
 
 ## Structure
 
 ```
-├── index.html          # Main page
+├── index.html                 # Main page
+├── aurora-borealis/           # Standalone aurora component library
+│   ├── aurora-borealis.js     #   UMD library (zero dependencies)
+│   ├── aurora-borealis.css    #   External stylesheet
+│   ├── index.html             #   Demo page
+│   └── package.json
 ├── assets/
-│   ├── style.css       # All styles
-│   ├── script.js       # Nav, stars, screensaver, aurora turbulence
-│   ├── profile.png     # Profile photo
-│   └── favicon.svg     # JX monogram favicon
+│   ├── style.css              # Page styles (clean, ~600 lines)
+│   ├── script.js              # Nav, scroll, AuroraBorealis init
+│   ├── profile.png            # Profile photo
+│   └── favicon.svg            # JX monogram favicon
 ├── README.md
+├── LICENSE
 └── .gitignore
 ```
 
@@ -36,6 +43,25 @@ Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.g
 
 Open `index.html` in a browser — no server required.  
 The page is deployed via GitHub Pages from the `main` branch.
+
+## Aurora Borealis Library
+
+The [`aurora-borealis/`](aurora-borealis/) directory is a standalone component library.  
+Use it in any webpage:
+
+```html
+<div id="aurora" style="width:100vw;height:100vh"></div>
+<script src="aurora-borealis/aurora-borealis.js"></script>
+<script>
+  new AuroraBorealis('#aurora', {
+    bands: 1,
+    autoShuffle: true,
+    controls: ['fullscreen', 'shuffle', 'auto']
+  });
+</script>
+```
+
+See the [demo page](aurora-borealis/index.html) for more.
 
 ## License
 
