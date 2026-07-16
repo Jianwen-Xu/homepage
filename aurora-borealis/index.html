@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Borealis — Demo</title>
+  <link rel="stylesheet" href="aurora-borealis.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow: hidden; }
+    #demo {
+      width: 100vw;
+      height: 100vh;
+    }
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+      text-align: center;
+      color: #e8e8f0;
+      font-family: system-ui, -apple-system, sans-serif;
+      pointer-events: none;
+    }
+    .overlay h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .overlay p {
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+  <div class="overlay">
+    <h1>Aurora Borealis</h1>
+    <p>Northern Lights Component</p>
+  </div>
+
+  <script src="aurora-borealis.js"></script>
+  <script>
+    new AuroraBorealis('#demo', {
+      bands: 3,
+      stars: 80,
+      autoShuffle: true,
+      shootingStars: true,
+      controls: ['fullscreen', 'shuffle', 'auto'],
+      colors: {
+        purple: '#bd63c1',
+        green: '#53e5a6'
+      }
+    });
+  </script>
+</body>
+</html>

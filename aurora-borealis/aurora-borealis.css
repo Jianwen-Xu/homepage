@@ -1,0 +1,192 @@
+.ab {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ----- Stars ----- */
+
+.ab-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ab-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: abTwinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.ab-star.lg {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes abTwinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ----- Aurora Bands ----- */
+
+.ab-g-aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ab-wrap {
+  position: absolute;
+  mix-blend-mode: color-dodge;
+}
+
+.ab-band {
+  width: 100%;
+  height: 100%;
+  filter: url(#ab-wave);
+}
+
+/* ----- Mountains ----- */
+
+.ab-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ab-mountains svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ab-far { fill: #0a1225; opacity: 0.6; }
+.ab-mid { fill: #080e1a; opacity: 0.8; }
+.ab-near { fill: #060d1a; opacity: 0.95; }
+
+/* ----- Reflection ----- */
+
+.ab-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  background: linear-gradient(180deg, transparent 0%, rgba(83, 229, 166, 0.05) 40%, rgba(189, 99, 193, 0.03) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ----- Screensaver Mode ----- */
+
+.ab.screensaver * {
+  pointer-events: none !important;
+}
+
+.ab.screensaver .ab-scr-btn,
+.ab.screensaver .ab-auto-btn,
+.ab.screensaver .ab-shuffle-btn {
+  pointer-events: auto !important;
+}
+
+.ab.screensaver .ab-scr-btn {
+  cursor: pointer;
+}
+
+/* ----- Controls ----- */
+
+.ab-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ab-controls button {
+  pointer-events: auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+  padding: 0;
+  line-height: 1;
+}
+
+.ab-controls button:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+
+.ab-auto-btn.active {
+  background: rgba(83, 229, 166, 0.2);
+  border-color: rgba(83, 229, 166, 0.5);
+  color: #76F7A6;
+}
+
+.ab-auto-btn.active:hover {
+  background: rgba(83, 229, 166, 0.3);
+}
+
+/* ----- Shooting Stars ----- */
+
+.ab-shooting-star {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  animation: abShoot linear forwards;
+}
+
+.ab-shooting-star .head {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(255,255,255,0.6);
+}
+
+.ab-shooting-star .tail {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.6) 20%, transparent 100%);
+  border-radius: 1px;
+}
+
+@keyframes abShoot {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}

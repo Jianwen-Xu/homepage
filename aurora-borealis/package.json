@@ -1,0 +1,19 @@
+{
+  "name": "aurora-borealis",
+  "version": "0.1.0",
+  "description": "Aurora Borealis (Northern Lights) Web Component — a self-contained animated aurora background for any webpage",
+  "main": "aurora-borealis.js",
+  "files": [
+    "aurora-borealis.js",
+    "aurora-borealis.css"
+  ],
+  "keywords": [
+    "aurora",
+    "borealis",
+    "northern-lights",
+    "web-component",
+    "animation",
+    "background"
+  ],
+  "license": "MIT"
+}
