@@ -124,7 +124,6 @@
 
   function randomizeAurora() {
     var r = function(min, max) { return min + Math.random() * (max - min); };
-    var pick = function(arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
     var bands = [
       { wrap: document.querySelector('.aurora-wrap--center'), inner: document.querySelector('.aurora--center'), idx: 0 },
@@ -165,7 +164,6 @@
       }
 
       wrap.style.transform = 'rotate(' + r(-15, 15).toFixed(1) + 'deg)';
-      wrap.style.mixBlendMode = pick(['color-dodge', 'screen', 'overlay']);
 
       // Level 2: random morphology
       var brBase = r(8, 65).toFixed(0);
@@ -177,8 +175,6 @@
       var sX = r(0.6, 2.4).toFixed(2);
       var sY = r(0.35, 1.15).toFixed(2);
       inner.style.transform = 'scaleX(' + sX + ') scaleY(' + sY + ')';
-
-      inner.style.opacity = r(0.2, 0.95).toFixed(2);
     }
   }
 
