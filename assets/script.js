@@ -208,7 +208,7 @@
     c.style.background = greens.join(', ');
   }
 
-  // ---- Smooth randomize (temp overlay + fade) ----
+  // ---- Smooth randomize (4 transition modes) ----
 
   var randomizeLock = false;
 
@@ -221,39 +221,74 @@
     var parent = wrap && wrap.parentNode;
     if (!wrap || !inner || !parent) { randomizeLock = false; return; }
 
-    // Create temp overlay showing current appearance
-    var temp = document.createElement('div');
-    temp.className = 'aurora-temp';
+    var r = function(min, max) { return min + Math.random() * (max - min); };
+    var pick = function(arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
-    // Copy wrapper position/size/rotation from inline styles
-    var wrapProps = ['left', 'right', 'top', 'width', 'height', 'display'];
-    for (var i = 0; i < wrapProps.length; i++) {
-      if (wrap.style[wrapProps[i]]) temp.style[wrapProps[i]] = wrap.style[wrapProps[i]];
+    // Shared: create temp from current appearance
+    function captureTemp() {
+      var t = document.createElement('div');
+      t.className = 'aurora-temp';
+      ['left', 'right', 'top', 'width', 'height', 'display'].forEach(function (p) {
+        if (wrap.style[p]) t.style[p] = wrap.style[p];
+      });
+      t.style.transform = (wrap.style.transform || '') + ' ' + (inner.style.transform || '');
+      if (inner.style.background) t.style.background = inner.style.background;
+      if (inner.style.borderRadius) t.style.borderRadius = inner.style.borderRadius;
+      t.style.opacity = '1';
+      return t;
     }
-    // Combine wrapper rotation + inner scale into one transform
-    temp.style.transform = (wrap.style.transform || '') + ' ' + (inner.style.transform || '');
 
-    // Copy inner appearance from inline styles
-    if (inner.style.background) temp.style.background = inner.style.background;
-    if (inner.style.borderRadius) temp.style.borderRadius = inner.style.borderRadius;
+    function cleanup() { randomizeLock = false; }
 
-    temp.style.opacity = '1';
+    var mode = pick(['crossfade', 'fade-out-in', 'staggered', 'instant']);
 
-    parent.insertBefore(temp, wrap);
+    switch (mode) {
+      case 'instant':
+        randomizeAurora();
+        cleanup();
+        break;
 
-    // Apply new random styles to center
-    randomizeAurora();
+      case 'crossfade':
+        var t = captureTemp();
+        parent.insertBefore(t, wrap);
+        randomizeAurora();
+        requestAnimationFrame(function () {
+          t.style.transition = 'opacity 1.5s ease';
+          t.style.opacity = '0';
+          setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); cleanup(); }, 1550);
+        });
+        break;
 
-    // Fade out temp to reveal new
-    requestAnimationFrame(function () {
-      temp.style.transition = 'opacity 1.5s ease';
-      temp.style.opacity = '0';
+      case 'fade-out-in':
+        var t2 = captureTemp();
+        parent.insertBefore(t2, wrap);
+        randomizeAurora();
+        requestAnimationFrame(function () {
+          t2.style.transition = 'opacity 0.8s ease';
+          t2.style.opacity = '0';
+          setTimeout(function () {
+            if (t2.parentNode) t2.parentNode.removeChild(t2);
+            setTimeout(function () { cleanup(); }, r(500, 2000));
+          }, 850);
+        });
+        break;
 
-      setTimeout(function () {
-        if (temp.parentNode) temp.parentNode.removeChild(temp);
-        randomizeLock = false;
-      }, 1550);
-    });
+      case 'staggered':
+        var t3 = captureTemp();
+        parent.insertBefore(t3, wrap);
+        wrap.style.opacity = '0';
+        requestAnimationFrame(function () {
+          t3.style.opacity = '0';
+          setTimeout(function () {
+            if (t3.parentNode) t3.parentNode.removeChild(t3);
+            randomizeAurora();
+            wrap.style.transition = 'opacity 1s ease';
+            wrap.style.opacity = '';
+            setTimeout(function () { wrap.style.transition = ''; cleanup(); }, 1100);
+          }, r(500, 3000));
+        });
+        break;
+    }
   }
 
   // ---- Screensaver toggle ----
