@@ -223,6 +223,7 @@ button:focus-visible {
   pointer-events: none;
   z-index: 5;
   mix-blend-mode: color-dodge;
+  filter: url(#wave);
 }
 
 .aurora--center {

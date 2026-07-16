@@ -224,16 +224,19 @@
     // Create temp overlay showing current appearance
     var temp = document.createElement('div');
     temp.className = 'aurora-temp';
-    temp.style.cssText = wrap.style.cssText;
-    var cssProps = ['left', 'right', 'top', 'width', 'height', 'transform', 'display', 'opacity'];
-    for (var i = 0; i < cssProps.length; i++) {
-      temp.style[cssProps[i]] = window.getComputedStyle(wrap)[cssProps[i]];
+
+    // Copy wrapper position/size/rotation from inline styles
+    var wrapProps = ['left', 'right', 'top', 'width', 'height', 'display'];
+    for (var i = 0; i < wrapProps.length; i++) {
+      if (wrap.style[wrapProps[i]]) temp.style[wrapProps[i]] = wrap.style[wrapProps[i]];
     }
-    // Inner appearance
-    var innerCss = ['background', 'borderRadius', 'transform', 'opacity'];
-    for (var j = 0; j < innerCss.length; j++) {
-      temp.style[innerCss[j]] = window.getComputedStyle(inner)[innerCss[j]];
-    }
+    // Combine wrapper rotation + inner scale into one transform
+    temp.style.transform = (wrap.style.transform || '') + ' ' + (inner.style.transform || '');
+
+    // Copy inner appearance from inline styles
+    if (inner.style.background) temp.style.background = inner.style.background;
+    if (inner.style.borderRadius) temp.style.borderRadius = inner.style.borderRadius;
+
     temp.style.opacity = '1';
 
     parent.insertBefore(temp, wrap);
@@ -243,13 +246,13 @@
 
     // Fade out temp to reveal new
     requestAnimationFrame(function () {
-      temp.style.transition = 'opacity 0.8s ease';
+      temp.style.transition = 'opacity 1.5s ease';
       temp.style.opacity = '0';
 
       setTimeout(function () {
         if (temp.parentNode) temp.parentNode.removeChild(temp);
         randomizeLock = false;
-      }, 850);
+      }, 1550);
     });
   }
 
