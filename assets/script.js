@@ -219,6 +219,37 @@
       shuffleBtn.addEventListener('click', randomizeAurora);
     }
 
+    var autoBtn = document.getElementById('auto-btn');
+    var autoTimer = null;
+
+    function startAutoShuffle() {
+      if (autoTimer) return;
+      autoBtn.classList.add('active');
+      function tick() {
+        randomizeAurora();
+        autoTimer = setTimeout(tick, 4000 + Math.random() * 4000);
+      }
+      tick();
+    }
+
+    function stopAutoShuffle() {
+      if (autoTimer) {
+        clearTimeout(autoTimer);
+        autoTimer = null;
+      }
+      autoBtn.classList.remove('active');
+    }
+
+    if (autoBtn) {
+      autoBtn.addEventListener('click', function () {
+        if (autoBtn.classList.contains('active')) {
+          stopAutoShuffle();
+        } else {
+          startAutoShuffle();
+        }
+      });
+    }
+
     var starTimer = null;
 
     function startShootingStars() {
@@ -263,6 +294,7 @@
 
     function enter() {
       clearAuroraStyles();
+      stopAutoShuffle();
       document.body.classList.add('screensaver');
       btn.querySelector('i').className = 'fas fa-compress';
       startShootingStars();
@@ -273,6 +305,7 @@
       document.body.classList.remove('screensaver');
       btn.querySelector('i').className = 'fas fa-expand';
       stopShootingStars();
+      stopAutoShuffle();
       clearAuroraStyles();
       try { document.exitFullscreen(); } catch (e) {}
     }
