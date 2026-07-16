@@ -299,7 +299,7 @@
 
     var shuffleBtn = document.getElementById('shuffle-btn');
     if (shuffleBtn) {
-      shuffleBtn.addEventListener('click', smoothRandomize);
+      shuffleBtn.addEventListener('click', randomizeAurora);
     }
 
     var autoBtn = document.getElementById('auto-btn');
