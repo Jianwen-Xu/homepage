@@ -113,9 +113,9 @@
     var frames = 0;
 
     var config = [
-      { cls: 'aurora-wrap--center', speed: 0.12, limit: 15, idx: 0, opacity: 0.85, freq: 0.015, scaleBaseX: 1.7, scaleBaseY: 0.8 },
-      { cls: 'aurora-wrap--left', speed: 0.15, limit: 12, idx: 1, opacity: 0.45, freq: 0.02, scaleBaseX: 1.35, scaleBaseY: 0.7 },
-      { cls: 'aurora-wrap--right', speed: -0.1, limit: -10, idx: 2, opacity: 0.5, freq: 0.018, scaleBaseX: 1.3, scaleBaseY: 0.9 }
+      { cls: 'aurora-wrap--center', speed: 0.12, limit: 15, idx: 0, opacity: 0.85, freq: 0.015, scaleBaseX: 1.7, scaleBaseY: 0.8, brMin: 20, brMax: 40, brType: 'top' },
+      { cls: 'aurora-wrap--left', speed: 0.15, limit: 12, idx: 1, opacity: 0.45, freq: 0.02, scaleBaseX: 1.35, scaleBaseY: 0.7, brMin: 40, brMax: 60, brType: 'bottom' },
+      { cls: 'aurora-wrap--right', speed: -0.1, limit: -10, idx: 2, opacity: 0.5, freq: 0.018, scaleBaseX: 1.3, scaleBaseY: 0.9, brMin: 5, brMax: 20, brType: 'top' }
     ];
 
     function animate() {
@@ -157,9 +157,17 @@
           wrap.style.transform = 'translate3d(' + off + 'px, 0, 0)';
 
           var p = phase + i * 2.1;
-          var breathe = 1 + 0.04 * Math.sin(p * c.freq * 60);
+          var breathe = 1 + 0.12 * Math.sin(p * c.freq * 60);
           inner.style.transform = 'scaleX(' + (c.scaleBaseX * breathe) + ') scaleY(' + (c.scaleBaseY * breathe) + ')';
-          inner.style.opacity = c.opacity + 0.12 * Math.sin(p * c.freq * 40);
+          inner.style.opacity = c.opacity + 0.15 * Math.sin(p * c.freq * 40);
+          var brMid = (c.brMin + c.brMax) / 2;
+          var brRange = (c.brMax - c.brMin) / 2;
+          var brVal = brMid + brRange * Math.sin(p * c.freq * 50);
+          if (c.brType === 'top') {
+            inner.style.borderRadius = '50% 50% ' + brVal.toFixed(0) + '% ' + brVal.toFixed(0) + '%';
+          } else {
+            inner.style.borderRadius = '0 0 ' + brVal.toFixed(0) + '% ' + brVal.toFixed(0) + '%';
+          }
         }
       } else if (wasScreensaver) {
         for (var j = 0; j < wraps.length; j++) {
@@ -167,6 +175,7 @@
           if (inners[j]) {
             inners[j].style.transform = '';
             inners[j].style.opacity = '';
+            inners[j].style.borderRadius = '';
           }
         }
         drift.center = 0;
