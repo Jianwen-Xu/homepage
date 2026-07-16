@@ -229,11 +229,11 @@
 
     switch (mode) {
       case 'fade-in-out':
-        fadeOut = 0.6; gap = 0; fadeIn = 0.8; break;
+        fadeOut = 1.0; gap = 0; fadeIn = 1.2; break;
       case 'delayed-reveal':
-        fadeOut = 0.5; gap = r(0.5, 2); fadeIn = 0.8; break;
+        fadeOut = 0.8; gap = r(1, 3); fadeIn = 1.2; break;
       case 'slow-fade':
-        fadeOut = 1.2; gap = 0; fadeIn = 1.2; break;
+        fadeOut = 2.0; gap = 0; fadeIn = 2.0; break;
     }
 
     wrap.style.transition = 'opacity ' + fadeOut + 's ease';
@@ -275,7 +275,7 @@
       autoBtn.classList.add('active');
       function tick() {
         smoothRandomize();
-        autoTimer = setTimeout(tick, 4000 + Math.random() * 4000);
+        autoTimer = setTimeout(tick, 8000 + Math.random() * 6000);
       }
       tick();
     }
