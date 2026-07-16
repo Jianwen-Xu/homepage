@@ -87,7 +87,6 @@
   AuroraBorealis.prototype._build = function () {
     var el = this._el;
     var opts = this.opts;
-    el.style.position = 'relative';
     el.style.overflow = 'hidden';
     el.style.background = '#0b1a3a';
 
