@@ -97,26 +97,14 @@
     }, dur * 1000);
   }
 
-  // ---- Aurora animation (turbulence + screensaver drift + morph) ----
+  // ---- Aurora turbulence ----
 
   function initAurora() {
     var turbulence = document.getElementById('turbulence');
     if (!turbulence) return;
 
-    var wraps = document.querySelectorAll('.aurora-wrap');
-    var inners = document.querySelectorAll('.aurora');
-
-    var drift = { center: 0, left: 0, right: 0 };
-    var phase = 0;
-    var wasScreensaver = false;
     var rad = Math.PI / 180;
     var frames = 0;
-
-    var config = [
-      { cls: 'aurora-wrap--center', speed: 0.12, limit: 15, idx: 0, opacity: 0.85, freq: 0.015, scaleBaseX: 1.7, scaleBaseY: 0.8, brMin: 20, brMax: 40, brType: 'top' },
-      { cls: 'aurora-wrap--left', speed: 0.15, limit: 12, idx: 1, opacity: 0.45, freq: 0.02, scaleBaseX: 1.35, scaleBaseY: 0.7, brMin: 40, brMax: 60, brType: 'bottom' },
-      { cls: 'aurora-wrap--right', speed: -0.1, limit: -10, idx: 2, opacity: 0.5, freq: 0.018, scaleBaseX: 1.3, scaleBaseY: 0.9, brMin: 5, brMax: 20, brType: 'top' }
-    ];
 
     function animate() {
       frames += 0.5;
@@ -125,64 +113,6 @@
         (0.005 + 0.0025 * Math.cos(frames * rad)) + ' ' +
         (0.005 + 0.0025 * Math.sin(frames * rad))
       );
-
-      var isScreen = document.body.classList.contains('screensaver');
-
-      if (isScreen) {
-        phase += 0.02;
-        wasScreensaver = true;
-
-        for (var i = 0; i < config.length; i++) {
-          var c = config[i];
-          var wrap = wraps[c.idx];
-          var inner = inners[c.idx];
-          if (!wrap || !inner) continue;
-
-          if (c.cls === 'aurora-wrap--center') drift.center += c.speed;
-          else if (c.cls === 'aurora-wrap--left') drift.left += c.speed;
-          else if (c.cls === 'aurora-wrap--right') drift.right += c.speed;
-
-          var off = 0;
-          if (c.cls === 'aurora-wrap--center') {
-            if (drift.center > c.limit) drift.center = -c.limit;
-            off = drift.center;
-          } else if (c.cls === 'aurora-wrap--left') {
-            if (drift.left > c.limit) drift.left = -c.limit;
-            off = drift.left;
-          } else if (c.cls === 'aurora-wrap--right') {
-            if (drift.right < c.limit) drift.right = -c.limit;
-            off = drift.right;
-          }
-
-          wrap.style.transform = 'translate3d(' + off + 'px, 0, 0)';
-
-          var p = phase + i * 2.1;
-          var breathe = 1 + 0.12 * Math.sin(p * c.freq * 60);
-          inner.style.transform = 'scaleX(' + (c.scaleBaseX * breathe) + ') scaleY(' + (c.scaleBaseY * breathe) + ')';
-          inner.style.opacity = c.opacity + 0.15 * Math.sin(p * c.freq * 40);
-          var brMid = (c.brMin + c.brMax) / 2;
-          var brRange = (c.brMax - c.brMin) / 2;
-          var brVal = brMid + brRange * Math.sin(p * c.freq * 50);
-          if (c.brType === 'top') {
-            inner.style.borderRadius = '50% 50% ' + brVal.toFixed(0) + '% ' + brVal.toFixed(0) + '%';
-          } else {
-            inner.style.borderRadius = '0 0 ' + brVal.toFixed(0) + '% ' + brVal.toFixed(0) + '%';
-          }
-        }
-      } else if (wasScreensaver) {
-        for (var j = 0; j < wraps.length; j++) {
-          if (wraps[j]) wraps[j].style.transform = '';
-          if (inners[j]) {
-            inners[j].style.transform = '';
-            inners[j].style.opacity = '';
-            inners[j].style.borderRadius = '';
-          }
-        }
-        drift.center = 0;
-        drift.left = 0;
-        drift.right = 0;
-        wasScreensaver = false;
-      }
 
       requestAnimationFrame(animate);
     }

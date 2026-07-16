@@ -196,7 +196,6 @@ button:focus-visible {
   top: -10%;
   width: 90%;
   height: 95%;
-  animation: driftCenter 35s linear infinite;
 }
 
 .aurora-wrap--left {
@@ -204,7 +203,6 @@ button:focus-visible {
   top: 0%;
   width: 28%;
   height: 100%;
-  animation: driftRight 55s linear infinite;
 }
 
 .aurora-wrap--right {
@@ -212,7 +210,6 @@ button:focus-visible {
   top: 18%;
   width: 25%;
   height: 80%;
-  animation: driftLeft 50s linear infinite;
 }
 
 .aurora {
@@ -263,24 +260,6 @@ button:focus-visible {
   opacity: 0.5;
 }
 
-@keyframes driftCenter {
-  0% { transform: translateX(-4%) rotate(-3deg); }
-  20% { transform: translateX(-2%) rotate(-1deg); }
-  40% { transform: translateX(1%) rotate(2deg); }
-  60% { transform: translateX(3%) rotate(-2deg); }
-  80% { transform: translateX(4%) rotate(1deg); }
-  100% { transform: translateX(5%) rotate(0deg); }
-}
-
-@keyframes driftRight {
-  0% { transform: translateX(-5%); }
-  100% { transform: translateX(2%); }
-}
-
-@keyframes driftLeft {
-  0% { transform: translateX(2%); }
-  100% { transform: translateX(-5%); }
-}
 
 .hero__mountains {
   position: absolute;
@@ -433,6 +412,39 @@ body.screensaver .hero__reflection {
 
 body.screensaver .aurora-wrap {
   animation: none !important;
+}
+
+body.screensaver .aurora--center {
+  animation: morphCenter 10s ease-in-out infinite;
+}
+
+body.screensaver .aurora--left {
+  animation: morphLeft 12s ease-in-out infinite;
+}
+
+body.screensaver .aurora--right {
+  animation: morphRight 9s ease-in-out infinite;
+}
+
+@keyframes morphCenter {
+  0%, 100% { border-radius: 50% 50% 20% 20%; transform: scaleX(1.7) scaleY(0.8); opacity: 0.85; }
+  25% { border-radius: 50% 50% 30% 30%; transform: scaleX(1.8) scaleY(0.75); opacity: 0.9; }
+  50% { border-radius: 50% 50% 40% 40%; transform: scaleX(1.9) scaleY(0.7); opacity: 0.95; }
+  75% { border-radius: 50% 50% 25% 25%; transform: scaleX(1.75) scaleY(0.78); opacity: 0.88; }
+}
+
+@keyframes morphLeft {
+  0%, 100% { border-radius: 0 0 40% 40%; transform: scaleX(1.35) scaleY(0.7); opacity: 0.45; }
+  25% { border-radius: 0 0 50% 50%; transform: scaleX(1.25) scaleY(0.75); opacity: 0.5; }
+  50% { border-radius: 0 0 60% 60%; transform: scaleX(1.15) scaleY(0.8); opacity: 0.55; }
+  75% { border-radius: 0 0 45% 45%; transform: scaleX(1.3) scaleY(0.72); opacity: 0.48; }
+}
+
+@keyframes morphRight {
+  0%, 100% { border-radius: 50% 50% 5% 5%; transform: scaleX(1.3) scaleY(0.9); opacity: 0.5; }
+  25% { border-radius: 50% 50% 10% 10%; transform: scaleX(1.25) scaleY(0.88); opacity: 0.53; }
+  50% { border-radius: 50% 50% 20% 20%; transform: scaleX(1.2) scaleY(0.85); opacity: 0.58; }
+  75% { border-radius: 50% 50% 12% 12%; transform: scaleX(1.28) scaleY(0.92); opacity: 0.52; }
 }
 
 /* ---- Shooting Stars ---- */
