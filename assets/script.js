@@ -78,8 +78,8 @@
     star.appendChild(tail);
 
     var angle = -20 + Math.random() * 40;
-    var dist = 200 + Math.random() * 300;
-    var dur = 0.6 + Math.random() * 0.8;
+    var dist = 150 + Math.random() * 200;
+    var dur = 0.25 + Math.random() * 0.3;
     var x = Math.random() * 80 + 5;
     var y = Math.random() * 40 + 2;
 
