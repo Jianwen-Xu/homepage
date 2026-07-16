@@ -124,35 +124,61 @@
 
   function randomizeAurora() {
     var r = function(min, max) { return min + Math.random() * (max - min); };
+    var pick = function(arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
-    var config = [
-      {
-        wrap: document.querySelector('.aurora-wrap--center'),
-        props: { left: [-2, 8], top: [-15, -2], width: [75, 95], height: [70, 100], rotate: [-5, 5] }
-      },
-      {
-        wrap: document.querySelector('.aurora-wrap--left'),
-        props: { left: [-12, 2], top: [-5, 20], width: [20, 35], height: [60, 100], rotate: [-8, 8] }
-      },
-      {
-        wrap: document.querySelector('.aurora-wrap--right'),
-        props: { right: [-5, 5], top: [5, 30], width: [18, 32], height: [55, 90], rotate: [-8, 8] }
-      }
+    var bands = [
+      { wrap: document.querySelector('.aurora-wrap--center'), inner: document.querySelector('.aurora--center'), idx: 0 },
+      { wrap: document.querySelector('.aurora-wrap--left'), inner: document.querySelector('.aurora--left'), idx: 1 },
+      { wrap: document.querySelector('.aurora-wrap--right'), inner: document.querySelector('.aurora--right'), idx: 2 }
     ];
 
-    for (var i = 0; i < config.length; i++) {
-      var c = config[i];
-      var wrap = c.wrap;
-      if (!wrap) continue;
-      var p = c.props;
-      for (var key in p) {
-        var range = p[key];
-        if (key === 'rotate') {
-          wrap.style.transform = 'rotate(' + r(range[0], range[1]).toFixed(1) + 'deg)';
-        } else {
-          wrap.style[key] = r(range[0], range[1]).toFixed(0) + '%';
-        }
+    // Level 3: randomly hide 0-1 bands
+    var hideCount = Math.random() > 0.6 ? 1 : 0;
+    var hiddenIdx = -1;
+    if (hideCount) hiddenIdx = Math.floor(Math.random() * 3);
+
+    for (var i = 0; i < bands.length; i++) {
+      var wrap = bands[i].wrap;
+      var inner = bands[i].inner;
+      if (!wrap || !inner) continue;
+
+      var isHidden = (hideCount && bands[i].idx === hiddenIdx);
+      wrap.style.display = isHidden ? 'none' : '';
+      if (isHidden) continue;
+
+      // Level 1: wide position ranges
+      if (bands[i].idx === 0) {
+        wrap.style.left = r(-5, 15) + '%';
+        wrap.style.top = r(-25, 5) + '%';
+        wrap.style.width = r(50, 110) + '%';
+        wrap.style.height = r(50, 100) + '%';
+      } else if (bands[i].idx === 1) {
+        wrap.style.left = r(-18, 8) + '%';
+        wrap.style.top = r(-10, 30) + '%';
+        wrap.style.width = r(12, 45) + '%';
+        wrap.style.height = r(40, 100) + '%';
+      } else {
+        wrap.style.right = r(-10, 15) + '%';
+        wrap.style.top = r(-5, 35) + '%';
+        wrap.style.width = r(10, 40) + '%';
+        wrap.style.height = r(40, 95) + '%';
       }
+
+      wrap.style.transform = 'rotate(' + r(-15, 15).toFixed(1) + 'deg)';
+      wrap.style.mixBlendMode = pick(['color-dodge', 'screen', 'overlay']);
+
+      // Level 2: random morphology
+      var brBase = r(8, 65).toFixed(0);
+      inner.style.borderRadius = (Math.random() > 0.4 ? '50% 50% ' : '0 0 ') + brBase + '% ' + brBase + '%';
+
+      var gY = Math.random() > 0.4 ? '85%' : '15%';
+      inner.style.background = 'radial-gradient(ellipse at 50% ' + gY + ', transparent 25%, #bd63c1 38%, #53e5a6 50%, transparent 68%)';
+
+      var sX = r(0.6, 2.4).toFixed(2);
+      var sY = r(0.35, 1.15).toFixed(2);
+      inner.style.transform = 'scaleX(' + sX + ') scaleY(' + sY + ')';
+
+      inner.style.opacity = r(0.2, 0.95).toFixed(2);
     }
   }
 
@@ -189,6 +215,7 @@
 
     function clearAuroraStyles() {
       var wraps = document.querySelectorAll('.aurora-wrap');
+      var inners = document.querySelectorAll('.aurora');
       for (var i = 0; i < wraps.length; i++) {
         wraps[i].style.left = '';
         wraps[i].style.right = '';
@@ -196,10 +223,19 @@
         wraps[i].style.width = '';
         wraps[i].style.height = '';
         wraps[i].style.transform = '';
+        wraps[i].style.display = '';
+        wraps[i].style.mixBlendMode = '';
+      }
+      for (var j = 0; j < inners.length; j++) {
+        inners[j].style.borderRadius = '';
+        inners[j].style.background = '';
+        inners[j].style.transform = '';
+        inners[j].style.opacity = '';
       }
     }
 
     function enter() {
+      clearAuroraStyles();
       document.body.classList.add('screensaver');
       btn.querySelector('i').className = 'fas fa-compress';
       startShootingStars();
