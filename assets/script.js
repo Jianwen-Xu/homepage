@@ -124,6 +124,7 @@
 
   function randomizeAurora() {
     var r = function(min, max) { return min + Math.random() * (max - min); };
+    var pick = function(arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
     var wraps = {
       center: document.querySelector('.aurora-wrap--center'),
@@ -139,8 +140,8 @@
     // Hide left and right, show center with giant size
     wraps.left.style.display = 'none';
     wraps.right.style.display = 'none';
-    inners.left.style.borderRadius = inners.left.style.background = inners.left.style.transform = '';
-    inners.right.style.borderRadius = inners.right.style.background = inners.right.style.transform = '';
+    inners.left.style.borderRadius = inners.left.style.background = inners.left.style.transform = inners.left.style.clipPath = '';
+    inners.right.style.borderRadius = inners.right.style.background = inners.right.style.transform = inners.right.style.clipPath = '';
 
     wraps.center.style.display = '';
     wraps.center.style.left = r(-15, 5) + '%';
@@ -151,11 +152,51 @@
     wraps.left.style.transform = wraps.right.style.transform = '';
 
     var c = inners.center;
-    var brBase = r(10, 60).toFixed(0);
-    c.style.borderRadius = (Math.random() > 0.5 ? '50% 50% ' : '0 0 ') + brBase + '% ' + brBase + '%';
     var gY = Math.random() > 0.5 ? '85%' : '15%';
     c.style.background = 'radial-gradient(ellipse at 50% ' + gY + ', transparent 25%, #bd63c1 38%, #53e5a6 50%, transparent 68%)';
     c.style.transform = 'scaleX(' + r(1.0, 2.5).toFixed(2) + ') scaleY(' + r(0.5, 1.1).toFixed(2) + ')';
+
+    // Random shape
+    var shape = pick(['arch', 'inverted', 'ji', 'asymmetric', 'zigzag', 'wave']);
+
+    c.style.clipPath = '';
+    c.style.borderRadius = '';
+
+    switch (shape) {
+      case 'arch':
+        c.style.borderRadius = '50% 50% ' + r(15, 60).toFixed(0) + '% ' + r(15, 60).toFixed(0) + '%';
+        break;
+      case 'inverted':
+        c.style.borderRadius = '0 0 ' + r(15, 60).toFixed(0) + '% ' + r(15, 60).toFixed(0) + '%';
+        break;
+      case 'ji':
+        c.style.borderRadius = '50% 50% 3% 3%';
+        break;
+      case 'asymmetric':
+        var br = r(20, 70).toFixed(0);
+        c.style.borderRadius = '0 ' + br + '% ' + br + '% 0';
+        break;
+      case 'zigzag':
+        var pts = '';
+        var n = 4 + Math.floor(Math.random() * 2);
+        for (var i = 0; i <= n; i++) {
+          var x = (i / n) * 100;
+          var y = i % 2 === 0 ? r(20, 30) : r(70, 85);
+          pts += x.toFixed(0) + '% ' + y.toFixed(0) + '%, ';
+        }
+        c.style.clipPath = 'polygon(0% 100%, ' + pts + '100% 100%)';
+        break;
+      case 'wave':
+        var pts2 = '';
+        var n2 = 5 + Math.floor(Math.random() * 3);
+        for (var j = 0; j <= n2; j++) {
+          var x2 = (j / n2) * 100;
+          var y2 = Math.sin(j / n2 * Math.PI * 2) > 0 ? r(30, 50) : r(55, 75);
+          pts2 += x2.toFixed(0) + '% ' + y2.toFixed(0) + '%, ';
+        }
+        c.style.clipPath = 'polygon(0% 100%, ' + pts2 + '100% 100%)';
+        break;
+    }
   }
 
   // ---- Screensaver toggle ----
@@ -207,6 +248,7 @@
         inners[j].style.background = '';
         inners[j].style.transform = '';
         inners[j].style.opacity = '';
+        inners[j].style.clipPath = '';
       }
     }
 
