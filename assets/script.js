@@ -240,14 +240,9 @@
 
     function cleanup() { randomizeLock = false; }
 
-    var mode = pick(['crossfade', 'fade-out-in', 'staggered', 'instant']);
+    var mode = pick(['crossfade', 'fade-out-in', 'staggered']);
 
     switch (mode) {
-      case 'instant':
-        randomizeAurora();
-        cleanup();
-        break;
-
       case 'crossfade':
         var t = captureTemp();
         parent.insertBefore(t, wrap);
@@ -278,14 +273,17 @@
         parent.insertBefore(t3, wrap);
         wrap.style.opacity = '0';
         requestAnimationFrame(function () {
+          t3.style.transition = 'opacity 0.8s ease';
           t3.style.opacity = '0';
           setTimeout(function () {
             if (t3.parentNode) t3.parentNode.removeChild(t3);
             randomizeAurora();
-            wrap.style.transition = 'opacity 1s ease';
-            wrap.style.opacity = '';
-            setTimeout(function () { wrap.style.transition = ''; cleanup(); }, 1100);
-          }, r(500, 3000));
+            setTimeout(function () {
+              wrap.style.transition = 'opacity 1s ease';
+              wrap.style.opacity = '';
+              setTimeout(function () { wrap.style.transition = ''; cleanup(); }, 1100);
+            }, r(500, 2000));
+          }, 850);
         });
         break;
     }
