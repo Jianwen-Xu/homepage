@@ -125,57 +125,37 @@
   function randomizeAurora() {
     var r = function(min, max) { return min + Math.random() * (max - min); };
 
-    var bands = [
-      { wrap: document.querySelector('.aurora-wrap--center'), inner: document.querySelector('.aurora--center'), idx: 0 },
-      { wrap: document.querySelector('.aurora-wrap--left'), inner: document.querySelector('.aurora--left'), idx: 1 },
-      { wrap: document.querySelector('.aurora-wrap--right'), inner: document.querySelector('.aurora--right'), idx: 2 }
-    ];
+    var wraps = {
+      center: document.querySelector('.aurora-wrap--center'),
+      left: document.querySelector('.aurora-wrap--left'),
+      right: document.querySelector('.aurora-wrap--right')
+    };
+    var inners = {
+      center: document.querySelector('.aurora--center'),
+      left: document.querySelector('.aurora--left'),
+      right: document.querySelector('.aurora--right')
+    };
 
-    // Level 3: randomly hide 0-1 bands
-    var hideCount = Math.random() > 0.6 ? 1 : 0;
-    var hiddenIdx = -1;
-    if (hideCount) hiddenIdx = Math.floor(Math.random() * 3);
+    // Hide left and right, show center with giant size
+    wraps.left.style.display = 'none';
+    wraps.right.style.display = 'none';
+    inners.left.style.borderRadius = inners.left.style.background = inners.left.style.transform = '';
+    inners.right.style.borderRadius = inners.right.style.background = inners.right.style.transform = '';
 
-    for (var i = 0; i < bands.length; i++) {
-      var wrap = bands[i].wrap;
-      var inner = bands[i].inner;
-      if (!wrap || !inner) continue;
+    wraps.center.style.display = '';
+    wraps.center.style.left = r(-10, 10) + '%';
+    wraps.center.style.top = r(-20, 10) + '%';
+    wraps.center.style.width = r(80, 130) + '%';
+    wraps.center.style.height = r(70, 100) + '%';
+    wraps.center.style.transform = 'rotate(' + r(-12, 12).toFixed(1) + 'deg)';
+    wraps.left.style.transform = wraps.right.style.transform = '';
 
-      var isHidden = (hideCount && bands[i].idx === hiddenIdx);
-      wrap.style.display = isHidden ? 'none' : '';
-      if (isHidden) continue;
-
-      // Level 1: wide position ranges
-      if (bands[i].idx === 0) {
-        wrap.style.left = r(-5, 15) + '%';
-        wrap.style.top = r(-25, 5) + '%';
-        wrap.style.width = r(50, 110) + '%';
-        wrap.style.height = r(50, 100) + '%';
-      } else if (bands[i].idx === 1) {
-        wrap.style.left = r(-18, 8) + '%';
-        wrap.style.top = r(-10, 30) + '%';
-        wrap.style.width = r(12, 45) + '%';
-        wrap.style.height = r(40, 100) + '%';
-      } else {
-        wrap.style.right = r(-10, 15) + '%';
-        wrap.style.top = r(-5, 35) + '%';
-        wrap.style.width = r(10, 40) + '%';
-        wrap.style.height = r(40, 95) + '%';
-      }
-
-      wrap.style.transform = 'rotate(' + r(-15, 15).toFixed(1) + 'deg)';
-
-      // Level 2: random morphology
-      var brBase = r(8, 65).toFixed(0);
-      inner.style.borderRadius = (Math.random() > 0.4 ? '50% 50% ' : '0 0 ') + brBase + '% ' + brBase + '%';
-
-      var gY = Math.random() > 0.4 ? '85%' : '15%';
-      inner.style.background = 'radial-gradient(ellipse at 50% ' + gY + ', transparent 25%, #bd63c1 38%, #53e5a6 50%, transparent 68%)';
-
-      var sX = r(0.6, 2.4).toFixed(2);
-      var sY = r(0.35, 1.15).toFixed(2);
-      inner.style.transform = 'scaleX(' + sX + ') scaleY(' + sY + ')';
-    }
+    var c = inners.center;
+    var brBase = r(10, 60).toFixed(0);
+    c.style.borderRadius = (Math.random() > 0.5 ? '50% 50% ' : '0 0 ') + brBase + '% ' + brBase + '%';
+    var gY = Math.random() > 0.5 ? '85%' : '15%';
+    c.style.background = 'radial-gradient(ellipse at 50% ' + gY + ', transparent 25%, #bd63c1 38%, #53e5a6 50%, transparent 68%)';
+    c.style.transform = 'scaleX(' + r(0.8, 2.0).toFixed(2) + ') scaleY(' + r(0.4, 1.0).toFixed(2) + ')';
   }
 
   // ---- Screensaver toggle ----
