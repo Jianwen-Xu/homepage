@@ -120,11 +120,52 @@
     animate();
   }
 
+  // ---- Randomize aurora layout ----
+
+  function randomizeAurora() {
+    var r = function(min, max) { return min + Math.random() * (max - min); };
+
+    var config = [
+      {
+        wrap: document.querySelector('.aurora-wrap--center'),
+        props: { left: [-2, 8], top: [-15, -2], width: [75, 95], height: [70, 100], rotate: [-5, 5] }
+      },
+      {
+        wrap: document.querySelector('.aurora-wrap--left'),
+        props: { left: [-12, 2], top: [-5, 20], width: [20, 35], height: [60, 100], rotate: [-8, 8] }
+      },
+      {
+        wrap: document.querySelector('.aurora-wrap--right'),
+        props: { right: [-5, 5], top: [5, 30], width: [18, 32], height: [55, 90], rotate: [-8, 8] }
+      }
+    ];
+
+    for (var i = 0; i < config.length; i++) {
+      var c = config[i];
+      var wrap = c.wrap;
+      if (!wrap) continue;
+      var p = c.props;
+      for (var key in p) {
+        var range = p[key];
+        if (key === 'rotate') {
+          wrap.style.transform = 'rotate(' + r(range[0], range[1]).toFixed(1) + 'deg)';
+        } else {
+          wrap.style[key] = r(range[0], range[1]).toFixed(0) + '%';
+        }
+      }
+    }
+  }
+
   // ---- Screensaver toggle ----
 
   function initScreensaver() {
     var btn = document.getElementById('screen-btn');
     if (!btn) return;
+
+    var shuffleBtn = document.getElementById('shuffle-btn');
+    if (shuffleBtn) {
+      shuffleBtn.addEventListener('click', randomizeAurora);
+    }
 
     var starTimer = null;
 
@@ -146,6 +187,18 @@
       }
     }
 
+    function clearAuroraStyles() {
+      var wraps = document.querySelectorAll('.aurora-wrap');
+      for (var i = 0; i < wraps.length; i++) {
+        wraps[i].style.left = '';
+        wraps[i].style.right = '';
+        wraps[i].style.top = '';
+        wraps[i].style.width = '';
+        wraps[i].style.height = '';
+        wraps[i].style.transform = '';
+      }
+    }
+
     function enter() {
       document.body.classList.add('screensaver');
       btn.querySelector('i').className = 'fas fa-compress';
@@ -157,6 +210,7 @@
       document.body.classList.remove('screensaver');
       btn.querySelector('i').className = 'fas fa-expand';
       stopShootingStars();
+      clearAuroraStyles();
       try { document.exitFullscreen(); } catch (e) {}
     }
 

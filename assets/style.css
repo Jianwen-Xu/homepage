@@ -375,6 +375,43 @@ button:focus-visible {
   border-color: rgba(255,255,255,0.4);
 }
 
+/* ---- Shuffle Button ---- */
+
+.hero__shuffle-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 4.5rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.hero__shuffle-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+
+body.screensaver .hero__shuffle-btn {
+  display: flex;
+}
+
+body.screensaver .hero__shuffle-btn:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
 /* ---- Screensaver Mode ---- */
 
 body.screensaver .nav-bar,
