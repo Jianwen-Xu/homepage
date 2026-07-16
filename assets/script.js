@@ -143,10 +143,10 @@
     inners.right.style.borderRadius = inners.right.style.background = inners.right.style.transform = '';
 
     wraps.center.style.display = '';
-    wraps.center.style.left = r(-10, 10) + '%';
-    wraps.center.style.top = r(-20, 10) + '%';
-    wraps.center.style.width = r(80, 130) + '%';
-    wraps.center.style.height = r(70, 100) + '%';
+    wraps.center.style.left = r(-15, 5) + '%';
+    wraps.center.style.top = r(-25, 5) + '%';
+    wraps.center.style.width = r(100, 150) + '%';
+    wraps.center.style.height = r(85, 110) + '%';
     wraps.center.style.transform = 'rotate(' + r(-12, 12).toFixed(1) + 'deg)';
     wraps.left.style.transform = wraps.right.style.transform = '';
 
@@ -155,7 +155,7 @@
     c.style.borderRadius = (Math.random() > 0.5 ? '50% 50% ' : '0 0 ') + brBase + '% ' + brBase + '%';
     var gY = Math.random() > 0.5 ? '85%' : '15%';
     c.style.background = 'radial-gradient(ellipse at 50% ' + gY + ', transparent 25%, #bd63c1 38%, #53e5a6 50%, transparent 68%)';
-    c.style.transform = 'scaleX(' + r(0.8, 2.0).toFixed(2) + ') scaleY(' + r(0.4, 1.0).toFixed(2) + ')';
+    c.style.transform = 'scaleX(' + r(1.0, 2.5).toFixed(2) + ') scaleY(' + r(0.5, 1.1).toFixed(2) + ')';
   }
 
   // ---- Screensaver toggle ----
