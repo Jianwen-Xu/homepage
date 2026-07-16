@@ -204,8 +204,8 @@
     if (controls.indexOf('auto') !== -1) {
       var auBtn = document.createElement('button');
       auBtn.className = 'ab-auto-btn';
-      auBtn.title = 'Auto';
-      auBtn.innerHTML = '&#x21BB;';
+      auBtn.title = 'Start auto-shuffle';
+      auBtn.innerHTML = '&#x25B6;';
       auBtn.addEventListener('click', this._toggleAuto.bind(this));
       ctrls.appendChild(auBtn);
       this._autoBtn = auBtn;
@@ -413,7 +413,11 @@
 
   AuroraBorealis.prototype.startAuto = function () {
     if (this._autoTimer) return;
-    if (this._autoBtn) this._autoBtn.classList.add('active');
+    if (this._autoBtn) {
+      this._autoBtn.classList.add('active');
+      this._autoBtn.innerHTML = '&#x23F8;';
+      this._autoBtn.title = 'Pause auto-shuffle';
+    }
     var self = this;
     function tick() {
       self._smoothRandomize();
@@ -424,7 +428,11 @@
 
   AuroraBorealis.prototype.stopAuto = function () {
     if (this._autoTimer) { clearTimeout(this._autoTimer); this._autoTimer = null; }
-    if (this._autoBtn) this._autoBtn.classList.remove('active');
+    if (this._autoBtn) {
+      this._autoBtn.classList.remove('active');
+      this._autoBtn.innerHTML = '&#x25B6;';
+      this._autoBtn.title = 'Start auto-shuffle';
+    }
   };
 
   AuroraBorealis.prototype._toggleAuto = function () {

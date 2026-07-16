@@ -49,7 +49,7 @@
     new AuroraBorealis('#ab-container', {
       bands: 1,
       stars: 80,
-      autoShuffle: false,
+      autoShuffle: true,
       shootingStars: false,
       controls: ['fullscreen', 'shuffle', 'auto']
     });
