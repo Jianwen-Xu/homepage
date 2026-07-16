@@ -218,6 +218,13 @@ button:focus-visible {
   filter: url(#wave);
 }
 
+.aurora-temp {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: color-dodge;
+}
+
 .aurora--center {
   background: radial-gradient(
     ellipse at 50% 85%,

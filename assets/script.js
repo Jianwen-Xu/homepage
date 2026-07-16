@@ -208,7 +208,7 @@
     c.style.background = greens.join(', ');
   }
 
-  // ---- Smooth randomize (fade out/in) ----
+  // ---- Smooth randomize (temp overlay + fade) ----
 
   var randomizeLock = false;
 
@@ -217,24 +217,40 @@
     randomizeLock = true;
 
     var wrap = document.querySelector('.aurora-wrap--center');
-    if (!wrap) { randomizeLock = false; return; }
+    var inner = document.querySelector('.aurora--center');
+    var parent = wrap && wrap.parentNode;
+    if (!wrap || !inner || !parent) { randomizeLock = false; return; }
 
-    wrap.style.transition = 'opacity 0.5s ease';
-    wrap.style.opacity = '0';
+    // Create temp overlay showing current appearance
+    var temp = document.createElement('div');
+    temp.className = 'aurora-temp';
+    temp.style.cssText = wrap.style.cssText;
+    var cssProps = ['left', 'right', 'top', 'width', 'height', 'transform', 'display', 'opacity'];
+    for (var i = 0; i < cssProps.length; i++) {
+      temp.style[cssProps[i]] = window.getComputedStyle(wrap)[cssProps[i]];
+    }
+    // Inner appearance
+    var innerCss = ['background', 'borderRadius', 'transform', 'opacity'];
+    for (var j = 0; j < innerCss.length; j++) {
+      temp.style[innerCss[j]] = window.getComputedStyle(inner)[innerCss[j]];
+    }
+    temp.style.opacity = '1';
 
-    setTimeout(function () {
-      randomizeAurora();
-      wrap.offsetHeight;
-      wrap.style.transition = 'opacity 0.7s ease';
-      wrap.style.opacity = '';
+    parent.insertBefore(temp, wrap);
+
+    // Apply new random styles to center
+    randomizeAurora();
+
+    // Fade out temp to reveal new
+    requestAnimationFrame(function () {
+      temp.style.transition = 'opacity 0.8s ease';
+      temp.style.opacity = '0';
 
       setTimeout(function () {
-        requestAnimationFrame(function () {
-          wrap.style.transition = '';
-          randomizeLock = false;
-        });
-      }, 750);
-    }, 500);
+        if (temp.parentNode) temp.parentNode.removeChild(temp);
+        randomizeLock = false;
+      }, 850);
+    });
   }
 
   // ---- Screensaver toggle ----
@@ -302,6 +318,10 @@
     function clearAuroraStyles() {
       var wraps = document.querySelectorAll('.aurora-wrap');
       var inners = document.querySelectorAll('.aurora');
+      var temps = document.querySelectorAll('.aurora-temp');
+      for (var k = 0; k < temps.length; k++) {
+        if (temps[k].parentNode) temps[k].parentNode.removeChild(temps[k]);
+      }
       for (var i = 0; i < wraps.length; i++) {
         wraps[i].style.left = '';
         wraps[i].style.right = '';
