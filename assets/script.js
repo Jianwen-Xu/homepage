@@ -208,7 +208,7 @@
     c.style.background = greens.join(', ');
   }
 
-  // ---- Smooth randomize (4 transition modes) ----
+  // ---- Auto randomize with fade transitions ----
 
   var randomizeLock = false;
 
@@ -217,76 +217,43 @@
     randomizeLock = true;
 
     var wrap = document.querySelector('.aurora-wrap--center');
-    var inner = document.querySelector('.aurora--center');
-    var parent = wrap && wrap.parentNode;
-    if (!wrap || !inner || !parent) { randomizeLock = false; return; }
+    if (!wrap) { randomizeLock = false; return; }
 
     var r = function(min, max) { return min + Math.random() * (max - min); };
     var pick = function(arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
-    // Shared: create temp from current appearance
-    function captureTemp() {
-      var t = document.createElement('div');
-      t.className = 'aurora-temp';
-      ['left', 'right', 'top', 'width', 'height', 'display'].forEach(function (p) {
-        if (wrap.style[p]) t.style[p] = wrap.style[p];
-      });
-      t.style.transform = (wrap.style.transform || '') + ' ' + (inner.style.transform || '');
-      if (inner.style.background) t.style.background = inner.style.background;
-      if (inner.style.borderRadius) t.style.borderRadius = inner.style.borderRadius;
-      t.style.opacity = '1';
-      return t;
-    }
+    function release() { randomizeLock = false; }
 
-    function cleanup() { randomizeLock = false; }
-
-    var mode = pick(['crossfade', 'fade-out-in', 'staggered']);
+    var mode = pick(['fade-in-out', 'delayed-reveal', 'slow-fade']);
+    var fadeOut, gap, fadeIn;
 
     switch (mode) {
-      case 'crossfade':
-        var t = captureTemp();
-        parent.insertBefore(t, wrap);
-        randomizeAurora();
-        requestAnimationFrame(function () {
-          t.style.transition = 'opacity 1.5s ease';
-          t.style.opacity = '0';
-          setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); cleanup(); }, 1550);
-        });
-        break;
-
-      case 'fade-out-in':
-        var t2 = captureTemp();
-        parent.insertBefore(t2, wrap);
-        randomizeAurora();
-        requestAnimationFrame(function () {
-          t2.style.transition = 'opacity 0.8s ease';
-          t2.style.opacity = '0';
-          setTimeout(function () {
-            if (t2.parentNode) t2.parentNode.removeChild(t2);
-            setTimeout(function () { cleanup(); }, r(500, 2000));
-          }, 850);
-        });
-        break;
-
-      case 'staggered':
-        var t3 = captureTemp();
-        parent.insertBefore(t3, wrap);
-        wrap.style.opacity = '0';
-        requestAnimationFrame(function () {
-          t3.style.transition = 'opacity 0.8s ease';
-          t3.style.opacity = '0';
-          setTimeout(function () {
-            if (t3.parentNode) t3.parentNode.removeChild(t3);
-            randomizeAurora();
-            setTimeout(function () {
-              wrap.style.transition = 'opacity 1s ease';
-              wrap.style.opacity = '';
-              setTimeout(function () { wrap.style.transition = ''; cleanup(); }, 1100);
-            }, r(500, 2000));
-          }, 850);
-        });
-        break;
+      case 'fade-in-out':
+        fadeOut = 0.6; gap = 0; fadeIn = 0.8; break;
+      case 'delayed-reveal':
+        fadeOut = 0.5; gap = r(0.5, 2); fadeIn = 0.8; break;
+      case 'slow-fade':
+        fadeOut = 1.2; gap = 0; fadeIn = 1.2; break;
     }
+
+    wrap.style.transition = 'opacity ' + fadeOut + 's ease';
+    wrap.style.opacity = '0';
+
+    setTimeout(function () {
+      randomizeAurora();
+
+      var show = function () {
+        wrap.style.transition = 'opacity ' + fadeIn + 's ease';
+        wrap.style.opacity = '';
+        setTimeout(function () { wrap.style.transition = ''; release(); }, fadeIn * 1000 + 50);
+      };
+
+      if (gap > 0) {
+        setTimeout(show, gap * 1000);
+      } else {
+        show();
+      }
+    }, fadeOut * 1000 + 50);
   }
 
   // ---- Screensaver toggle ----
