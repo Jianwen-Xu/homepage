@@ -208,6 +208,35 @@
     c.style.background = greens.join(', ');
   }
 
+  // ---- Smooth randomize (fade out/in) ----
+
+  var randomizeLock = false;
+
+  function smoothRandomize() {
+    if (randomizeLock) return;
+    randomizeLock = true;
+
+    var wrap = document.querySelector('.aurora-wrap--center');
+    if (!wrap) { randomizeLock = false; return; }
+
+    wrap.style.transition = 'opacity 0.5s ease';
+    wrap.style.opacity = '0';
+
+    setTimeout(function () {
+      randomizeAurora();
+      wrap.offsetHeight;
+      wrap.style.transition = 'opacity 0.7s ease';
+      wrap.style.opacity = '';
+
+      setTimeout(function () {
+        requestAnimationFrame(function () {
+          wrap.style.transition = '';
+          randomizeLock = false;
+        });
+      }, 750);
+    }, 500);
+  }
+
   // ---- Screensaver toggle ----
 
   function initScreensaver() {
@@ -216,7 +245,7 @@
 
     var shuffleBtn = document.getElementById('shuffle-btn');
     if (shuffleBtn) {
-      shuffleBtn.addEventListener('click', randomizeAurora);
+      shuffleBtn.addEventListener('click', smoothRandomize);
     }
 
     var autoBtn = document.getElementById('auto-btn');
@@ -226,7 +255,7 @@
       if (autoTimer) return;
       autoBtn.classList.add('active');
       function tick() {
-        randomizeAurora();
+        smoothRandomize();
         autoTimer = setTimeout(tick, 4000 + Math.random() * 4000);
       }
       tick();
@@ -282,6 +311,8 @@
         wraps[i].style.transform = '';
         wraps[i].style.display = '';
         wraps[i].style.mixBlendMode = '';
+        wraps[i].style.opacity = '';
+        wraps[i].style.transition = '';
       }
       for (var j = 0; j < inners.length; j++) {
         inners[j].style.borderRadius = '';
@@ -293,6 +324,7 @@
     }
 
     function enter() {
+      randomizeLock = false;
       clearAuroraStyles();
       stopAutoShuffle();
       document.body.classList.add('screensaver');
@@ -302,6 +334,7 @@
     }
 
     function exit() {
+      randomizeLock = false;
       document.body.classList.remove('screensaver');
       btn.querySelector('i').className = 'fas fa-expand';
       stopShootingStars();
