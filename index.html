@@ -6,17 +6,17 @@
   <title>Jianwen Xu · Web Developer / Frontend Engineer</title>
   <meta name="description" content="Jianwen Xu — Web Developer / Frontend Engineer with 10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-framework@4/build/css/vanilla.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;450;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <!-- Skip to content for keyboard users -->
   <a href="#about" class="skip-link">Skip to main content</a>
 
-  <!-- Navigation -->
   <nav class="nav-bar" id="nav-bar" aria-label="Main navigation">
-    <div class="nav-bar__inner row">
+    <div class="nav-bar__inner">
       <a href="#hero" class="nav-bar__name">Jianwen Xu</a>
       <button class="nav-bar__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
         <i class="fas fa-bars" aria-hidden="true"></i>
@@ -32,72 +32,67 @@
   </nav>
 
   <main id="main-content">
+
   <!-- Hero -->
   <section class="hero" id="hero" aria-label="Introduction">
-    <!-- Aurora Borealis background -->
     <div id="ab-container" class="ab" aria-hidden="true"></div>
-
-    <!-- Content -->
-    <div class="row u-vertically-center hero__content">
-      <div class="col-8">
-        <h1 class="hero__name">Jianwen Xu</h1>
-        <p class="p-heading--3 hero__title">Web Developer / Frontend Engineer</p>
-        <p class="p-heading--5 hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
-        <div class="hero__cta">
-          <a href="https://github.com/Jianwen-Xu" class="p-button--positive hero__btn" target="_blank" rel="noopener" aria-label="View GitHub profile">
-            <i class="fab fa-github" aria-hidden="true"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/jianwen-xu/" class="p-button hero__btn" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
-          </a>
-        </div>
+    <div class="hero__content">
+      <h1 class="hero__name">Jianwen Xu</h1>
+      <p class="hero__title">Web Developer / Frontend Engineer</p>
+      <p class="hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
+      <div class="hero__cta">
+        <a href="https://github.com/Jianwen-Xu" class="btn btn--primary" target="_blank" rel="noopener" aria-label="View GitHub profile">
+          <i class="fab fa-github" aria-hidden="true"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/jianwen-xu/" class="btn btn--outline" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+        </a>
       </div>
     </div>
   </section>
 
   <!-- About + Skills -->
-  <section class="p-strip about-skills" id="about">
-    <div class="row about-skills__row">
-      <!-- Photo -->
-      <div class="col-4 about__photo-col">
-        <img src="assets/profile.png" alt="Jianwen Xu - Web Developer / Frontend Engineer" class="about__photo" loading="lazy">
-      </div>
-      <!-- About -->
-      <div class="col-4 about">
-        <h2>About</h2>
-        <p class="p-heading--5 about__subtitle">Web Developer / Frontend Engineer with 10+ years of experience</p>
-        <p>Expert in JavaScript and TypeScript (Angular, Vue), with hands-on API integration and Azure serverless backends. STEM background (B.Eng + M.Sc) provides the domain depth valued in AI-training work. Comfortable in distributed, international teams (Finland & China) and remote, independent delivery.</p>
-        <p>I build responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce — from Angular dashboards to Vue mobile apps, from frontend architecture to full-stack delivery.</p>
-      </div>
-      <!-- Skills -->
-      <div class="col-4 skills" id="skills">
-        <h2>Skills</h2>
-        <div class="p-card skills__card">
-          <h3 class="p-heading--4"><i class="fas fa-code skills__icon"></i> Languages</h3>
-          <div class="skills__tags">
-            <span class="p-tag">JavaScript</span>
-            <span class="p-tag">TypeScript</span>
-            <span class="p-tag">Python</span>
-            <span class="p-tag">Rust</span>
-            <span class="p-tag">Java</span>
-            <span class="p-tag">C#</span>
-          </div>
+  <section class="section reveal" id="about">
+    <div class="container">
+      <div class="about-skills__grid">
+        <div>
+          <img src="assets/profile.png" alt="Jianwen Xu - Web Developer / Frontend Engineer" class="about__photo" loading="lazy">
         </div>
-        <div class="p-card skills__card">
-          <h3 class="p-heading--4"><i class="fas fa-layer-group skills__icon"></i> Frameworks</h3>
-          <div class="skills__tags">
-            <span class="p-tag">Angular</span>
-            <span class="p-tag">Vue.js</span>
-            <span class="p-tag">.NET</span>
-            <span class="p-tag">REST APIs</span>
-          </div>
+        <div class="about">
+          <h2>About</h2>
+          <p class="about__subtitle">Web Developer / Frontend Engineer with 10+ years of experience</p>
+          <p>Expert in JavaScript and TypeScript (Angular, Vue), with hands-on API integration and Azure serverless backends. STEM background (B.Eng + M.Sc) provides the domain depth valued in AI-training work. Comfortable in distributed, international teams (Finland & China) and remote, independent delivery.</p>
+          <p>I build responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce — from Angular dashboards to Vue mobile apps, from frontend architecture to full-stack delivery.</p>
         </div>
-        <div class="p-card skills__card">
-          <h3 class="p-heading--4"><i class="fas fa-cloud skills__icon"></i> Cloud & Tools</h3>
-          <div class="skills__tags">
-            <span class="p-tag">Azure</span>
-            <span class="p-tag">Git</span>
-            <span class="p-tag">CI/CD</span>
+        <div class="skills" id="skills">
+          <h2>Skills</h2>
+          <div class="skills__group">
+            <p class="skills__group-title">Languages</p>
+            <div class="skills__tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">Rust</span>
+              <span class="tag">Java</span>
+              <span class="tag">C#</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <p class="skills__group-title">Frameworks</p>
+            <div class="skills__tags">
+              <span class="tag">Angular</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">.NET</span>
+              <span class="tag">REST APIs</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <p class="skills__group-title">Cloud & Tools</p>
+            <div class="skills__tags">
+              <span class="tag">Azure</span>
+              <span class="tag">Git</span>
+              <span class="tag">CI/CD</span>
+            </div>
           </div>
         </div>
       </div>
@@ -105,148 +100,122 @@
   </section>
 
   <!-- Experience -->
-  <section class="p-strip--light experience" id="experience">
-    <div class="row">
-      <h2>Experience</h2>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="timeline">
+  <section class="section reveal" id="experience">
+    <div class="container">
+      <h2 class="section__title">Experience</h2>
+      <div class="timeline">
 
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">Full Stack Engineer</h3>
-                <span class="timeline__meta">QOCO Systems Ltd · Espoo, Finland</span>
-                <span class="timeline__date">Jan 2022 – Jun 2026</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Built responsive, accessible web UIs and reusable components for enterprise SaaS with Angular + TypeScript + JavaScript, aligned to accessibility standards and verified across browsers.</li>
-                <li>Integrated and consumed RESTful APIs and Azure Functions to handle seamless front-back data exchange for cloud SaaS workflows.</li>
-                <li>Improved page-load performance via code splitting, lazy loading, and asset optimization.</li>
-                <li>Delivered end-to-end features spanning Angular frontend to C#/.NET Azure backend; contributed to frontend architecture decisions.</li>
-              </ul>
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Full Stack Engineer</h3>
+              <span class="timeline__meta">QOCO Systems Ltd · Espoo, Finland</span>
+              <span class="timeline__date">Jan 2022 – Jun 2026</span>
             </div>
+            <ul class="timeline__bullets">
+              <li>Built responsive, accessible web UIs and reusable components for enterprise SaaS with Angular + TypeScript + JavaScript, aligned to accessibility standards and verified across browsers.</li>
+              <li>Integrated and consumed RESTful APIs and Azure Functions to handle seamless front-back data exchange for cloud SaaS workflows.</li>
+              <li>Improved page-load performance via code splitting, lazy loading, and asset optimization.</li>
+              <li>Delivered end-to-end features spanning Angular frontend to C#/.NET Azure backend; contributed to frontend architecture decisions.</li>
+            </ul>
           </div>
-
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">Software Architect</h3>
-                <span class="timeline__meta">Xiamen Airlines · Xiamen, China</span>
-                <span class="timeline__date">Jul 2015 – Jun 2019</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Defined architecture and coding standards for aircraft-maintenance software; mentored and aligned engineering teams.</li>
-                <li>Built a mobile WeChat web app (Vue.js + WeUI) giving field engineers on-the-go maintenance access.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">Software Engineering Manager / Lead Developer</h3>
-                <span class="timeline__meta">Moshi (Xiamen) E-Commerce · Xiamen, China</span>
-                <span class="timeline__date">Jul 2014 – Jun 2015</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Led a distributed team building catering information systems end-to-end (Angular frontend + Java backend).</li>
-                <li>Delivered clean, documented code across the full development lifecycle.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">Software Engineer</h3>
-                <span class="timeline__meta">Shenzhen Comtop Tech · Shenzhen, China</span>
-                <span class="timeline__date">Jul 2011 – Jun 2014</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Developed enterprise Java EE web applications and contributed to full lifecycle software engineering.</li>
-              </ul>
-            </div>
-          </div>
-
         </div>
+
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Software Architect</h3>
+              <span class="timeline__meta">Xiamen Airlines · Xiamen, China</span>
+              <span class="timeline__date">Jul 2015 – Jun 2019</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Defined architecture and coding standards for aircraft-maintenance software; mentored and aligned engineering teams.</li>
+              <li>Built a mobile WeChat web app (Vue.js + WeUI) giving field engineers on-the-go maintenance access.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Software Engineering Manager / Lead Developer</h3>
+              <span class="timeline__meta">Moshi (Xiamen) E-Commerce · Xiamen, China</span>
+              <span class="timeline__date">Jul 2014 – Jun 2015</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Led a distributed team building catering information systems end-to-end (Angular frontend + Java backend).</li>
+              <li>Delivered clean, documented code across the full development lifecycle.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal reveal-delay-1">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h3 class="timeline__role">Software Engineer</h3>
+              <span class="timeline__meta">Shenzhen Comtop Tech · Shenzhen, China</span>
+              <span class="timeline__date">Jul 2011 – Jun 2014</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Developed enterprise Java EE web applications and contributed to full lifecycle software engineering.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Education -->
-  <section class="p-strip--light education" id="education">
-    <div class="row">
-      <h2>Education</h2>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="timeline">
-
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">M.Sc. Information Processing Science (STEM)</h3>
-                <span class="timeline__meta">University of Oulu, Finland</span>
-                <span class="timeline__date">2019 – 2021</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline__item">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="p-heading--4">B.Eng. Computer Software Engineering (STEM)</h3>
-                <span class="timeline__meta">Harbin Institute of Technology, China</span>
-                <span class="timeline__date">2007 – 2011</span>
-              </div>
-            </div>
-          </div>
-
+  <section class="section section--tint reveal" id="education">
+    <div class="container">
+      <h2 class="section__title">Education</h2>
+      <div class="education__grid">
+        <div class="edu-card reveal reveal-delay-1">
+          <h3 class="edu-card__degree">M.Sc. Information Processing Science (STEM)</h3>
+          <p class="edu-card__school">University of Oulu, Finland</p>
+          <span class="edu-card__date">2019 – 2021</span>
+        </div>
+        <div class="edu-card reveal reveal-delay-2">
+          <h3 class="edu-card__degree">B.Eng. Computer Software Engineering (STEM)</h3>
+          <p class="edu-card__school">Harbin Institute of Technology, China</p>
+          <span class="edu-card__date">2007 – 2011</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="p-strip contact" id="contact">
-    <div class="row">
-      <div class="col-12 u-align--center">
+  <section class="section reveal" id="contact">
+    <div class="container">
+      <div class="contact__intro">
         <h2>Get in Touch</h2>
-        <p class="p-heading--5">Let's talk about your next project or opportunity</p>
+        <p>Let's talk about your next project or opportunity</p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 u-align--center">
-        <div class="contact__links">
-          <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email" aria-label="Send email to jianwen.xu.cn@gmail.com">
-            <i class="fas fa-envelope" aria-hidden="true"></i> jianwen.xu.cn@gmail.com
-          </a>
-          <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link" aria-label="View GitHub profile">
-            <i class="fab fa-github" aria-hidden="true"></i> Jianwen-Xu
-          </a>
-          <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link" aria-label="View LinkedIn profile">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i> jianwen-xu
-          </a>
-        </div>
+      <div class="contact__links">
+        <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email" aria-label="Send email to jianwen.xu.cn@gmail.com">
+          <i class="fas fa-envelope" aria-hidden="true"></i> jianwen.xu.cn@gmail.com
+        </a>
+        <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link" aria-label="View GitHub profile">
+          <i class="fab fa-github" aria-hidden="true"></i> Jianwen-Xu
+        </a>
+        <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link" aria-label="View LinkedIn profile">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i> jianwen-xu
+        </a>
       </div>
     </div>
   </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="p-strip--dark footer">
-    <div class="row">
-      <div class="col-12 u-align--center">
-        <p>&copy; 2026 Jianwen Xu. Built with <a href="https://vanillaframework.io/" target="_blank" rel="noopener">Vanilla Framework</a>.</p>
-      </div>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jianwen Xu</p>
     </div>
   </footer>
 
