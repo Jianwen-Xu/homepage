@@ -5,6 +5,14 @@
 
   // ---- Theme Switcher ----
 
+  function switchTheme(theme) {
+    var html = document.documentElement;
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    updateActiveOption(theme);
+    updateActiveCard(theme);
+  }
+
   function initThemeSwitcher() {
     var html = document.documentElement;
     var toggle = document.getElementById('nav-theme-toggle');
@@ -14,8 +22,7 @@
     // Restore saved theme
     var saved = localStorage.getItem(STORAGE_KEY);
     if (saved && document.querySelector('[data-theme="' + saved + '"]')) {
-      html.setAttribute('data-theme', saved);
-      updateActiveOption(saved);
+      switchTheme(saved);
     }
 
     // Toggle menu
@@ -25,13 +32,10 @@
       toggle.setAttribute('aria-expanded', open);
     });
 
-    // Select theme
+    // Select theme from nav dropdown
     options.forEach(function (opt) {
       opt.addEventListener('click', function () {
-        var theme = opt.getAttribute('data-theme');
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem(STORAGE_KEY, theme);
-        updateActiveOption(theme);
+        switchTheme(opt.getAttribute('data-theme'));
         menu.classList.remove('nav-theme__menu--open');
         toggle.setAttribute('aria-expanded', 'false');
       });
@@ -44,12 +48,24 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
+
+    // Select theme from hero cards
+    document.querySelectorAll('.hero__card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        switchTheme(card.getAttribute('data-theme'));
+      });
+    });
   }
 
   function updateActiveOption(theme) {
-    var options = document.querySelectorAll('.theme-option');
-    options.forEach(function (opt) {
+    document.querySelectorAll('.theme-option').forEach(function (opt) {
       opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
+    });
+  }
+
+  function updateActiveCard(theme) {
+    document.querySelectorAll('.hero__card').forEach(function (card) {
+      card.classList.toggle('active', card.getAttribute('data-theme') === theme);
     });
   }
 

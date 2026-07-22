@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="aurora">
+<html lang="en" data-theme="monochrome">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +32,11 @@
             <i class="fas fa-palette"></i>
           </button>
           <div class="nav-theme__menu" id="nav-theme-menu">
-            <button class="theme-option active" data-theme="aurora" aria-label="Aurora theme">
+            <button class="theme-option" data-theme="aurora" aria-label="Aurora theme">
               <span class="theme-dot theme-dot--aurora"></span>
               <span class="theme-label">Aurora</span>
             </button>
-            <button class="theme-option" data-theme="monochrome" aria-label="Monochrome theme">
+            <button class="theme-option active" data-theme="monochrome" aria-label="Monochrome theme">
               <span class="theme-dot theme-dot--monochrome"></span>
               <span class="theme-label">Mono</span>
             </button>
@@ -64,24 +64,55 @@
   <section class="hero" id="hero" aria-label="Introduction">
     <div id="ab-container" class="ab" aria-hidden="true"></div>
     <div class="hero__content">
-      <h1 class="hero__name">Jianwen Xu</h1>
-      <p class="hero__title">Web Developer / Frontend Engineer</p>
-      <p class="hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
-      <div class="hero__cta">
-        <a href="https://github.com/Jianwen-Xu" class="btn btn--primary" target="_blank" rel="noopener" aria-label="View GitHub profile">
-          <i class="fab fa-github" aria-hidden="true"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/jianwen-xu/" class="btn btn--outline" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
-          <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
-        </a>
+      <div class="hero__text">
+        <h1 class="hero__name">Jianwen Xu</h1>
+        <p class="hero__title">Web Developer / Frontend Engineer</p>
+        <p class="hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
+        <div class="hero__cta">
+          <a href="https://github.com/Jianwen-Xu" class="btn btn--primary" target="_blank" rel="noopener" aria-label="View GitHub profile">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/jianwen-xu/" class="btn btn--outline" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="hero__cards">
+        <div class="hero__cards-heading">
+          <svg class="hero__cards-arrow" viewBox="0 0 24 44" width="24" height="44" aria-hidden="true">
+            <path d="M12 4 L12 36 M12 36 L6 28 M12 36 L18 28"
+                  fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="hero__cards-hint">Click to switch theme</span>
+        </div>
+        <button class="hero__card" data-theme="aurora" aria-label="Aurora theme">
+          <img src="assets/theme-aurora-thumb.png" alt="Aurora" loading="lazy">
+          <span class="hero__card-label">Aurora</span>
+        </button>
+        <button class="hero__card active" data-theme="monochrome" aria-label="Monochrome theme">
+          <img src="assets/theme-monochrome-thumb.png" alt="Monochrome" loading="lazy">
+          <span class="hero__card-label">Mono</span>
+        </button>
+        <button class="hero__card" data-theme="warm" aria-label="Warm theme">
+          <img src="assets/theme-warm-thumb.png" alt="Warm" loading="lazy">
+          <span class="hero__card-label">Warm</span>
+        </button>
+        <button class="hero__card" data-theme="matrix" aria-label="Matrix theme">
+          <img src="assets/theme-matrix-thumb.png" alt="Matrix" loading="lazy">
+          <span class="hero__card-label">Matrix</span>
+        </button>
+        <button class="hero__card" data-theme="glass" aria-label="Glass theme">
+          <img src="assets/theme-glass-thumb.png" alt="Glass" loading="lazy">
+          <span class="hero__card-label">Glass</span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- About + Skills -->
+  <!-- About -->
   <section class="section reveal" id="about">
     <div class="container">
-      <div class="about-skills__grid">
+      <div class="about__grid">
         <div>
           <img src="assets/profile.png" alt="Jianwen Xu - Web Developer / Frontend Engineer" class="about__photo" loading="lazy">
         </div>
@@ -91,35 +122,41 @@
           <p>Expert in JavaScript and TypeScript (Angular, Vue), with hands-on API integration and Azure serverless backends. STEM background (B.Eng + M.Sc) provides the domain depth valued in AI-training work. Comfortable in distributed, international teams (Finland & China) and remote, independent delivery.</p>
           <p>I build responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce — from Angular dashboards to Vue mobile apps, from frontend architecture to full-stack delivery.</p>
         </div>
-        <div class="skills" id="skills">
-          <h2>Skills</h2>
-          <div class="skills__group">
-            <p class="skills__group-title">Languages</p>
-            <div class="skills__tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Python</span>
-              <span class="tag">Rust</span>
-              <span class="tag">Java</span>
-              <span class="tag">C#</span>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section reveal section--tint" id="skills">
+    <div class="container">
+      <div class="skills">
+        <h2>Skills</h2>
+        <div class="skills__group">
+          <p class="skills__group-title">Languages</p>
+          <div class="skills__tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Java</span>
+            <span class="tag">C#</span>
           </div>
-          <div class="skills__group">
-            <p class="skills__group-title">Frameworks</p>
-            <div class="skills__tags">
-              <span class="tag">Angular</span>
-              <span class="tag">Vue.js</span>
-              <span class="tag">.NET</span>
-              <span class="tag">REST APIs</span>
-            </div>
+        </div>
+        <div class="skills__group">
+          <p class="skills__group-title">Frameworks</p>
+          <div class="skills__tags">
+            <span class="tag">Angular</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">.NET</span>
+            <span class="tag">REST APIs</span>
           </div>
-          <div class="skills__group">
-            <p class="skills__group-title">Cloud & Tools</p>
-            <div class="skills__tags">
-              <span class="tag">Azure</span>
-              <span class="tag">Git</span>
-              <span class="tag">CI/CD</span>
-            </div>
+        </div>
+        <div class="skills__group">
+          <p class="skills__group-title">Cloud & Tools</p>
+          <div class="skills__tags">
+            <span class="tag">Azure</span>
+            <span class="tag">Git</span>
+            <span class="tag">CI/CD</span>
           </div>
         </div>
       </div>

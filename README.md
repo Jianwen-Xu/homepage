@@ -5,19 +5,21 @@ Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.g
 
 ## Tech Stack
 
-- **Framework**: [Vanilla Framework](https://vanillaframework.io/) (CDN)
+- **Design**: Custom CSS with 5‑theme system via CSS custom properties
 - **Icons**: [Font Awesome](https://fontawesome.com/) (CDN)
+- **Fonts**: Outfit, Inter, Figtree, JetBrains Mono (Google Fonts)
 - **Aurora**: [Aurora Borealis](aurora-borealis/) — self-contained component library
 - **No build step** — pure static files
 
 ## Features
 
+- **5‑theme switcher** — Aurora, Monochrome, Warm, Matrix, Glass; persisted to `localStorage`
+- **Hero theme previews** — clickable poker‑fan card thumbnails with frosted‑glass backdrop
 - **Aurora hero** — animated northern lights with SVG feTurbulence filter and `mix-blend-mode: color-dodge`
 - **Stars** — 80 randomly positioned twinkling stars
-- **Mountains** — 3-layer cubic bezier SVG silhouettes
 - **Screensaver mode** — fullscreen toggle that hides UI, shows only animated background
 - **Auto-shuffle** — randomly cycles aurora shapes every 8-14s with 3 fade transition modes
-- **Responsive** — mobile nav toggle, Vanilla Framework grid
+- **Responsive** — mobile nav with hamburger toggle, fluid grids
 - **Accessible** — skip-link, ARIA labels, `prefers-reduced-motion` support
 
 ## Structure
@@ -30,14 +32,28 @@ Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.g
 │   ├── index.html             #   Demo page
 │   └── package.json
 ├── assets/
-│   ├── style.css              # Page styles (clean, ~600 lines)
-│   ├── script.js              # Nav, scroll, AuroraBorealis init
+│   ├── style.css              # Page styles (~1300 lines, 5 theme token blocks)
+│   ├── script.js              # Theme switcher, nav, scroll, AuroraBorealis init
 │   ├── profile.png            # Profile photo
-│   └── favicon.svg            # JX monogram favicon
+│   ├── favicon.svg            # JX monogram favicon
+│   ├── theme-*-thumb.png      # Compressed theme preview thumbnails (140×73)
+│   └── theme-*.png            # Full-size theme screenshots
 ├── README.md
 ├── LICENSE
 └── .gitignore
 ```
+
+## Themes
+
+| Theme | Description |
+|-------|-------------|
+| Aurora (default) | Teal + navy, animated aurora hero |
+| Monochrome | Grayscale, Inter, minimal |
+| Warm | Beige + terracotta, Figtree |
+| Matrix | Dark + green, JetBrains Mono |
+| Glass | iOS frosted, Inter, Apple blue |
+
+Switch via the palette icon in the nav bar or the card previews in the hero section.
 
 ## Development
 
