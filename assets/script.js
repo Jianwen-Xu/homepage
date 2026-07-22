@@ -1,6 +1,60 @@
 (function () {
   'use strict';
 
+  var STORAGE_KEY = 'homepage-theme';
+
+  // ---- Theme Switcher ----
+
+  function initThemeSwitcher() {
+    var html = document.documentElement;
+    var toggle = document.getElementById('nav-theme-toggle');
+    var menu = document.getElementById('nav-theme-menu');
+    var options = menu.querySelectorAll('.theme-option');
+
+    // Restore saved theme
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && document.querySelector('[data-theme="' + saved + '"]')) {
+      html.setAttribute('data-theme', saved);
+      updateActiveOption(saved);
+    }
+
+    // Toggle menu
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('nav-theme__menu--open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // Select theme
+    options.forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        var theme = opt.getAttribute('data-theme');
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem(STORAGE_KEY, theme);
+        updateActiveOption(theme);
+        menu.classList.remove('nav-theme__menu--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function (e) {
+      if (!toggle.parentElement.contains(e.target)) {
+        menu.classList.remove('nav-theme__menu--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function updateActiveOption(theme) {
+    var options = document.querySelectorAll('.theme-option');
+    options.forEach(function (opt) {
+      opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
+    });
+  }
+
+  // ---- Nav scroll effect ----
+
   function initNav() {
     var nav = document.getElementById('nav-bar');
     var toggle = document.getElementById('nav-toggle');
@@ -27,6 +81,8 @@
     });
   }
 
+  // ---- Scroll reveal ----
+
   function initScrollReveal() {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
@@ -45,7 +101,10 @@
     });
   }
 
+  // ---- Init ----
+
   document.addEventListener('DOMContentLoaded', function () {
+    initThemeSwitcher();
     initNav();
     initScrollReveal();
     new AuroraBorealis('#ab-container', {
