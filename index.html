@@ -25,6 +25,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
         <li class="nav-theme">
@@ -178,10 +179,14 @@
               <span class="timeline__date">Jan 2022 – Jun 2026</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Built responsive, accessible web UIs and reusable components for enterprise SaaS with Angular + TypeScript + JavaScript, aligned to accessibility standards and verified across browsers.</li>
-              <li>Integrated and consumed RESTful APIs and Azure Functions to handle seamless front-back data exchange for cloud SaaS workflows.</li>
-              <li>Improved page-load performance via code splitting, lazy loading, and asset optimization.</li>
-              <li>Delivered end-to-end features spanning Angular frontend to C#/.NET Azure backend; contributed to frontend architecture decisions.</li>
+              <li>Owned end-to-end features for a cloud-hosted aviation digital services platform, from requirements and architecture through implementation, delivery, and production support.</li>
+              <li>Built TypeScript/Angular web applications for dashboards, KPI visualization, reporting, and operational workflows; created a reusable typed frontend data layer that centralizes API calls, response mapping, shared observables, and loading/error state.</li>
+              <li>Designed and built C#/.NET REST APIs and Azure services for data ingestion, validation, normalization, transformation, persistence, and reconciliation reporting.</li>
+              <li>Worked with PostgreSQL data models, wrote data cleansing and transformation rules, and used Flyway for database migration synchronization.</li>
+              <li>Integrated external aviation systems including AMOS, Aviadex, and DACS, handling cross-system data exchange and consistency.</li>
+              <li>Improved KPI dashboard performance with centralized filter/data state, switchMap, shareReplay, debouncing, OnPush change detection, and proper subscription cleanup.</li>
+              <li>Implemented secure authentication and authorization with Microsoft Entra ID and JWT bearer tokens, including role-based access control.</li>
+              <li>Used Azure Application Insights for observability, monitoring, debugging, and production troubleshooting; collaborated with product, design, customers, and external vendors.</li>
             </ul>
           </div>
         </div>
@@ -195,8 +200,10 @@
               <span class="timeline__date">Jul 2015 – Jun 2019</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Defined architecture and coding standards for aircraft-maintenance software; mentored and aligned engineering teams.</li>
+              <li>Defined architecture, coding standards, and technical direction for mission-critical aircraft-maintenance software; led and mentored engineering teams across frontend and backend.</li>
               <li>Built a mobile WeChat web app (Vue.js + WeUI) giving field engineers on-the-go maintenance access.</li>
+              <li>Participated in 24/7 on-call and production incident ownership for business-critical airline systems.</li>
+              <li>Contributed to multi-region architecture, high availability, and disaster recovery design and operations.</li>
             </ul>
           </div>
         </div>
@@ -210,8 +217,9 @@
               <span class="timeline__date">Jul 2014 – Jun 2015</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Led a distributed team building catering information systems end-to-end (Angular frontend + Java backend).</li>
-              <li>Delivered clean, documented code across the full development lifecycle.</li>
+              <li>Led a distributed team delivering end-to-end information systems using Angular frontend and Java backend.</li>
+              <li>Owned the full development lifecycle, including architecture, APIs, data models, delivery, and maintenance.</li>
+              <li>Promoted clean, documented, maintainable code and consistent engineering practices.</li>
             </ul>
           </div>
         </div>
@@ -225,10 +233,56 @@
               <span class="timeline__date">Jul 2011 – Jun 2014</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Developed enterprise Java EE web applications and contributed to full lifecycle software engineering.</li>
+              <li>Developed enterprise Java EE web applications for China Southern Power Grid, primarily building distribution network cost estimation software for power grid engineering.</li>
+              <li>Contributed across the full software lifecycle and built a strong foundation in structured enterprise software engineering, production delivery, and maintainable code.</li>
             </ul>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section reveal" id="projects">
+    <div class="container">
+      <h2 class="section__title">Projects</h2>
+      <div class="projects__grid">
+
+        <article class="project-card reveal reveal-delay-1">
+          <div class="project-card__header">
+            <h3 class="project-card__title">
+              <a href="https://github.com/Jianwen-Xu/deep-demo" target="_blank" rel="noopener">deep-demo</a>
+            </h3>
+            <span class="project-card__badge">AI / LLM</span>
+          </div>
+          <p class="project-card__desc">A DeepSeek-powered multi-agent prototyping system that turns natural-language requirements into a working React/Vite web prototype. It automatically generates Playwright E2E tests, runs the app, reviews failures, and iterates with retry or abort decisions using Developer, Tester, Reviewer, and Orchestrator agents.</p>
+          <div class="skills__tags">
+            <span class="tag">DeepSeek</span>
+            <span class="tag">Multi-agent</span>
+            <span class="tag">React</span>
+            <span class="tag">Vite</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal reveal-delay-2">
+          <div class="project-card__header">
+            <h3 class="project-card__title">
+              <a href="https://github.com/Jianwen-Xu/chrome-deepseek-translate" target="_blank" rel="noopener">chrome-deepseek-translate</a>
+            </h3>
+            <span class="project-card__badge">Chrome Extension</span>
+          </div>
+          <p class="project-card__desc">A Chrome extension powered by DeepSeek AI for one-click text translation and screenshot-based image recognition and translation. Built with Manifest V3, a Service Worker, message-driven architecture, OffscreenCanvas image processing, an LRU translation cache, and secure API key storage.</p>
+          <div class="skills__tags">
+            <span class="tag">DeepSeek Vision</span>
+            <span class="tag">Manifest V3</span>
+            <span class="tag">Service Worker</span>
+            <span class="tag">OffscreenCanvas</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </article>
 
       </div>
     </div>
