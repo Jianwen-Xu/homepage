@@ -956,6 +956,21 @@ p { margin: 0; }
   color: var(--accent);
 }
 
+.project-card__title a::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.8em;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card__title a:hover::after {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
 .project-card__badge {
   font-size: 0.75rem;
   font-weight: 600;
@@ -977,6 +992,42 @@ p { margin: 0; }
 .project-card .skills__tags {
   margin-top: auto;
   padding-top: 0.25rem;
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding-top: 0.25rem;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-card__link::after {
+  content: "\2197";
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.project-card__link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.project-card__link:hover::after {
+  transform: translate(2px, -2px);
 }
 
 /* ================================================================

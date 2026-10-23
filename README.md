@@ -20,7 +20,7 @@ Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.g
 - **Screensaver mode** — fullscreen toggle that hides UI, shows only animated background
 - **Auto-shuffle** — randomly cycles aurora shapes every 8-14s with 3 fade transition modes
 - **Responsive** — mobile nav with hamburger toggle, fluid grids
-- **Projects** — featured side projects with GitHub links (deep-demo, chrome-deepseek-translate)
+- **Projects** — featured side projects with GitHub and live demo links (deep-demo, chrome-deepseek-translate, zodcat)
 - **Accessible** — skip-link, ARIA labels, `prefers-reduced-motion` support
 
 ## Structure
