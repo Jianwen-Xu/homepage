@@ -3,34 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jianwen Xu · Web Developer / Frontend Engineer</title>
-  <meta name="description" content="Jianwen Xu — Web Developer / Frontend Engineer with 10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce.">
+  <title>Jianwen Xu · Full-Stack Software Engineer (.NET, Angular, Azure)</title>
+  <meta name="description" content="Full-stack engineer in Finland with 10+ years building production systems end to end: C#/.NET and Azure services, Angular/TypeScript frontends, and integrations that keep data honest. Available immediately.">
+  <link rel="canonical" href="https://jianwen-xu.github.io/homepage/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Jianwen Xu · Full-Stack Software Engineer">
+  <meta property="og:description" content="Angular frontend, .NET API, and the integrations that keep the data honest. Four and a half years on one aviation platform used by 40+ airlines and Rolls-Royce.">
+  <meta property="og:url" content="https://jianwen-xu.github.io/homepage/">
+  <meta property="og:image" content="https://jianwen-xu.github.io/homepage/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jianwen Xu · Full-Stack Software Engineer">
+  <meta name="twitter:description" content="Angular frontend, .NET API, and the integrations that keep the data honest. Available immediately in Finland.">
+  <meta name="twitter:image" content="https://jianwen-xu.github.io/homepage/assets/og.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;450;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jianwen Xu",
+    "jobTitle": "Full-Stack Software Engineer",
+    "url": "https://jianwen-xu.github.io/homepage/",
+    "image": "https://jianwen-xu.github.io/homepage/assets/profile.webp",
+    "email": "mailto:xujianwen37@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oulu",
+      "addressCountry": "FI"
+    },
+    "sameAs": [
+      "https://github.com/Jianwen-Xu",
+      "https://www.linkedin.com/in/jianwen-xu/"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Oulu" },
+      { "@type": "CollegeOrUniversity", "name": "Harbin Institute of Technology" }
+    ],
+    "knowsAbout": ["C#", ".NET", "Azure", "Angular", "TypeScript", "PostgreSQL", "REST APIs", "Systems integration"]
+  }
+  </script>
 </head>
 <body>
-  <a href="#about" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav class="nav-bar" id="nav-bar" aria-label="Main navigation">
     <div class="nav-bar__inner">
-      <a href="#hero" class="nav-bar__name">Jianwen Xu</a>
+      <a href="#top" class="nav-bar__name">Jianwen Xu</a>
       <button class="nav-bar__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-        <i class="fas fa-bars" aria-hidden="true"></i>
+        <svg width="21" height="21" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
       </button>
       <ul class="nav-bar__links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-cv"><a class="nav-cv__link" href="assets/Jianwen_Xu_CV.pdf" download>Download CV</a></li>
         <li class="nav-theme">
           <button class="nav-theme__btn" id="nav-theme-toggle" aria-label="Switch theme" aria-expanded="false">
-            <i class="fas fa-palette"></i>
+            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.8a7.2 7.2 0 0 1 0 14.4z" fill="currentColor"/></svg>
           </button>
           <div class="nav-theme__menu" id="nav-theme-menu">
             <button class="theme-option" data-theme="aurora" aria-label="Aurora theme">
@@ -62,180 +103,196 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section class="hero" id="hero" aria-label="Introduction">
+  <section class="hero" id="top" aria-label="Introduction">
     <div id="ab-container" class="ab" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="hero__text">
+        <p class="hero__eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to full-stack roles in Finland</p>
         <h1 class="hero__name">Jianwen Xu</h1>
-        <p class="hero__title">Web Developer / Frontend Engineer</p>
-        <p class="hero__tagline">10+ years building responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce</p>
+        <p class="hero__title">Full-Stack Software Engineer</p>
+        <p class="hero__tagline">Angular frontend, .NET API, and the integrations that keep the data honest. Four and a half years on one aviation platform used by 40+ airlines and Rolls-Royce.</p>
         <div class="hero__cta">
-          <a href="https://github.com/Jianwen-Xu" class="btn btn--primary" target="_blank" rel="noopener" aria-label="View GitHub profile">
-            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          <a href="assets/Jianwen_Xu_CV.pdf" class="btn btn--primary" download>
+            Download CV
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0 3-3m-3 3L5 7M3 13h10"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/jianwen-xu/" class="btn btn--outline" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
-          </a>
+          <a href="mailto:xujianwen37@gmail.com" class="btn btn--outline">Email me</a>
         </div>
+        <ul class="hero__facts">
+          <li>Oulu, Finland</li>
+          <li>Right to work in Finland</li>
+          <li>Available immediately</li>
+          <li>Open to relocation</li>
+        </ul>
       </div>
-      <div class="hero__cards">
-        <div class="hero__cards-heading">
-          <svg class="hero__cards-arrow" viewBox="0 0 24 44" width="24" height="44" aria-hidden="true">
-            <path d="M12 4 L12 36 M12 36 L6 28 M12 36 L18 28"
-                  fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="hero__cards-hint">Click to switch theme</span>
-        </div>
-        <button class="hero__card" data-theme="aurora" aria-label="Aurora theme">
-          <img src="assets/theme-aurora-thumb.png" alt="Aurora" loading="lazy">
-          <span class="hero__card-label">Aurora</span>
-        </button>
-        <button class="hero__card active" data-theme="monochrome" aria-label="Monochrome theme">
-          <img src="assets/theme-monochrome-thumb.png" alt="Monochrome" loading="lazy">
-          <span class="hero__card-label">Mono</span>
-        </button>
-        <button class="hero__card" data-theme="warm" aria-label="Warm theme">
-          <img src="assets/theme-warm-thumb.png" alt="Warm" loading="lazy">
-          <span class="hero__card-label">Warm</span>
-        </button>
-        <button class="hero__card" data-theme="matrix" aria-label="Matrix theme">
-          <img src="assets/theme-matrix-thumb.png" alt="Matrix" loading="lazy">
-          <span class="hero__card-label">Matrix</span>
-        </button>
-        <button class="hero__card" data-theme="glass" aria-label="Glass theme">
-          <img src="assets/theme-glass-thumb.png" alt="Glass" loading="lazy">
-          <span class="hero__card-label">Glass</span>
-        </button>
-      </div>
+
+      <figure class="hero__diagram">
+        <svg viewBox="0 0 640 420" role="img" aria-labelledby="diagram-title diagram-desc">
+          <title id="diagram-title">The layers I own, end to end</title>
+          <desc id="diagram-desc">Interface, API and data layers owned by one engineer, with the API also integrating external systems whose API and data model are not under our control.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="dg-arrow-head" d="M1 1 6 4 1 7"/>
+            </marker>
+          </defs>
+
+          <text class="dg-kicker" x="90" y="20">ONE OWNER / END TO END</text>
+
+          <!-- Interface -->
+          <rect class="dg-box" x="90" y="40" width="380" height="78" rx="10"/>
+          <text class="dg-title" x="110" y="72">Interface</text>
+          <text class="dg-sub" x="110" y="92">Angular &middot; TypeScript &middot; accessibility</text>
+          <text class="dg-num" x="450" y="80" text-anchor="end">01</text>
+
+          <!-- API -->
+          <rect class="dg-box dg-box--strong" x="90" y="150" width="380" height="78" rx="10"/>
+          <rect x="94" y="158" width="3" height="62" rx="1.5" fill="var(--brand)"/>
+          <text class="dg-title" x="110" y="182">API &amp; integration</text>
+          <text class="dg-sub" x="110" y="202">.NET &middot; REST &middot; external systems</text>
+          <text class="dg-num" x="450" y="190" text-anchor="end">02</text>
+
+          <!-- Data -->
+          <rect class="dg-box" x="90" y="260" width="380" height="78" rx="10"/>
+          <text class="dg-title" x="110" y="292">Data</text>
+          <text class="dg-sub" x="110" y="312">PostgreSQL &middot; SQL &middot; data models</text>
+          <text class="dg-num" x="450" y="300" text-anchor="end">03</text>
+
+          <!-- Flow -->
+          <path class="dg-edge" d="M280 118 V150" marker-end="url(#arrow)"/>
+          <path class="dg-edge" d="M280 228 V260" marker-end="url(#arrow)"/>
+
+          <!-- External systems -->
+          <rect class="dg-box dg-box--dashed" x="510" y="150" width="120" height="78" rx="10"/>
+          <text class="dg-title dg-title--sm" x="570" y="178" text-anchor="middle">External</text>
+          <text class="dg-sub" x="570" y="197" text-anchor="middle">their API</text>
+          <text class="dg-sub" x="570" y="212" text-anchor="middle">their model</text>
+          <path class="dg-edge" d="M470 189 H510" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+        </svg>
+      </figure>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section reveal" id="about">
+  <!-- Selected work -->
+  <section class="section" id="work">
     <div class="container">
-      <div class="about__grid">
-        <div>
-          <img src="assets/profile.png" alt="Jianwen Xu - Web Developer / Frontend Engineer" class="about__photo" loading="lazy">
-        </div>
-        <div class="about">
-          <h2>About</h2>
-          <p class="about__subtitle">Web Developer / Frontend Engineer with 10+ years of experience</p>
-          <p>Expert in JavaScript and TypeScript (Angular, Vue), with hands-on API integration and Azure serverless backends. STEM background (B.Eng + M.Sc) provides the domain depth valued in AI-training work. Comfortable in distributed, international teams (Finland & China) and remote, independent delivery.</p>
-          <p>I build responsive, accessible web applications across enterprise SaaS, aviation, and e-commerce — from Angular dashboards to Vue mobile apps, from frontend architecture to full-stack delivery.</p>
-        </div>
+      <div class="section-head reveal">
+        <p class="kicker">Selected work</p>
+        <h2 class="section-title">Three things I owned end to end</h2>
+        <p class="section-lede">Production systems, not side projects. Each one covers a different layer: data, interface, operations.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="section reveal section--tint" id="skills">
-    <div class="container">
-      <div class="skills">
-        <h2>Skills</h2>
-        <div class="skills__group">
-          <p class="skills__group-title">Languages</p>
+      <div class="case-grid">
+        <article class="case reveal">
+          <p class="case__index">01 / Data</p>
+          <h3 class="case__title">Reconciliation for engine life data</h3>
+          <p class="case__body">Every day, compares SDC and CSN life values between airline datasets and Rolls-Royce's engine-lifing system, then exports the differences. When two systems disagree about how much life a part has left, someone has to find out first.</p>
+          <p class="case__metric">40+ airlines &middot; daily</p>
           <div class="skills__tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">Rust</span>
-            <span class="tag">Java</span>
-            <span class="tag">C#</span>
+            <span class="tag">C#/.NET</span>
+            <span class="tag">Azure</span>
+            <span class="tag">SQL</span>
           </div>
-        </div>
-        <div class="skills__group">
-          <p class="skills__group-title">Frameworks</p>
+        </article>
+
+        <article class="case reveal">
+          <p class="case__index">02 / Interface</p>
+          <h3 class="case__title">Frontend from zero</h3>
+          <p class="case__body">Joined a platform with no frontend and built the Angular/TypeScript application, plus the typed data layer every later screen was built on: one place for API calls, response mapping, shared state, loading and error handling.</p>
+          <p class="case__metric">4.5 years &middot; one codebase</p>
           <div class="skills__tags">
             <span class="tag">Angular</span>
-            <span class="tag">Vue.js</span>
-            <span class="tag">.NET</span>
-            <span class="tag">REST APIs</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">RxJS</span>
           </div>
-        </div>
-        <div class="skills__group">
-          <p class="skills__group-title">Cloud & Tools</p>
+        </article>
+
+        <article class="case reveal">
+          <p class="case__index">03 / Operations</p>
+          <h3 class="case__title">Manual reporting, replaced</h3>
+          <p class="case__body">Monthly KPI reporting depended on one person running a Python script by hand. Nobody asked me to fix it. I rebuilt it on the platform's own data as live dashboards, and the twelve-person support team uses them daily.</p>
+          <p class="case__metric">12 people &middot; daily use</p>
           <div class="skills__tags">
             <span class="tag">Azure</span>
-            <span class="tag">Git</span>
-            <span class="tag">CI/CD</span>
+            <span class="tag">App Insights</span>
+            <span class="tag">SQL</span>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section class="section reveal" id="experience">
+  <section class="section section--tint" id="experience">
     <div class="container">
-      <h2 class="section__title">Experience</h2>
+      <div class="section-head reveal">
+        <p class="kicker">Experience</p>
+        <h2 class="section-title">Ten years, four teams, the whole path</h2>
+      </div>
       <div class="timeline">
 
-        <div class="timeline__item reveal reveal-delay-1">
+        <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
             <div class="timeline__header">
               <h3 class="timeline__role">Full Stack Engineer</h3>
-              <span class="timeline__meta">QOCO Systems Ltd · Espoo, Finland</span>
-              <span class="timeline__date">Jan 2022 – Jun 2026</span>
+              <span class="timeline__meta">QOCO Systems Ltd &middot; Espoo, Finland</span>
+              <span class="timeline__date">Jan 2022 &ndash; Jun 2026</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Owned end-to-end features for a cloud-hosted aviation digital services platform, from requirements and architecture through implementation, delivery, and production support.</li>
-              <li>Built TypeScript/Angular web applications for dashboards, KPI visualization, reporting, and operational workflows; created a reusable typed frontend data layer that centralizes API calls, response mapping, shared observables, and loading/error state.</li>
-              <li>Designed and built C#/.NET REST APIs and Azure services for data ingestion, validation, normalization, transformation, persistence, and reconciliation reporting.</li>
-              <li>Worked with PostgreSQL data models, wrote data cleansing and transformation rules, and used Flyway for database migration synchronization.</li>
-              <li>Integrated external aviation systems including AMOS, Aviadex, and DACS, handling cross-system data exchange and consistency.</li>
-              <li>Improved KPI dashboard performance with centralized filter/data state, switchMap, shareReplay, debouncing, OnPush change detection, and proper subscription cleanup.</li>
-              <li>Implemented secure authentication and authorization with Microsoft Entra ID and JWT bearer tokens, including role-based access control.</li>
-              <li>Used Azure Application Insights for observability, monitoring, debugging, and production troubleshooting; collaborated with product, design, customers, and external vendors.</li>
+              <li>Owned features end to end on Aviadex, a data-exchange platform for aviation maintenance used by 40+ airlines and Rolls-Royce: Angular frontend, .NET APIs, data model, deployment and production support.</li>
+              <li>Built the daily reconciliation that compares SDC/CSN life values between airline datasets and Rolls-Royce's engine-lifing system and exports discrepancies. A wrong number here decides when an engine part is retired.</li>
+              <li>Designed C#/.NET REST APIs and Azure Functions for ingestion, validation, normalization and persistence, with idempotent Service Bus consumers and PostgreSQL/EF Core behind them.</li>
+              <li>Replaced a monthly KPI report that one person ran by hand with live dashboards and Application Insights alerting; the 12-person support team uses them daily.</li>
+              <li>Implemented OAuth2/OIDC authentication with Entra ID and role-based authorization, and used App Insights for tracing, alerting and production root-cause work.</li>
             </ul>
+            <p class="stack">C# &middot; .NET &middot; Azure Functions &middot; Service Bus &middot; PostgreSQL &middot; EF Core &middot; Angular &middot; TypeScript &middot; App Insights</p>
           </div>
         </div>
 
-        <div class="timeline__item reveal reveal-delay-1">
+        <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
             <div class="timeline__header">
               <h3 class="timeline__role">Software Architect</h3>
-              <span class="timeline__meta">Xiamen Airlines · Xiamen, China</span>
-              <span class="timeline__date">Jul 2015 – Jun 2019</span>
+              <span class="timeline__meta">Xiamen Airlines &middot; Xiamen, China</span>
+              <span class="timeline__date">Jul 2015 &ndash; Jun 2019</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Defined architecture, coding standards, and technical direction for mission-critical aircraft-maintenance software; led and mentored engineering teams across frontend and backend.</li>
-              <li>Built a mobile WeChat web app (Vue.js + WeUI) giving field engineers on-the-go maintenance access.</li>
-              <li>Participated in 24/7 on-call and production incident ownership for business-critical airline systems.</li>
-              <li>Contributed to multi-region architecture, high availability, and disaster recovery design and operations.</li>
+              <li>Set architecture, coding standards and technical direction for mission-critical aircraft-maintenance software; led and mentored frontend and backend engineers.</li>
+              <li>Built a Vue.js + WeUI mobile web app that gave field engineers maintenance access away from a desk.</li>
+              <li>Owned production incidents on a 24/7 on-call rotation and verified data synchronisation for multi-region active-passive disaster recovery.</li>
             </ul>
+            <p class="stack">Java &middot; Vue.js &middot; SQL Server &middot; high availability &middot; disaster recovery</p>
           </div>
         </div>
 
-        <div class="timeline__item reveal reveal-delay-1">
+        <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
             <div class="timeline__header">
-              <h3 class="timeline__role">Software Engineering Manager / Lead Developer</h3>
-              <span class="timeline__meta">Moshi (Xiamen) E-Commerce · Xiamen, China</span>
-              <span class="timeline__date">Jul 2014 – Jun 2015</span>
+              <h3 class="timeline__role">Engineering Manager / Lead Developer</h3>
+              <span class="timeline__meta">Moshi E-Commerce &middot; Xiamen, China</span>
+              <span class="timeline__date">Jul 2014 &ndash; Jun 2015</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Led a distributed team delivering end-to-end information systems using Angular frontend and Java backend.</li>
-              <li>Owned the full development lifecycle, including architecture, APIs, data models, delivery, and maintenance.</li>
-              <li>Promoted clean, documented, maintainable code and consistent engineering practices.</li>
+              <li>Led a distributed team building e-commerce systems end to end: architecture, APIs, data models and delivery.</li>
+              <li>Kept a written review and documentation standard applied as the team grew.</li>
             </ul>
+            <p class="stack">Java &middot; Angular &middot; REST APIs</p>
           </div>
         </div>
 
-        <div class="timeline__item reveal reveal-delay-1">
+        <div class="timeline__item reveal">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
             <div class="timeline__header">
               <h3 class="timeline__role">Software Engineer</h3>
-              <span class="timeline__meta">Shenzhen Comtop Tech · Shenzhen, China</span>
-              <span class="timeline__date">Jul 2011 – Jun 2014</span>
+              <span class="timeline__meta">Shenzhen Comtop Technology &middot; Shenzhen, China</span>
+              <span class="timeline__date">Jul 2011 &ndash; Jun 2014</span>
             </div>
             <ul class="timeline__bullets">
-              <li>Developed enterprise Java EE web applications for China Southern Power Grid, primarily building distribution network cost estimation software for power grid engineering.</li>
-              <li>Contributed across the full software lifecycle and built a strong foundation in structured enterprise software engineering, production delivery, and maintainable code.</li>
+              <li>Built Java EE applications for China Southern Power Grid, mainly distribution-network cost estimation software.</li>
             </ul>
+            <p class="stack">Java EE &middot; SQL &middot; enterprise web applications</p>
           </div>
         </div>
 
@@ -244,69 +301,87 @@
   </section>
 
   <!-- Projects -->
-  <section class="section reveal" id="projects">
+  <section class="section" id="projects">
     <div class="container">
-      <h2 class="section__title">Projects</h2>
+      <div class="section-head reveal">
+        <p class="kicker">Projects</p>
+        <h2 class="section-title">Things I built to answer a question</h2>
+        <p class="section-lede">Most of these started because I wanted to know whether an idea actually held up outside a slide.</p>
+      </div>
       <div class="projects__grid">
 
-        <article class="project-card reveal reveal-delay-1">
+        <article class="project-card reveal">
+          <div class="project-card__header">
+            <h3 class="project-card__title">
+              <a href="https://github.com/Jianwen-Xu/shsf" target="_blank" rel="noopener">shsf</a>
+            </h3>
+            <span class="project-card__badge">Claude Code plugin</span>
+          </div>
+          <p class="project-card__desc">A spec-first workflow, published as an installable Claude Code plugin. The spec file is the interface: the human writes the decisions, the agent executes against them instead of rediscovering the repository.</p>
+          <div class="skills__tags">
+            <span class="tag">Claude Code</span>
+            <span class="tag">Plugin</span>
+            <span class="tag">MIT</span>
+          </div>
+          <div class="project-card__links">
+            <a class="project-card__link" href="https://github.com/Jianwen-Xu/shsf" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card__header">
+            <h3 class="project-card__title">
+              <a href="https://github.com/Jianwen-Xu/azure-functions-servicebus-iac" target="_blank" rel="noopener">azure-functions-servicebus-iac</a>
+            </h3>
+            <span class="project-card__badge">Terraform</span>
+          </div>
+          <p class="project-card__desc">A Terraform reference project for Azure Functions and Service Bus: the infrastructure as reviewable code rather than resources clicked together in a portal.</p>
+          <div class="skills__tags">
+            <span class="tag">Terraform</span>
+            <span class="tag">Azure</span>
+            <span class="tag">IaC</span>
+          </div>
+          <div class="project-card__links">
+            <a class="project-card__link" href="https://github.com/Jianwen-Xu/azure-functions-servicebus-iac" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
           <div class="project-card__header">
             <h3 class="project-card__title">
               <a href="https://github.com/Jianwen-Xu/deep-demo" target="_blank" rel="noopener">deep-demo</a>
             </h3>
-            <span class="project-card__badge">AI / LLM</span>
+            <span class="project-card__badge">Multi-agent</span>
           </div>
-          <p class="project-card__desc">A DeepSeek-powered multi-agent prototyping system that turns natural-language requirements into a working React/Vite web prototype. It automatically generates Playwright E2E tests, runs the app, reviews failures, and iterates with retry or abort decisions using Developer, Tester, Reviewer, and Orchestrator agents.</p>
+          <p class="project-card__desc">A multi-agent system that turns a requirement into a React prototype, writes Playwright end-to-end tests against its own output, runs them, and iterates on failure. Built to explore where verification has to sit when generation gets cheap.</p>
           <div class="skills__tags">
-            <span class="tag">DeepSeek</span>
-            <span class="tag">Multi-agent</span>
             <span class="tag">React</span>
-            <span class="tag">Vite</span>
+            <span class="tag">TypeScript</span>
             <span class="tag">Playwright</span>
-            <span class="tag">TypeScript</span>
+            <span class="tag">DeepSeek</span>
+          </div>
+          <div class="project-card__links">
+            <a class="project-card__link" href="https://github.com/Jianwen-Xu/deep-demo" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
 
-        <article class="project-card reveal reveal-delay-2">
-          <div class="project-card__header">
-            <h3 class="project-card__title">
-              <a href="https://github.com/Jianwen-Xu/chrome-deepseek-translate" target="_blank" rel="noopener">chrome-deepseek-translate</a>
-            </h3>
-            <span class="project-card__badge">Chrome Extension</span>
-          </div>
-          <p class="project-card__desc">A Chrome extension powered by DeepSeek AI for one-click text translation and screenshot-based image recognition and translation. Built with Manifest V3, a Service Worker, message-driven architecture, OffscreenCanvas image processing, an LRU translation cache, and secure API key storage.</p>
-          <div class="skills__tags">
-            <span class="tag">DeepSeek Vision</span>
-            <span class="tag">Manifest V3</span>
-            <span class="tag">Service Worker</span>
-            <span class="tag">OffscreenCanvas</span>
-            <span class="tag">TypeScript</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal reveal-delay-3">
+        <article class="project-card reveal">
           <div class="project-card__header">
             <h3 class="project-card__title">
               <a href="https://github.com/Jianwen-Xu/zodcat" target="_blank" rel="noopener">zodcat</a>
             </h3>
-            <span class="project-card__badge">Developer Tool</span>
+            <span class="project-card__badge">Developer tool</span>
           </div>
-          <p class="project-card__desc">A visual catalog definer for json-render. Configure components and Zod prop constraints in a browser-only workbench, then copy a production-ready defineCatalog TypeScript file. Includes live schema guardrails, per-component code views, starter templates, undo, local autosave, and an English/Chinese interface.</p>
+          <p class="project-card__desc">A browser-only workbench for defining json-render catalogs: configure components and Zod prop constraints with live guardrails, then copy a production-ready TypeScript file.</p>
           <div class="skills__tags">
             <span class="tag">React</span>
             <span class="tag">TypeScript</span>
             <span class="tag">Zod</span>
-            <span class="tag">json-render</span>
             <span class="tag">Vite</span>
-            <span class="tag">i18n</span>
           </div>
           <div class="project-card__links">
-            <a class="project-card__link" href="https://github.com/Jianwen-Xu/zodcat" target="_blank" rel="noopener">
-              <i class="fab fa-github" aria-hidden="true"></i> GitHub
-            </a>
-            <a class="project-card__link" href="https://jianwen-xu.github.io/zodcat/" target="_blank" rel="noopener">
-              <i class="fas fa-globe" aria-hidden="true"></i> Live demo
-            </a>
+            <a class="project-card__link" href="https://github.com/Jianwen-Xu/zodcat" target="_blank" rel="noopener">GitHub</a>
+            <a class="project-card__link" href="https://jianwen-xu.github.io/zodcat/" target="_blank" rel="noopener">Live demo</a>
           </div>
         </article>
 
@@ -314,52 +389,89 @@
     </div>
   </section>
 
-  <!-- Education -->
-  <section class="section section--tint reveal" id="education">
+  <!-- How I work -->
+  <section class="section section--tint" id="approach">
     <div class="container">
-      <h2 class="section__title">Education</h2>
-      <div class="education__grid">
-        <div class="edu-card reveal reveal-delay-1">
-          <h3 class="edu-card__degree">M.Sc. Information Processing Science (STEM)</h3>
-          <p class="edu-card__school">University of Oulu, Finland</p>
-          <span class="edu-card__date">2019 – 2021</span>
+      <div class="section-head reveal">
+        <p class="kicker">How I work</p>
+        <h2 class="section-title">Three habits that survive a deadline</h2>
+      </div>
+      <div class="approach-grid">
+        <div class="approach reveal">
+          <p class="approach__index">01</p>
+          <h3 class="approach__title">Verification over generation</h3>
+          <p class="approach__body">An agent can produce working code faster than I can be confident it is correct. So the work moves to designing the check: the test, the reconciliation, the thing that notices when the output is quietly wrong.</p>
         </div>
-        <div class="edu-card reveal reveal-delay-2">
-          <h3 class="edu-card__degree">B.Eng. Computer Software Engineering (STEM)</h3>
-          <p class="edu-card__school">Harbin Institute of Technology, China</p>
-          <span class="edu-card__date">2007 – 2011</span>
+        <div class="approach reveal">
+          <p class="approach__index">02</p>
+          <h3 class="approach__title">The abstraction is the deliverable</h3>
+          <p class="approach__body">A change that satisfies the ticket but breaks the shared layer is not done. I write that standard down and hold it, because the next engineer inherits the abstraction, not the ticket.</p>
         </div>
+        <div class="approach reveal">
+          <p class="approach__index">03</p>
+          <h3 class="approach__title">If it fails, it should say so</h3>
+          <p class="approach__body">A job that reports its own failure is worth more than one that runs faster. Observability is part of the feature, not a later ticket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container about-layout">
+      <div class="about-photo reveal">
+        <img src="assets/profile.webp" alt="Jianwen Xu" width="460" height="513">
+      </div>
+      <div class="about-copy reveal">
+        <p class="kicker">About</p>
+        <h2 class="section-title">I joined for the frontend and stayed for the system</h2>
+        <p>I'm a full-stack engineer with ten years behind me, four and a half of them on one product. I joined QOCO when Aviadex had no frontend at all, built the Angular application, then kept going down the stack into the .NET services, the data model, and the integrations with systems we did not control.</p>
+        <p>I'm looking for a product team where the work runs from the interface to the database, and where being right matters more than shipping fast. I'm based in Oulu, I have the right to work in Finland, and I'm open to relocating to Helsinki, Tampere or Turku.</p>
+        <dl class="about-facts">
+          <div>
+            <dt>Based in</dt>
+            <dd>Oulu, Finland</dd>
+          </div>
+          <div>
+            <dt>Work authorization</dt>
+            <dd>Right to work in Finland</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>English (professional) &middot; Chinese (native) &middot; Finnish (A1)</dd>
+          </div>
+          <div>
+            <dt>Education</dt>
+            <dd>M.Sc. Information Processing Science, University of Oulu &middot; B.Eng. Computer Software Engineering, Harbin Institute of Technology</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="section reveal" id="contact">
+  <section class="section section--tint contact" id="contact">
     <div class="container">
-      <div class="contact__intro">
-        <h2>Get in Touch</h2>
-        <p>Let's talk about your next project or opportunity</p>
+      <p class="kicker reveal">Contact</p>
+      <h2 class="contact__title reveal">Hiring for a full-stack role?</h2>
+      <p class="contact__lede reveal">I'm available immediately and happy to talk about permanent roles in Finland. The fastest way to reach me is email.</p>
+      <div class="contact__actions reveal">
+        <a class="btn btn--primary" href="mailto:xujianwen37@gmail.com">xujianwen37@gmail.com</a>
+        <a class="btn btn--outline" href="assets/Jianwen_Xu_CV.pdf" download>Download CV</a>
       </div>
-      <div class="contact__links">
-        <a href="mailto:jianwen.xu.cn@gmail.com" class="contact__link" id="contact-email" aria-label="Send email to jianwen.xu.cn@gmail.com">
-          <i class="fas fa-envelope" aria-hidden="true"></i> jianwen.xu.cn@gmail.com
-        </a>
-        <a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener" class="contact__link" aria-label="View GitHub profile">
-          <i class="fab fa-github" aria-hidden="true"></i> Jianwen-Xu
-        </a>
-        <a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener" class="contact__link" aria-label="View LinkedIn profile">
-          <i class="fab fa-linkedin-in" aria-hidden="true"></i> jianwen-xu
-        </a>
-      </div>
+      <ul class="contact__meta reveal">
+        <li><a href="https://github.com/Jianwen-Xu" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jianwen-xu/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>Oulu, Finland</li>
+      </ul>
     </div>
   </section>
 
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Jianwen Xu</p>
+      <p>&copy; 2026 Jianwen Xu &middot; <a href="mailto:xujianwen37@gmail.com">xujianwen37@gmail.com</a></p>
     </div>
   </footer>
 

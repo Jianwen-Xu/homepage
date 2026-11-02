@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jianwen Xu · CV</title>
+<meta name="robots" content="noindex">
+<style>
+  @page { size: A4; margin: 13mm 14mm 12mm; }
+
+  * { box-sizing: border-box; }
+
+  html { font-size: 9.6pt; }
+
+  body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #17191f;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3, p, ul { margin: 0; }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12mm;
+    padding-bottom: 3.2mm;
+    border-bottom: 1.4pt solid #17191f;
+  }
+
+  .name {
+    font-size: 25pt;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .role {
+    margin-top: 1.6mm;
+    font-size: 10.4pt;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #2a2f3a;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 8.3pt;
+    line-height: 1.55;
+    color: #3d434f;
+    white-space: nowrap;
+  }
+
+  .contact strong { font-weight: 500; color: #17191f; }
+
+  .strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5mm 5mm;
+    margin-top: 2.6mm;
+    font-size: 7.9pt;
+    letter-spacing: 0.02em;
+    color: #4b515d;
+  }
+
+  .strip span::before {
+    content: "";
+    display: inline-block;
+    width: 1.1mm;
+    height: 1.1mm;
+    margin-right: 1.6mm;
+    border-radius: 50%;
+    background: #2447e8;
+    vertical-align: 1.2mm;
+  }
+
+  section { margin-top: 4.4mm; }
+  section.projects-break { break-before: page; margin-top: 0; }
+
+  h2 {
+    font-size: 7.8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #2447e8;
+    padding-bottom: 1.2mm;
+    border-bottom: 0.6pt solid #d6d9e0;
+    margin-bottom: 2.2mm;
+  }
+
+  .summary {
+    font-size: 9.5pt;
+    line-height: 1.5;
+    color: #262b34;
+  }
+
+  .job { margin-bottom: 3.4mm; break-inside: avoid; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6mm;
+  }
+
+  .job-title {
+    font-size: 10.2pt;
+    font-weight: 650;
+    letter-spacing: -0.012em;
+  }
+
+  .job-title span { font-weight: 400; color: #4b515d; }
+
+  .job-date {
+    font-size: 8pt;
+    color: #4b515d;
+    white-space: nowrap;
+  }
+
+  .job-meta {
+    font-size: 8pt;
+    color: #5a606c;
+    margin-top: 0.4mm;
+  }
+
+  ul.bullets {
+    margin-top: 1.2mm;
+    padding-left: 3.6mm;
+  }
+
+  ul.bullets li {
+    margin-bottom: 0.7mm;
+    color: #262b34;
+  }
+
+  ul.bullets li::marker { color: #2447e8; }
+
+  .tech {
+    margin-top: 1.2mm;
+    font-size: 7.7pt;
+    color: #5a606c;
+  }
+
+  .tech b { font-weight: 600; color: #3a404b; }
+
+  .project { margin-bottom: 1.8mm; }
+  .project-name { font-weight: 650; }
+  .project p { font-size: 8.5pt; color: #3d434f; margin-top: 0.3mm; }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 24mm 1fr;
+    gap: 3mm;
+    margin-bottom: 1.2mm;
+    font-size: 8.6pt;
+  }
+
+  .skill-row dt {
+    font-size: 7.6pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5a606c;
+    padding-top: 0.3mm;
+  }
+
+  .skill-row dd { margin: 0; color: #262b34; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+  }
+
+  .edu-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 4mm;
+    font-size: 9pt;
+    margin-bottom: 1.2mm;
+  }
+
+  .edu-line span:last-child { color: #5a606c; font-size: 8pt; white-space: nowrap; }
+
+  .note { font-size: 8pt; color: #5a606c; }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="head">
+      <div>
+        <h1 class="name">Jianwen Xu</h1>
+        <p class="role">Full-Stack Software Engineer</p>
+      </div>
+      <div class="contact">
+        xujianwen37@gmail.com<br>
+        github.com/Jianwen-Xu<br>
+        linkedin.com/in/jianwen-xu
+      </div>
+    </div>
+    <div class="strip">
+      <span>Oulu, Finland</span>
+      <span>Right to work in Finland</span>
+      <span>Available immediately</span>
+      <span>Open to relocation</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Full-stack engineer with 10+ years building production systems end to end. Four and a half years on Aviadex, an aviation data-exchange platform used by 40+ airlines and Rolls-Royce: Angular/TypeScript frontend, C#/.NET APIs and Azure services, PostgreSQL data models, and integrations with external systems that were not under our control. Comfortable owning a feature from data model to production support.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Full Stack Engineer <span>&middot; QOCO Systems</span></p>
+        <p class="job-date">Jan 2022 &ndash; Jun 2026</p>
+      </div>
+      <p class="job-meta">Espoo, Finland / remote</p>
+      <ul class="bullets">
+        <li>Owned features end to end on Aviadex, a data-exchange platform for aviation maintenance: Angular frontend, .NET APIs, data model, deployment and production support.</li>
+        <li>Built the daily reconciliation that compares SDC/CSN life values between airline datasets and Rolls-Royce's engine-lifing system and exports discrepancies; a wrong number decides when an engine part is retired.</li>
+        <li>Designed C#/.NET REST APIs and Azure Functions for ingestion, validation, normalization and persistence, with idempotent Service Bus consumers and PostgreSQL/EF Core behind them.</li>
+        <li>Replaced a monthly KPI report that one person ran by hand with live dashboards and Application Insights alerting, used daily by a 12-person support team.</li>
+        <li>Implemented OAuth2/OIDC authentication with Entra ID and role-based authorization; used App Insights for tracing, alerting and production root-cause work.</li>
+      </ul>
+      <p class="tech"><b>Stack:</b> C#, .NET, Azure Functions, Service Bus, PostgreSQL, EF Core, Flyway, Angular, TypeScript, RxJS, Application Insights</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Software Architect <span>&middot; Xiamen Airlines</span></p>
+        <p class="job-date">Jul 2015 &ndash; Jun 2019</p>
+      </div>
+      <p class="job-meta">Xiamen, China</p>
+      <ul class="bullets">
+        <li>Set architecture, coding standards and technical direction for mission-critical aircraft-maintenance software; led and mentored frontend and backend engineers.</li>
+        <li>Built a Vue.js + WeUI mobile web app that gave field engineers maintenance access away from a desk.</li>
+        <li>Owned production incidents on a 24/7 on-call rotation and verified data synchronisation for multi-region active-passive disaster recovery.</li>
+      </ul>
+      <p class="tech"><b>Stack:</b> Java, Vue.js, SQL Server, high availability, disaster recovery</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Engineering Manager / Lead Developer <span>&middot; Moshi E-Commerce</span></p>
+        <p class="job-date">Jul 2014 &ndash; Jun 2015</p>
+      </div>
+      <p class="job-meta">Xiamen, China</p>
+      <ul class="bullets">
+        <li>Led a distributed team building e-commerce systems end to end: architecture, APIs, data models and delivery.</li>
+        <li>Kept a written review and documentation standard applied as the team grew.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <p class="job-title">Software Engineer <span>&middot; Shenzhen Comtop Technology</span></p>
+        <p class="job-date">Jul 2011 &ndash; Jun 2014</p>
+      </div>
+      <p class="job-meta">Shenzhen, China</p>
+      <ul class="bullets">
+        <li>Built Java EE applications for China Southern Power Grid, mainly distribution-network cost estimation software.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="projects-break">
+    <h2>Selected Projects</h2>
+    <div class="project">
+      <p class="project-name">shsf &middot; Claude Code plugin</p>
+      <p>A spec-first workflow published as an installable plugin. The spec file is the interface: decisions are written down, and the agent executes against them instead of rediscovering the repository.</p>
+    </div>
+    <div class="project">
+      <p class="project-name">azure-functions-servicebus-iac &middot; Terraform reference</p>
+      <p>Infrastructure for Azure Functions and Service Bus as reviewable code rather than portal configuration.</p>
+    </div>
+    <div class="project">
+      <p class="project-name">deep-demo &middot; multi-agent verification</p>
+      <p>Generates a React prototype, writes Playwright end-to-end tests against its own output, runs them and iterates on failure.</p>
+    </div>
+    <div class="project">
+      <p class="project-name">zodcat &middot; developer tool</p>
+      <p>Browser-only workbench for defining json-render catalogs with live Zod schema guardrails and TypeScript export.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl>
+      <div class="skill-row"><dt>Backend</dt><dd>C#, .NET, ASP.NET Core, REST API design, Azure Functions, Service Bus, EF Core, PostgreSQL, SQL Server, Flyway</dd></div>
+      <div class="skill-row"><dt>Frontend</dt><dd>Angular, TypeScript, RxJS, Vue.js, HTML/CSS, accessibility, performance</dd></div>
+      <div class="skill-row"><dt>Cloud &amp; delivery</dt><dd>Azure, Application Insights, CI/CD, Docker, Terraform (reference project), Git</dd></div>
+      <div class="skill-row"><dt>AI-assisted</dt><dd>Claude Code daily, plan-first review, multi-agent testing, evaluation of generated code</dd></div>
+      <div class="skill-row"><dt>Testing</dt><dd>Playwright, unit and integration testing, code review, production troubleshooting</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="two-col">
+      <div>
+        <h2>Education</h2>
+        <div class="edu-line"><span>M.Sc. Information Processing Science</span><span>2019 &ndash; 2021</span></div>
+        <p class="note">University of Oulu, Finland</p>
+        <div class="edu-line" style="margin-top:2mm"><span>B.Eng. Computer Software Engineering</span><span>2007 &ndash; 2011</span></div>
+        <p class="note">Harbin Institute of Technology, China</p>
+      </div>
+      <div>
+        <h2>Languages</h2>
+        <p class="note" style="font-size:9pt;color:#262b34">English &middot; professional working proficiency<br>Chinese (Mandarin) &middot; native<br>Finnish &middot; basic (A1)</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

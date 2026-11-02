@@ -10,13 +10,13 @@
     html.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
     updateActiveOption(theme);
-    updateActiveCard(theme);
   }
 
   function initThemeSwitcher() {
     var html = document.documentElement;
     var toggle = document.getElementById('nav-theme-toggle');
     var menu = document.getElementById('nav-theme-menu');
+    if (!toggle || !menu) return;
     var options = menu.querySelectorAll('.theme-option');
 
     // Restore saved theme
@@ -48,24 +48,11 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
-
-    // Select theme from hero cards
-    document.querySelectorAll('.hero__card').forEach(function (card) {
-      card.addEventListener('click', function () {
-        switchTheme(card.getAttribute('data-theme'));
-      });
-    });
   }
 
   function updateActiveOption(theme) {
     document.querySelectorAll('.theme-option').forEach(function (opt) {
       opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
-    });
-  }
-
-  function updateActiveCard(theme) {
-    document.querySelectorAll('.hero__card').forEach(function (card) {
-      card.classList.toggle('active', card.getAttribute('data-theme') === theme);
     });
   }
 
@@ -75,6 +62,7 @@
     var nav = document.getElementById('nav-bar');
     var toggle = document.getElementById('nav-toggle');
     var links = document.getElementById('nav-links');
+    if (!nav || !toggle || !links) return;
 
     window.addEventListener('scroll', function () {
       if (window.scrollY > 60) {
@@ -99,9 +87,19 @@
 
   // ---- Scroll reveal ----
 
+  function revealAll() {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('reveal--visible');
+    });
+  }
+
   function initScrollReveal() {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      revealAll();
+      return;
+    }
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -110,7 +108,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: '0px 0px 20% 0px' });
 
     document.querySelectorAll('.reveal').forEach(function (el) {
       observer.observe(el);

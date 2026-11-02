@@ -1,85 +1,60 @@
-# Jianwen Xu — Personal Homepage
+# Jianwen Xu — Personal Site
 
-Personal homepage for Jianwen Xu, a Web Developer / Frontend Engineer.  
+Personal site for Jianwen Xu, a full-stack software engineer in Oulu, Finland.
 Built with vanilla HTML/CSS/JS and hosted on [GitHub Pages](https://jianwen-xu.github.io/homepage/).
 
-## Tech Stack
+## What it is
 
-- **Design**: Custom CSS with 5‑theme system via CSS custom properties
-- **Icons**: [Font Awesome](https://fontawesome.com/) (CDN)
-- **Fonts**: Outfit, Inter, Figtree, JetBrains Mono (Google Fonts)
-- **Aurora**: [Aurora Borealis](aurora-borealis/) — self-contained component library
-- **No build step** — pure static files
+A hiring page, not a portfolio gallery. The order is deliberate:
 
-## Features
+1. **Hero** — role, one-line proof, availability, CV and email.
+2. **Selected work** — three production cases: data reconciliation, frontend from zero, manual reporting replaced.
+3. **Experience** — four roles, outcome-first, with the stack for each.
+4. **Projects** — `shsf`, Terraform IaC, `deep-demo`, `zodcat`.
+5. **How I work** — verification, review standard, observability.
+6. **About** — location, work authorization, languages, education.
+7. **Contact** — email, phone, GitHub, LinkedIn, CV.
 
-- **5‑theme switcher** — Aurora, Monochrome, Warm, Matrix, Glass; persisted to `localStorage`
-- **Hero theme previews** — clickable poker‑fan card thumbnails with frosted‑glass backdrop
-- **Aurora hero** — animated northern lights with SVG feTurbulence filter and `mix-blend-mode: color-dodge`
-- **Stars** — 80 randomly positioned twinkling stars
-- **Screensaver mode** — fullscreen toggle that hides UI, shows only animated background
-- **Auto-shuffle** — randomly cycles aurora shapes every 8-14s with 3 fade transition modes
-- **Responsive** — mobile nav with hamburger toggle, fluid grids
-- **Projects** — featured side projects with GitHub and live demo links (deep-demo, chrome-deepseek-translate, zodcat)
-- **Accessible** — skip-link, ARIA labels, `prefers-reduced-motion` support
+The detailed reconciliation case study is kept private (`.private/`) because it
+describes integration architecture and client systems. Ask for it in an interview
+rather than publishing it.
 
 ## Structure
 
 ```
-├── index.html                 # Main page
-├── aurora-borealis/           # Standalone aurora component library
-│   ├── aurora-borealis.js     #   UMD library (zero dependencies)
-│   ├── aurora-borealis.css    #   External stylesheet
-│   ├── index.html             #   Demo page
-│   └── package.json
+├── index.html                    # Main page
+├── cv.html                       # CV source (print styles, A4)
 ├── assets/
-│   ├── style.css              # Page styles (~1300 lines, 5 theme token blocks)
-│   ├── script.js              # Theme switcher, nav, scroll, AuroraBorealis init
-│   ├── profile.png            # Profile photo
-│   ├── favicon.svg            # JX monogram favicon
-│   ├── theme-*-thumb.png      # Compressed theme preview thumbnails (140×73)
-│   └── theme-*.png            # Full-size theme screenshots
-├── README.md
-├── LICENSE
-└── .gitignore
+│   ├── style.css                 # Base styles + 5 theme token blocks
+│   ├── site.css                  # Layout refresh, diagram, case study, print
+│   ├── script.js                 # Theme switcher, nav, scroll reveal
+│   ├── Jianwen_Xu_CV.pdf         # Generated from cv.html
+│   ├── og.png                    # 1200×630 social card
+│   ├── profile.webp
+│   └── theme-*-thumb.png         # Theme previews
+├── aurora-borealis/              # Standalone aurora component library
+└── README.md
 ```
 
 ## Themes
 
-| Theme | Description |
-|-------|-------------|
-| Aurora (default) | Teal + navy, animated aurora hero |
-| Monochrome | Grayscale, Inter, minimal |
-| Warm | Beige + terracotta, Figtree |
-| Matrix | Dark + green, JetBrains Mono |
-| Glass | iOS frosted, Inter, Apple blue |
+Five token sets, switched from the palette button and persisted to `localStorage`:
+Aurora, Mono (default), Warm, Matrix, Glass. The page is designed in Mono first;
+the others are palette swaps, not separate layouts.
 
-Switch via the palette icon in the nav bar or the card previews in the hero section.
+## Local development
 
-## Development
+Open `index.html` in a browser. No build step, no server required.
 
-Open `index.html` in a browser — no server required.  
-The page is deployed via GitHub Pages from the `main` branch.
+Regenerate the CV PDF after editing `cv.html` with Playwright
+(`preferCSSPageSize: true`, A4). The generated file is committed so the site can
+link to it directly.
 
-## Aurora Borealis Library
+## Notes
 
-The [`aurora-borealis/`](aurora-borealis/) directory is a standalone component library.  
-Use it in any webpage:
-
-```html
-<div id="aurora" style="width:100vw;height:100vh"></div>
-<script src="aurora-borealis/aurora-borealis.js"></script>
-<script>
-  new AuroraBorealis('#aurora', {
-    bands: 1,
-    autoShuffle: true,
-    controls: ['fullscreen', 'shuffle', 'auto']
-  });
-</script>
-```
-
-See the [demo page](aurora-borealis/index.html) for more.
-
-## License
-
-MIT
+- Content is intentionally in English (Finnish job market).
+- The site is fully static. The only external request is Google Fonts, used by the
+  theme token system; it can be self-hosted if that matters.
+- Social metadata (`og:*`, Twitter card, JSON-LD `Person`) is set for link previews.
+- Reduced motion, print, and no-JS states are handled: reveal animations only run
+  when a `js` class is present on `<html>`.
