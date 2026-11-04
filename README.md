@@ -36,6 +36,15 @@ rather than publishing it.
 └── README.md
 ```
 
+## Aurora renderer
+
+The aurora is procedural, not a CSS gradient: value noise + fbm drive a slowly
+drifting curtain path, a second high-frequency noise field becomes the vertical
+rays, and a low-frequency envelope groups them into bundles. Columns are drawn
+as additive gradient sprites on a canvas rendered below device resolution, with
+a separate variable-alpha stroke for the bright lower border. `shuffle()`
+interpolates the parameters instead of cutting to a new shape.
+
 ## Themes
 
 Five token sets, switched from the palette button and persisted to `localStorage`:

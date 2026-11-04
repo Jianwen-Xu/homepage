@@ -1198,7 +1198,7 @@ button:focus-visible {
   }
 
   .nav-bar__toggle {
-    color: var(--text-primary);
+    color: var(--text-nav-hover);
   }
 }
 
@@ -1216,4 +1216,103 @@ button:focus-visible {
 
 .dg-box--dashed {
   stroke-dasharray: 5 4;
+}
+
+/* ---------------------------------------------------------------
+   Dark hero themes: aurora legibility + diagram surface
+   --------------------------------------------------------------- */
+
+[data-theme="aurora"] .hero .btn--outline,
+[data-theme="glass"] .hero .btn--outline,
+[data-theme="matrix"] .hero .btn--outline {
+  color: var(--text-hero);
+  border-color: var(--border-hero);
+}
+
+[data-theme="aurora"] .hero .btn--outline:hover,
+[data-theme="glass"] .hero .btn--outline:hover,
+[data-theme="matrix"] .hero .btn--outline:hover {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+[data-theme="aurora"] .hero::after,
+[data-theme="glass"] .hero::after,
+[data-theme="matrix"] .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(3, 8, 18, 0.82) 0%,
+    rgba(3, 8, 18, 0.55) 38%,
+    rgba(3, 8, 18, 0.12) 66%,
+    rgba(3, 8, 18, 0) 82%);
+}
+
+[data-theme="aurora"] .hero__content,
+[data-theme="glass"] .hero__content,
+[data-theme="matrix"] .hero__content {
+  z-index: 1;
+}
+
+[data-theme="aurora"] .dg-box,
+[data-theme="glass"] .dg-box,
+[data-theme="matrix"] .dg-box {
+  fill: rgba(6, 14, 30, 0.55);
+  stroke: rgba(255, 255, 255, 0.22);
+}
+
+[data-theme="aurora"] .dg-box--strong,
+[data-theme="glass"] .dg-box--strong,
+[data-theme="matrix"] .dg-box--strong {
+  stroke: rgba(255, 255, 255, 0.42);
+}
+
+[data-theme="aurora"] .dg-box--accent,
+[data-theme="glass"] .dg-box--accent,
+[data-theme="matrix"] .dg-box--accent {
+  stroke: var(--brand);
+}
+
+[data-theme="aurora"] .dg-title,
+[data-theme="aurora"] .dg-mono,
+[data-theme="glass"] .dg-title,
+[data-theme="glass"] .dg-mono,
+[data-theme="matrix"] .dg-title,
+[data-theme="matrix"] .dg-mono {
+  fill: #eef4ff;
+}
+
+[data-theme="aurora"] .dg-sub,
+[data-theme="aurora"] .dg-num,
+[data-theme="aurora"] .dg-kicker,
+[data-theme="aurora"] .dg-tag,
+[data-theme="glass"] .dg-sub,
+[data-theme="glass"] .dg-num,
+[data-theme="glass"] .dg-kicker,
+[data-theme="glass"] .dg-tag,
+[data-theme="matrix"] .dg-sub,
+[data-theme="matrix"] .dg-num,
+[data-theme="matrix"] .dg-kicker,
+[data-theme="matrix"] .dg-tag {
+  fill: rgba(214, 228, 248, 0.66);
+}
+
+
+/* Dark aurora hero on small screens: protect the copy, drop the demo controls */
+@media (max-width: 780px) {
+  [data-theme="aurora"] .hero::after,
+  [data-theme="glass"] .hero::after,
+  [data-theme="matrix"] .hero::after {
+    background: linear-gradient(180deg,
+      rgba(3, 8, 18, 0.28) 0%,
+      rgba(3, 8, 18, 0.62) 48%,
+      rgba(3, 8, 18, 0.55) 100%);
+  }
+
+  .ab-controls {
+    display: none;
+  }
 }

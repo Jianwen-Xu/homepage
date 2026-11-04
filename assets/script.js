@@ -126,7 +126,7 @@
       stars: 80,
       autoShuffle: true,
       shootingStars: false,
-      controls: ['fullscreen', 'shuffle', 'auto']
+      controls: []
     });
   });
 })();
