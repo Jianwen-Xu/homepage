@@ -135,9 +135,9 @@
 
   // base, amp, height, freq1, freq2, freq3, speed, phase, ray frequency, alpha, body, sprite, edge, halo
   var LAYER_TEMPLATES = [
-    { base: 0.62, amp: 0.09, h: 0.50, f1: 0.90, f2: 2.4, f3: 4.2, speed: 0.24, phase: 0.00, ray: 240, alpha: 1.00, body: 0.60, sprite: 0, edge: true,  halo: true },
-    { base: 0.52, amp: 0.11, h: 0.62, f1: 0.90, f2: 2.4, f3: 3.4, speed: 0.22, phase: 0.20, ray: 170, alpha: 0.34, body: 0.26, sprite: 1, edge: false, halo: false },
-    { base: 0.70, amp: 0.07, h: 0.32, f1: 0.90, f2: 2.4, f3: 6.2, speed: 0.26, phase: 0.40, ray: 310, alpha: 0.16, body: 0.14, sprite: 2, edge: false, halo: false }
+    { base: 0.62, amp: 0.09, h: 0.50, f1: 0.90, f2: 2.4, f3: 4.2, speed: 0.24, phase: 0.00, slope: 0.18, ray: 240, alpha: 1.00, body: 0.60, sprite: 0, edge: true,  halo: true },
+    { base: 0.52, amp: 0.11, h: 0.62, f1: 0.90, f2: 2.4, f3: 3.4, speed: 0.22, phase: 0.20, slope: 0.26, ray: 170, alpha: 0.34, body: 0.26, sprite: 1, edge: false, halo: false },
+    { base: 0.70, amp: 0.07, h: 0.32, f1: 0.90, f2: 2.4, f3: 6.2, speed: 0.26, phase: 0.40, slope: -0.04, ray: 310, alpha: 0.16, body: 0.14, sprite: 2, edge: false, halo: false }
   ];
 
   /* ------------------------------------------------------------------ */
@@ -272,7 +272,7 @@
     this._w = 960;
     this._h = 540;
 
-    var green = parseHex(this.opts.colors.green);
+    var green = mixRgb(parseHex(this.opts.colors.green), [70, 255, 120], 0.28);
     var purple = parseHex(this.opts.colors.purple);
     var teal = mixRgb(green, [60, 210, 220], 0.45);
     var violet = mixRgb(purple, [80, 70, 180], 0.35);
@@ -388,10 +388,10 @@
   AuroraBorealis.prototype._drawSky = function (W, H) {
     var ctx = this._ctx;
     var g = ctx.createLinearGradient(0, 0, 0, H);
-    g.addColorStop(0, '#03050c');
-    g.addColorStop(0.40, '#050b18');
-    g.addColorStop(0.70, '#081528');
-    g.addColorStop(1, '#050b16');
+    g.addColorStop(0, '#040814');
+    g.addColorStop(0.40, '#071326');
+    g.addColorStop(0.70, '#0a1c36');
+    g.addColorStop(1, '#061020');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, W, H);
 
@@ -407,7 +407,8 @@
     return H * (L.base
       + L.amp * Math.sin(u * TAU * L.f1 + phase)
       + L.amp * 0.55 * Math.sin(u * TAU * L.f2 - phase * 1.6 + L.phase * 3)
-      + L.amp * 0.30 * Math.sin(u * TAU * 3.1 + phase * 0.6 + 2.1));
+      + L.amp * 0.30 * Math.sin(u * TAU * 3.1 + phase * 0.6 + 2.1)
+      + L.slope * (u - 0.5));
   };
 
   AuroraBorealis.prototype._drawLayer = function (L, t, W, H) {
@@ -466,7 +467,7 @@
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    var passes = [[34, 0.10], [16, 0.16], [6, 0.16]];
+    var passes = [[40, 0.07], [18, 0.11], [7, 0.10]];
     for (var p = 0; p < passes.length; p++) {
       var grad = ctx.createLinearGradient(0, 0, W, 0);
       for (var k = 0; k <= 24; k++) {
@@ -566,6 +567,7 @@
       tgt.f2 = tpl.f2 * r(0.85, 1.15);
       tgt.speed = tpl.speed * r(0.72, 1.35);
       tgt.phase = r(0, TAU);
+      tgt.slope = tpl.slope * r(0.6, 1.4);
       tgt.ray = tpl.ray * r(0.8, 1.25);
       tgt.alpha = tpl.alpha * r(0.82, 1.1);
     }
