@@ -10,6 +10,7 @@
     html.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
     updateActiveOption(theme);
+    syncAuroraVideo();
   }
 
   function initThemeSwitcher() {
@@ -115,18 +116,114 @@
     });
   }
 
+  // ---- Aurora video ----
+
+  var auroraVideos = [
+    document.getElementById('aurora-video'),
+    document.getElementById('aurora-video-b')
+  ].filter(Boolean);
+  var activeVideo = 0;
+  var crossfading = false;
+  var crossfadeTimer = null;
+  var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function isAuroraTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'aurora';
+  }
+
+  function currentVideo() {
+    return auroraVideos[activeVideo];
+  }
+
+  function otherVideo() {
+    return auroraVideos[1 - activeVideo];
+  }
+
+  function playVideo(video) {
+    if (!video) return;
+    var playing = video.play();
+    if (playing && playing.catch) playing.catch(function () {});
+  }
+
+  function syncAuroraVideo() {
+    if (!auroraVideos.length) return;
+
+    if (isAuroraTheme() && !preference.matches) {
+      var current = currentVideo();
+      var other = otherVideo();
+
+      auroraVideos.forEach(function (video) {
+        video.classList.toggle('is-active', video === current);
+      });
+      playVideo(current);
+
+      // buffer the second stream for the loop crossfade
+      if (other && other.readyState === 0) other.load();
+    } else {
+      if (crossfadeTimer) clearTimeout(crossfadeTimer);
+      crossfading = false;
+      auroraVideos.forEach(function (video) { video.pause(); });
+    }
+  }
+
+  function startCrossfade() {
+    if (crossfading) return;
+
+    var outgoing = currentVideo();
+    var incoming = otherVideo();
+    if (!outgoing || !incoming) return;
+
+    crossfading = true;
+    try { incoming.currentTime = 0; } catch (e) {}
+
+    // keep the outgoing frame visible underneath, and fade the incoming one
+    // in on top; fading both at once would let the background show through
+    outgoing.style.zIndex = '1';
+    incoming.style.zIndex = '2';
+    incoming.classList.add('is-active');
+    playVideo(incoming);
+
+    crossfadeTimer = setTimeout(function () {
+      outgoing.pause();
+      try { outgoing.currentTime = 0; } catch (e) {}
+      outgoing.style.transition = 'none';
+      outgoing.classList.remove('is-active');
+      outgoing.getBoundingClientRect();
+      outgoing.style.transition = '';
+      activeVideo = 1 - activeVideo;
+      crossfading = false;
+    }, 1150);
+  }
+
+  auroraVideos.forEach(function (video) {
+    video.addEventListener('timeupdate', function () {
+      if (video !== currentVideo() || crossfading) return;
+      if (video.duration && video.currentTime > video.duration - 1.2) {
+        startCrossfade();
+      }
+    });
+
+    video.addEventListener('ended', function () {
+      if (video !== currentVideo() || crossfading) return;
+      try { video.currentTime = 0; } catch (e) {}
+      playVideo(video);
+    });
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (!auroraVideos.length) return;
+    if (document.hidden) auroraVideos.forEach(function (video) { video.pause(); });
+    else syncAuroraVideo();
+  });
+
   // ---- Init ----
 
   document.addEventListener('DOMContentLoaded', function () {
     initThemeSwitcher();
     initNav();
     initScrollReveal();
-    new AuroraBorealis('#ab-container', {
-      bands: 1,
-      stars: 80,
-      autoShuffle: true,
-      shootingStars: false,
-      controls: []
-    });
+    syncAuroraVideo();
+    if (preference.addEventListener) preference.addEventListener('change', syncAuroraVideo);
+    else if (preference.addListener) preference.addListener(syncAuroraVideo);
   });
 })();

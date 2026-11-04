@@ -104,7 +104,18 @@
 
   <!-- Hero -->
   <section class="hero" id="top" aria-label="Introduction">
-    <div id="ab-container" class="ab" aria-hidden="true"></div>
+    <!-- Aurora footage: Mixkit, "Aurora borealis timelapse" (free license, no attribution required)
+         https://mixkit.co/free-stock-video/aurora-borealis-timelapse-4033/ -->
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-media__video" id="aurora-video" muted playsinline preload="none"
+             poster="assets/aurora-poster.jpg" disablepictureinpicture tabindex="-1">
+        <source src="assets/aurora.mp4" type="video/mp4">
+      </video>
+      <video class="hero-media__video" id="aurora-video-b" muted playsinline preload="none"
+             poster="assets/aurora-poster.jpg" disablepictureinpicture tabindex="-1" aria-hidden="true">
+        <source src="assets/aurora.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="hero__content">
       <div class="hero__text">
         <p class="hero__eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to full-stack roles in Finland</p>
@@ -475,7 +486,6 @@
     </div>
   </footer>
 
-  <script src="aurora-borealis/aurora-borealis.js"></script>
   <script src="assets/script.js"></script>
 </body>
 </html>

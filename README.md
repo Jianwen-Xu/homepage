@@ -36,14 +36,25 @@ rather than publishing it.
 └── README.md
 ```
 
-## Aurora renderer
+## Aurora theme
 
-The aurora is procedural, not a CSS gradient: value noise + fbm drive a slowly
-drifting curtain path, a second high-frequency noise field becomes the vertical
-rays, and a low-frequency envelope groups them into bundles. Columns are drawn
-as additive gradient sprites on a canvas rendered below device resolution, with
-a separate variable-alpha stroke for the bright lower border. `shuffle()`
-interpolates the parameters instead of cutting to a new shape.
+The aurora-theme hero uses a real time-lapse clip rather than a shader: two
+stacked `<video>` elements crossfade at the loop point, muted and `playsinline`,
+loaded only when the aurora theme is active. A poster frame covers
+`prefers-reduced-motion` and the gap before playback.
+
+The procedural canvas renderer remains in [`aurora-borealis/`](aurora-borealis/)
+as a standalone component and demo; the site no longer ships it.
+
+## Assets and licenses
+
+- **Aurora footage**: "Aurora borealis timelapse" from
+  [Mixkit](https://mixkit.co/free-stock-video/aurora-borealis-timelapse-4033/),
+  free license, no attribution required. `assets/aurora.mp4` (720p, 3.7 MB) and
+  `assets/aurora-poster.jpg`.
+- **Type**: Inter, JetBrains Mono, Outfit, Figtree via Google Fonts.
+- **Icons**: inline SVG.
+- **CV**: generated from `cv.html` with Playwright.
 
 ## Themes
 

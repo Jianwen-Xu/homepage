@@ -1316,3 +1316,45 @@ button:focus-visible {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   Aurora theme: photographic time-lapse background
+   --------------------------------------------------------------- */
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+  background: #050b16;
+}
+
+[data-theme="aurora"] .hero-media {
+  display: block;
+}
+
+.hero-media__video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  z-index: 1;
+  opacity: 0;
+  filter: saturate(1.06) contrast(1.02);
+  transition: opacity 1.1s linear;
+}
+
+.hero-media__video.is-active {
+  opacity: 0.94;
+}
+
+@media (max-width: 780px) {
+  .hero-media__video {
+    object-position: center 64%;
+  }
+}
