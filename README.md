@@ -32,7 +32,6 @@ rather than publishing it.
 │   ├── og.png                    # 1200×630 social card
 │   ├── profile.webp
 │   └── theme-*-thumb.png         # Theme previews
-├── aurora-borealis/              # Standalone aurora component library
 └── README.md
 ```
 
@@ -42,9 +41,6 @@ The aurora-theme hero uses a real time-lapse clip rather than a shader: two
 stacked `<video>` elements crossfade at the loop point, muted and `playsinline`,
 loaded only when the aurora theme is active. A poster frame covers
 `prefers-reduced-motion` and the gap before playback.
-
-The procedural canvas renderer remains in [`aurora-borealis/`](aurora-borealis/)
-as a standalone component and demo; the site no longer ships it.
 
 ## Assets and licenses
 
