@@ -128,15 +128,16 @@
     autoShuffle: false,
     autoInterval: [8000, 14000],
     transitionMode: ['fade-in-out', 'delayed-reveal', 'slow-fade'],
-    stars: 80,
+    stars: 120,
     shootingStars: true,
+    timeScale: 1.9,
     controls: ['fullscreen', 'shuffle', 'auto']
   };
 
   // base, amp, height, freq1, freq2, freq3, speed, phase, ray frequency, alpha, body, sprite, edge, halo
   var LAYER_TEMPLATES = [
-    { base: 0.62, amp: 0.09, h: 0.50, f1: 0.90, f2: 2.4, f3: 4.2, speed: 0.24, phase: 0.00, slope: 0.18, ray: 240, alpha: 1.00, body: 0.60, sprite: 0, edge: true,  halo: true },
-    { base: 0.52, amp: 0.11, h: 0.62, f1: 0.90, f2: 2.4, f3: 3.4, speed: 0.22, phase: 0.20, slope: 0.26, ray: 170, alpha: 0.34, body: 0.26, sprite: 1, edge: false, halo: false },
+    { base: 0.62, amp: 0.09, h: 0.50, f1: 0.90, f2: 2.4, f3: 4.2, speed: 0.24, phase: 0.00, slope: 0.18, ray: 240, alpha: 1.15, body: 0.60, sprite: 0, edge: true,  halo: true },
+    { base: 0.52, amp: 0.11, h: 0.62, f1: 0.90, f2: 2.4, f3: 3.4, speed: 0.22, phase: 0.20, slope: 0.26, ray: 170, alpha: 0.46, body: 0.26, sprite: 1, edge: false, halo: false },
     { base: 0.70, amp: 0.07, h: 0.32, f1: 0.90, f2: 2.4, f3: 6.2, speed: 0.26, phase: 0.40, slope: -0.04, ray: 310, alpha: 0.16, body: 0.14, sprite: 2, edge: false, halo: false }
   ];
 
@@ -281,7 +282,7 @@
     this._edgeRgb = mixRgb(green, [200, 255, 220], 0.3);
     this._sprites = [
       makeSprite(mixRgb(green, [200, 255, 220], 0.25), teal, violet),
-      makeSprite(ice, mixRgb(teal, [70, 150, 255], 0.35), violet),
+      makeSprite(mixRgb(ice, [255, 150, 195], 0.65), mixRgb(purple, [255, 105, 165], 0.55), violet),
       makeSprite(mixRgb(green, [220, 255, 230], 0.35), mixRgb(teal, [120, 240, 220], 0.4), mixRgb(violet, purple, 0.4))
     ];
 
@@ -296,6 +297,18 @@
       for (var k in tpl) if (hasOwn.call(tpl, k)) cur[k] = tpl[k];
       this._layers.push({ cur: cur, tgt: Object.assign({}, cur) });
     }
+
+    var grain = document.createElement('canvas');
+    grain.width = 96;
+    grain.height = 96;
+    var gctx = grain.getContext('2d');
+    var img = gctx.createImageData(96, 96);
+    for (var gi = 0; gi < img.data.length; gi += 4) {
+      var v = 96 + Math.random() * 64;
+      img.data[gi] = v; img.data[gi + 1] = v; img.data[gi + 2] = v; img.data[gi + 3] = 255;
+    }
+    gctx.putImageData(img, 0, 0);
+    this._grainPattern = ctx.createPattern(grain, 'repeat');
 
     this._reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._resize();
@@ -349,7 +362,7 @@
 
     var dt = this._lastTime ? Math.min(0.1, (now - this._lastTime) / 1000) : 0.016;
     this._lastTime = now;
-    var t = (now - this._start) / 1000;
+    var t = ((now - this._start) / 1000) * (this.opts.timeScale || 1);
 
     // ease live parameters toward their targets so shuffle is a morph,
     // not a cut between two different skies
@@ -383,6 +396,7 @@
     }
 
     this._drawVignette(W, H);
+    this._drawGrain(W, H);
   };
 
   AuroraBorealis.prototype._drawSky = function (W, H) {
@@ -433,7 +447,8 @@
         var fine = noise1(u * L.ray + L.phase * 30 + t * 0.22);
         var fine2 = noise1(u * L.ray * 1.9 + L.phase * 13 + t * 0.31);
         var intensity = Math.pow(fine * 0.6 + fine2 * 0.4, 2.7);
-        var a = L.alpha * slow * (0.22 + 0.78 * intensity) * (0.25 + 0.75 * bundle);
+        var pulse = 0.90 + 0.14 * Math.sin(t * 0.9 + u * 3.1 + L.phase * 2);
+        var a = L.alpha * slow * pulse * (0.22 + 0.78 * intensity) * (0.25 + 0.75 * bundle);
 
         var w = step * (halo ? 9 : 2.6);
         var top = y0 - hh * (halo ? 0.55 : 1);
@@ -481,6 +496,16 @@
       ctx.strokeStyle = grad;
       ctx.stroke();
     }
+    ctx.globalAlpha = 1;
+  };
+
+  AuroraBorealis.prototype._drawGrain = function (W, H) {
+    if (!this._grainPattern) return;
+    var ctx = this._ctx;
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.globalAlpha = 0.035;
+    ctx.fillStyle = this._grainPattern;
+    ctx.fillRect(0, 0, W, H);
     ctx.globalAlpha = 1;
   };
 
